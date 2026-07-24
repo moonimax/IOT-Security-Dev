@@ -57,6 +57,8 @@ cat /etc/ssh/sshd_config.d/01-permitrootlogin.conf
 - firewall -cmd --list-ports
 
 
+언제 정리하지
+
 
 - 
 
