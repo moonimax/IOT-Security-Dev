@@ -1,0 +1,246 @@
+{
+  "main": {
+    "id": "1513eb9ab62da794",
+    "type": "split",
+    "children": [
+      {
+        "id": "5c3224d020917ef5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b4efcdd70d687e2c",
+            "type": "leaf",
+            "state": {
+              "type": "split-diff-view",
+              "state": {
+                "aFile": ".gitattributes",
+                "bFile": ".gitattributes",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: .gitattributes  (Working Tree)"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "64aabaf0ffffd057",
+    "type": "split",
+    "children": [
+      {
+        "id": "447eef7844222850",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dd8d6f022d81f548",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "94f87fa9e58b44f4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "dd305696a6581e38",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "북마크"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "153ba5e46f9746d3",
+    "type": "split",
+    "children": [
+      {
+        "id": "57c14fa4b9e57156",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "56d871423e99bae3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "환영합니다!.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "환영합니다! 의 백링크"
+            }
+          },
+          {
+            "id": "8c230c5dc26a4fac",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "환영합니다!.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "환영합니다! 의 나가는 링크"
+            }
+          },
+          {
+            "id": "b522278f94f20fc6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "태그"
+            }
+          },
+          {
+            "id": "1441f00e60c13fc4",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "모든 속성"
+            }
+          },
+          {
+            "id": "7e40a6799a7cf21a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "환영합니다!.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "환영합니다! 의 개요"
+            }
+          },
+          {
+            "id": "2e2424b06d8505e9",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false,
+      "obsidian-git:Open Git source control": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "b4efcdd70d687e2c",
+  "lastOpenFiles": [
+    "암호학/현대 암호학.md",
+    "암호학/암호학.md",
+    "데이터베이스/데이터베이스 기본 개념.md",
+    "웹 · 앱/정적 분석 실습.md",
+    "웹 · 앱/안드로이드 기본 개념.md",
+    "웹 · 앱/딥링크(Deep Link) 개념.md",
+    "참고 사이트 모음집.md",
+    "참고 자료/웹 · DB 수업 준비.md",
+    "Images/nosql.pdf",
+    "Images/Pasted image 20260724141127.png",
+    "참고 자료/VMWare 고장 나면.md",
+    "Images/vmware 고장나면.txt",
+    "참고 자료/vmware 고장나면.txt",
+    "참고 자료",
+    "Default.base",
+    "웹 · 앱/안드로이드 기본 개념 2.md",
+    "웹 · 앱/앱 · 애플리케이션 보안 실습.md",
+    "웹 · 앱/웹 보안.md",
+    "Images/Pasted image 20260724093146.png",
+    "README.md",
+    "데이터베이스",
+    "Source Code/FlagOneLogin Activity.md",
+    "Source Code/FlagTwoActivity.md",
+    "Source Code",
+    "Images/Pasted image 20260723180751.png",
+    "Images/Pasted image 20260722172947.png",
+    "Images/Pasted image 20260722171801.png",
+    "웹 · 앱/Burp Suite로 HTTP 기초 세우기.md",
+    "웹 · 앱/관련 보안 포인트.md",
+    "InjuredAndroid-1.0.12-release.apk",
+    "Linux/Linux 명령어 정리.md",
+    "AndroidManifest.xml",
+    "Linux",
+    "Images/Pasted image 20260722093037.png",
+    "Images/Pasted image 20260722102209.png",
+    "Images/Pasted image 20260722095931.png",
+    "Images/Pasted image 20260722094847.png",
+    "Images/Pasted image 20260722093517.png",
+    "Templates/Daily Log.md",
+    "Templates/Introduce.md",
+    "Templates/test-template.md",
+    "Templates/코드 블럭.md",
+    "Templates/Blog.md",
+    "Templates/회의록.md",
+    "Templates/프로젝트 노트.md"
+  ]
+}

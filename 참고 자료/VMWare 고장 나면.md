@@ -1,0 +1,1 @@
+![[Images/vmware 고장나면.txt]]
