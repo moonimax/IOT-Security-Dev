@@ -17,7 +17,21 @@ ROCKY : user, user
 ### 1. DATABASE 생성
 - CREATE DATABASE [테이블명];
 - USE  [테이블명];
-![](../Images/Pasted%20image%2020260727101421.png)
+
+```
+MariaDB [school_db]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| school_db          |
+| testdb             |
++--------------------+
+5 rows in set (0.001 sec)
+
+```
 
 
 ---
@@ -430,6 +444,8 @@ MariaDB [school_db]> SELECT * FROM member WHERE age BETWEEN 25 AND 40 ORDER BY a
 
 
 ```
+---
+
 
 ```
 
@@ -497,6 +513,122 @@ MariaDB [school_db]> SELECT *  FROM member WHERE age <  ANY (SELECT age FROM mem
 5 rows in set (0.000 sec)
 
 
+MariaDB [school_db]> SELECT * FROM member
+    -> WHERE age > (SELECT AVG(age) FROM member)
+    -> ORDER BY age ASC;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| JUNG | SUJIN  |   32 | DAGEON  |
+| KIM  | JEOLSU |   35 | SEOUL   |
+| JOE  | INHO   |   40 | DAGUE   |
++------+--------+------+---------+
+
+
+
+-- 퀴즈 : PRODUCT 테이블 확인 후
+MIN(price) 보다 가격이 높은 데이터 조회 후 오름차순 정렬
+
+MariaDB [school_db]> SELECT * FROM product
+    -> WHERE price > (SELECT MIN(price) FROM product)
+    -> ORDER BY price ASC;
++------------+--------------+---------+-------+
+| product_id | product_name | price   | stock |
++------------+--------------+---------+-------+
+|          4 | MOUSE        |    2000 |   100 |
+|          3 | KEYBOARD     |   50000 |    40 |
+|          5 | WEBCAM       |   60000 |    15 |
+|          2 | MONITOR      |  400000 |    25 |
+|          1 | NOTEBOOK     | 1200000 |    30 |
++------------+--------------+---------+-------+
 
 ```
 ```
+
+```
+`
+
+---
+## 집계 함수
+
+**집계 함수** : 여러행의 데이터를 모아서 연산하는 함수
+   합계, 평균, 개수 등 수행한 뒤, 단 하나의 결과값을 반환
+   
+```
+-- Count
+	Count(*) : 모든 행 개수
+	Count(column) : 해당 컬럼 값이 null 아닌 행의 개수
+ 
+ 
+MariaDB [school_db]> SELECT * FROM member;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| CHOI | MINHO  |   28 | INCHEON |
+| JOE  | INHO   |   40 | DAGUE   |
+| JUNG | SUJIN  |   32 | DAGEON  |
+| KANG | MINSEO |   25 | SEOUL   |
+| KIM  | JEOLSU |   35 | SEOUL   |
+| LEE  | HOSUNG |   30 | SEOUL   |
+| PARK | JISUNG |   20 | BUSAN   |
++------+--------+------+---------+
+7 rows in set (0.000 sec)
+
+MariaDB [school_db]> SELECT COUNT(*)
+    -> FROM member;
++----------+
+| COUNT(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.002 sec)
+
+
+MariaDB [school_db]> SELECT COUNT(address) FROM member;
++----------------+
+| COUNT(address) |
++----------------+
+|              7 |
++----------------+
+1 row in set (0.000 sec)
+
+MariaDB [school_db]> SELECT COUNT(name) FROM member;
++-------------+
+| COUNT(name) |
++-------------+
+|           7 |
++-------------+
+
+
+-- 퀴즈 : 나이가 30보다 같거나 많은 행의 개수를 세시오
+MariaDB [school_db]> SELECT COUNT(age) FROM member WHERE age >=30;
++------------+
+| COUNT(age) |
++------------+
+|          4 |
++------------+
+1 row in set (0.000 sec)
+
+MariaDB [school_db]> SELECT COUNT(address) FROM member WHERE address = 'SEOUL';
++----------------+
+| COUNT(address) |
++----------------+
+|              3 |
++----------------+
+
+
+
+-- AS로 컬럼 별칭 지정하기
+
+
+
+
+
+
+
+
+```
+
+
+   
+
