@@ -10,12 +10,16 @@ KALI : test, TEST
 ROCKY : user, user
 
 
+---
+
+
 ### 1. DATABASE 생성
 - CREATE DATABASE [테이블명];
 - USE  [테이블명];
 ![](../Images/Pasted%20image%2020260727101421.png)
 
 
+---
 
 
 ### 2. DATABASE TABLE 생성
@@ -291,8 +295,75 @@ MariaDB [school_db]> SELECT * FROM member;
 +------+--------+------+---------+
 
 
+9. 조건을 활용한 수정과 삭제
+MariaDB [school_db]> UPDATE member SET address = 'SEOUL' WHERE age >= 30;
+Query OK, 2 rows affected (0.002 sec)
+Rows matched: 3  Changed: 2  Warnings: 0
+
+MariaDB [school_db]> UPDATE member SET age = age + 5 WHERE address IN ('BUSAN');
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+MariaDB [school_db]> SELECT * FROM member;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| JUNG | SUGON  |   32 | SEOUL   |
+| KANG | MINSEO |   25 | SEOUL   |
+| KIM  | KMIII  |   36 | SEOUL   |
+| LEE  | HOSUNG |   31 | SEOUL   |
+| MOON | NIDEV  |   20 | SUWON   |
+| PARK | JISUNG |   22 | DAGUE   |
++------+--------+------+---------+
+   
+MariaDB [school_db]> DELETE FROM member WHERE age BETWEEN 25 AND 35;
+Query OK, 3 rows affected (0.002 sec)
+
+MariaDB [school_db]> SELECT * FROM member;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| KIM  | KMIII  |   36 | SEOUL   |
+| MOON | NIDEV  |   20 | SUWON   |
+| PARK | JISUNG |   22 | DAGUE   |
++------+--------+------+---------+
+3 rows in set (0.000 sec)
 
   
 ```
 
+---
 
+## 3. SQL 심화
+
+```
+-- 테이블 세팅 1
+MariaDB [school_db]> SELECT * FROM member;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| CHOI | MINHO  |   28 | INCHEON |
+| JOE  | INHO   |   40 | DAGUE   |
+| JUNG | SUJIN  |   32 | DAGEON  |
+| KANG | MINSEO |   25 | SEOUL   |
+| KIM  | JEOLSU |   35 | SEOUL   |
+| LEE  | HOSUNG |   30 | SEOUL   |
+| PARK | JISUNG |   20 | BUSAN   |
++------+--------+------+---------+
+
+-- 테이블 세팅 2
+MariaDB [school_db]> SELECT * FROM product;
++------------+--------------+---------+-------+
+| product_id | product_name | price   | stock |
++------------+--------------+---------+-------+
+|          1 | NOTEBOOK     | 1200000 |    30 |
+|          2 | MONITOR      |  400000 |    25 |
+|          3 | KEYBOARD     |   50000 |    40 |
+|          4 | MOUSE        |    2000 |   100 |
+|          5 | WEBCAM       |   60000 |    15 |
++------------+--------------+---------+-------+
+
+
+
+
+```
