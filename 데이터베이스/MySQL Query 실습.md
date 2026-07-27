@@ -169,9 +169,29 @@ MariaDB [school_db]> SELECT * FROM member WHERE age BETWEEN 30 AND 45;
 AND : 모두 만족
 OR : 조건 중 하나만 만족해도
 AND와 OR 같이 사용 가능함. 이떄 괄호 필수
+
+MariaDB [school_db]> SELECT * FROM member WHERE (age != 25 AND address != 'DAGEON') OR id != 'JUNG';
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| CHOI | MINHO  |   48 | INCHEON |
+| KANG | MINSEO |   25 | SEOUL   |
+| KIM  | KMIII  |   35 | SEOUL   |
+| LEE  | SU     |   27 | BUSAN   |
+| MOON | NIDEV  |   20 | SUWON   |
+| SEO  | IK     |   40 | DAGUE   |
++------+--------+------+---------+
+6 rows in set (0.001 sec)
    
 
-
+4. IN : 여러 값 검색하기
+   IN / NOT IN - 만족하는 값 중 하나, NOT IN 목록에 없는 값
+   
+   
+   
+   
+   
+   
 ```
 
 
