@@ -165,6 +165,11 @@ MariaDB [school_db]> SELECT * FROM member WHERE age BETWEEN 30 AND 45;
 3 rows in set (0.000 sec)
 
 
+3. AND / OR
+AND : 모두 만족
+OR : 조건 중 하나만 만족해도
+AND와 OR 같이 사용 가능함. 이떄 괄호 필수
+   
 
 
 ```
