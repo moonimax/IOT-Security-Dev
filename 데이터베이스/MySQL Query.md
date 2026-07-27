@@ -618,10 +618,50 @@ MariaDB [school_db]> SELECT COUNT(address) FROM member WHERE address = 'SEOUL';
 
 
 
+
+
+
 -- AS로 컬럼 별칭 지정하기
 
+MariaDB [school_db]> SELECT AVG(age) AS '선울평균아이' FROM member WHERE address = 'SEOUL';
++--------------------+
+| 선울평균아이       |
++--------------------+
+|            30.0000 |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [school_db]> SELECT AVG(age) AS '서울평균나이' FROM member WHERE address = 'SEOUL';
++--------------------+
+| 서울평균나이       |
++--------------------+
+|            30.0000 |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [school_db]> SELECT
+    -> COUNT(*) AS '회원수',
+    -> AVG(age) AS '평균나이',
+    -> MAX(age) AS '최고나이',
+    -> MIN(age) AS '최연소나이' FROM member;
++-----------+--------------+--------------+-----------------+
+| 회원수    | 평균나이     | 최고나이     | 최연소나이      |
++-----------+--------------+--------------+-----------------+
+|         7 |      30.0000 |           40 |              20 |
++-----------+--------------+--------------+-----------------+
 
 
+-- 퀴즈 : product table, 총 가격, 평균 가격, 총 재고
+
+MariaDB [school_db]> SELECT SUM(price) AS '총 가격',
+    -> AVG(price) AS '평균가격',
+    -> SUM(stock) AS '총 재고'
+    -> FROM product;
++------------+--------------+------------+
+| 총 가격    | 평균가격     | 총 재고    |
++------------+--------------+------------+
+|    1712000 |  342400.0000 |        210 |
++------------+--------------+------------+
 
 
 
@@ -629,6 +669,166 @@ MariaDB [school_db]> SELECT COUNT(address) FROM member WHERE address = 'SEOUL';
 
 ```
 
+---
 
-   
+### GROUP BY
+
+```
+-- GROUP BY : 같은 값을 가진 행을 그룹으로 묶어서 집계
+GROUP BY 뒤 컬럼은 SELECT 절에 반드시 포함
+보통 집계 함수와 같이 사용하며, GROUP BY만 단독으로 쓰는 경우는 거의 없다.
+
+MariaDB [school_db]> SELECT address FROM member GROUP BY  address;
++---------+
+| address |
++---------+
+| BUSAN   |
+| DAGEON  |
+| DAGUE   |
+| INCHEON |
+| SEOUL   |
++---------+
+5 rows in set (0.002 sec)
+
+MariaDB [school_db]> SELECT address ,
+    -> COUNT(*) FROM member GROUP BY address;
++---------+----------+
+| address | COUNT(*) |
++---------+----------+
+| BUSAN   |        1 |
+| DAGEON  |        1 |
+| DAGUE   |        1 |
+| INCHEON |        1 |
+| SEOUL   |        3 |
++---------+----------+
+MariaDB [school_db]> SELECT address , AVG(age) FROM member GROUP BY address;
++---------+----------+
+| address | AVG(age) |
++---------+----------+
+| BUSAN   |  20.0000 |
+| DAGEON  |  32.0000 |
+| DAGUE   |  40.0000 |
+| INCHEON |  28.0000 |
+| SEOUL   |  30.0000 |
++---------+----------+
+
+MariaDB [school_db]> SELECT address, COUNT(*)  AS '회원수' , AVG(age) AS '평균나이' FROM member GROUP BY address;
++---------+-----------+--------------+
+| address | 회원수    | 평균나이     |
++---------+-----------+--------------+
+| BUSAN   |         1 |      20.0000 |
+| DAGEON  |         1 |      32.0000 |
+| DAGUE   |         1 |      40.0000 |
+| INCHEON |         1 |      28.0000 |
+| SEOUL   |         3 |      30.0000 |
++---------+-----------+--------------+
+
+
+// WHERE 먼저 계산, WHERE는 그룹화 전 개별행 필터링
+MariaDB [school_db]> SELECT address, AVG(age) AS '평균나이'
+    -> FROM member WHERE address IN('INCHEON','BUSAN') GROUP BY address;
++---------+--------------+
+| address | 평균나이     |
++---------+--------------+
+| BUSAN   |      20.0000 |
+| INCHEON |      28.0000 |
++---------+--------------+
+
+MariaDB [school_db]> SELECT address, AVG(age) AS '평균나이', COUNT(*) AS '회원수 'FROM member WHERE address IN('INCHEON','BUSAN') GROUP BY address;
++---------+--------------+------------+
+| address | 평균나이     | 회원수     |
++---------+--------------+------------+
+| BUSAN   |      20.0000 |          1 |
+| INCHEON |      28.0000 |          1 |
++---------+--------------+------------+
+
+
+
+MariaDB [school_db]> SELECT address, AVG(age) AS '평균나이', COUNT(*) AS '인원수' FROM member WHERE age >= 25 GROUP BY address HAVING COUNT(*) = 1 ORDER BY AVG(age);
++---------+--------------+-----------+
+| address | 평균나이     | 인원수    |
++---------+--------------+-----------+
+| INCHEON |      28.0000 |         1 |
+| DAGEON  |      32.0000 |         1 |
+| DAGUE   |      40.0000 |         1 |
++---------+--------------+-----------+
+
+// 집계 함수에는 or
+```
+
+
+
+---
+
+
+### HAVING
+```
+HAVING은 그룹화 후 집계 결과에 조건
+
+	where-> 행 필터
+	having -> 그룹 필터
+	문법적으로 having 단독으로 못쓰고 group by와 같이 사용
+	
+	
+MariaDB [school_db]> SELECT address, COUNT(*) AS '인원수'
+    -> FROM member GROUP BY address;
++---------+-----------+
+| address | 인원수    |
++---------+-----------+
+| BUSAN   |         1 |
+| DAGEON  |         1 |
+| DAGUE   |         1 |
+| INCHEON |         1 |
+| SEOUL   |         3 |
++---------+-----------+
+5 rows in set (0.001 sec)
+
+MariaDB [school_db]> SELECT address, COUNT(*) AS '인원수' FROM member GROUP BY address HAVING COUNT(*) >= 2;
++---------+-----------+
+| address | 인원수    |
++---------+-----------+
+| SEOUL   |         3 |
++---------+-----------+
+
+
+퀴즈 : 평균 나이가 30보다 크거나 같은걸 뽑아내라.
+
+MariaDB [school_db]> SELECT address, AVG(age) AS '평균나이'FROM member GROUP BY address
++---------+--------------+
+| address | 평균나이     |
++---------+--------------+
+| DAGEON  |      32.0000 |
+| DAGUE   |      40.0000 |
+| SEOUL   |      30.0000 |
++---------+--------------+
+
+
+
+
+---------------------------------------------------
+
+WHERE -> 행 필터링
+GROUP BY -> 그룹화
+HAVING -> 그룹 필터링  ==> 3가지를 거쳐서 해석
+
+
+퀴즈 : 나이가 25살보다 크거나 같은 조건하에 ADDRESS로 그룹을 지어서 각 그룹의 address, 인원수와 평균나이를 구하는데
+그룹의 조건으로 그릅의 인원이 1명이 경우만 구해라.
+
+MariaDB [school_db]> SELECT address, AVG(age) AS '평균나이', COUNT(*) AS '인원수' FROM member GROUP BY address HAVING COUNT(*) = 1;
++---------+--------------+-----------+
+| address | 평균나이     | 인원수    |
++---------+--------------+-----------+
+| BUSAN   |      20.0000 |         1 |
+| DAGEON  |      32.0000 |         1 |
+| DAGUE   |      40.0000 |         1 |
+| INCHEON |      28.0000 |         1 |
++---------+--------------+-----------+
+
+// ORDER BY 사용 시 집계 함수에는 적용되지 않음
+
+
+
+
+```
 
