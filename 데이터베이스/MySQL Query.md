@@ -827,8 +827,196 @@ MariaDB [school_db]> SELECT address, AVG(age) AS '평균나이', COUNT(*) AS '�
 
 // ORDER BY 사용 시 집계 함수에는 적용되지 않음
 
+```
+
+
+```
+MariaDB [school_db]> CREATE TABLE orders(
+    -> order_id VARCHAR(10) NOT NULL PRIMARY KEY,
+    -> member_id VARCHAR(12),
+    -> product_name VARCHAR(30),
+    -> quantity INT
+    -> );
+Query OK, 0 rows affected (0.005 sec)
+
+MariaDB [school_db]> DESCRIBE orders
+    -> ;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| order_id     | varchar(10) | NO   | PRI | NULL    |       |
+| member_id    | varchar(12) | YES  |     | NULL    |       |
+| product_name | varchar(30) | YES  |     | NULL    |       |
+| quantity     | int(11)     | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+
+
+MariaDB [school_db]> SELECT * FROM orders;
++----------+-----------+--------------+----------+
+| order_id | member_id | product_name | quantity |
++----------+-----------+--------------+----------+
+| o001     | KIM       | NOTEBOOK     |        1 |
+| o002     | LEE       | NOTEBOOK     |        1 |
+| o003     | PARK      | NOTEBOOK     |        1 |
+| o004     | KIM       | KEYBOARD     |        1 |
+| o005     | LEE       | MOUSE        |        1 |
++----------+-----------+--------------+----------+
+
+
+
+-- 두 개의 테이블을 서브쿼리로 연결하기
+
+시나리오 : 서울에 사는 사람의 id를 서브 쿼리를 뽑고 해당 id로 orders 테이블 필터링 하기
+
+1. 서울 사는 사람이 주문한 데이터만 보기
+
+MariaDB [school_db]> SELECT * FROM orders
+    -> WHERE member_id IN(SELECT id FROM member WHERE address = 'SEOUL');
++----------+-----------+--------------+----------+
+| order_id | member_id | product_name | quantity |
++----------+-----------+--------------+----------+
+| o001     | KIM       | NOTEBOOK     |        1 |
+| o002     | LEE       | NOTEBOOK     |        1 |
+| o004     | KIM       | KEYBOARD     |        1 |
+| o005     | LEE       | MOUSE        |        1 |
++----------+-----------+--------------+----------+
+
+
+2. 나이가 30살 이상인 사람의 주문 데이터 보기
+   MariaDB [school_db]> SELECT * FROM orders WHERE member_id IN(SELECT id FROM member WHERE age >= 30);
++----------+-----------+--------------+----------+
+| order_id | member_id | product_name | quantity |
++----------+-----------+--------------+----------+
+| o001     | KIM       | NOTEBOOK     |        1 |
+| o002     | LEE       | NOTEBOOK     |        1 |
+| o004     | KIM       | KEYBOARD     |        1 |
+| o005     | LEE       | MOUSE        |        1 |
++----------+-----------+--------------+----------+
+
+3. 노트북만 주문한 사람들의 이름만 뽑아내기
+MariaDB [school_db]> SELECT name FROM member  WHERE id IN(SELECT member_id FROM orders
+  WHERE product_name = 'NOTEBOOK');
++--------+
+| name   |
++--------+
+| JEOLSU |
+| HOSUNG |
+| JISUNG |
++--------+
+
+
+------------------------------------------
+-- UNION 
+ 컬럼 개수, 타입일치 필요, 중복 행 자동 제거
+ 
+MariaDB [school_db]> SELECT * FROM orders;
++----------+-----------+--------------+----------+
+| order_id | member_id | product_name | quantity |
++----------+-----------+--------------+----------+
+| o001     | KIM       | NOTEBOOK     |        1 |
+| o002     | LEE       | NOTEBOOK     |        1 |
+| o003     | PARK      | NOTEBOOK     |        1 |
+| o004     | KIM       | KEYBOARD     |        1 |
+| o005     | LEE       | MOUSE        |        1 |
++----------+-----------+--------------+----------+
+5 rows in set (0.000 sec)
+
+MariaDB [school_db]> SELECT * FROM member;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| CHOI | MINHO  |   28 | INCHEON |
+| JOE  | INHO   |   40 | DAGUE   |
+| JUNG | SUJIN  |   32 | DAGEON  |
+| KANG | MINSEO |   25 | SEOUL   |
+| KIM  | JEOLSU |   35 | SEOUL   |
+| LEE  | HOSUNG |   30 | SEOUL   |
+| PARK | JISUNG |   20 | BUSAN   |
++------+--------+------+---------+
+7 rows in set (0.000 sec)
+
+MariaDB [school_db]> SELECT id FROM member UNION SELECT member_id FROM orders;
++------+
+| id   |
++------+
+| CHOI |
+| JOE  |
+| JUNG |
+| KANG |
+| KIM  |
+| LEE  |
+| PARK |
++------+
+7 rows in set (0.001 sec)
+
+MariaDB [school_db]> SELECT id FROM member UNION ALL  SELECT member_id FROM orders;
++------+
+| id   |
++------+
+| CHOI |
+| JOE  |
+| JUNG |
+| KANG |
+| KIM  |
+| LEE  |
+| PARK |
+| KIM  |
+| LEE  |
+| PARK |
+| KIM  |
+| LEE  |
++------+
+12 rows in set (0.000 sec)
+
+MariaDB [school_db]> SELECT id FROM member WHERE address = 'SEOUL' UNION ALL  SELECT member_id FROM orders;
++------+
+| id   |
++------+
+| KANG |
+| KIM  |
+| LEE  |
+| KIM  |
+| LEE  |
+| PARK |
+| KIM  |
+| LEE  |
++------+
+8 rows in set (0.001 sec)
+
+MariaDB [school_db]> SELECT id FROM member WHERE address = 'SEOUL' UNION  SELECT member_id FROM orders;
++------+
+| id   |
++------+
+| KANG |
+| KIM  |
+| LEE  |
+| PARK |
++------+
+
+ 
+ 
+ -- UNION 시 칼럼 수가 다른 경우 NULL로 맞춤
+ 
+ MariaDB [school_db]> SELECT id, name, age, address FROM member
+    -> UNION
+    -> SELECT member_id, NULL,NULL,NULL FROM orders;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| CHOI | MINHO  |   28 | INCHEON |
+| JOE  | INHO   |   40 | DAGUE   |
+| JUNG | SUJIN  |   32 | DAGEON  |
+| KANG | MINSEO |   25 | SEOUL   |
+| KIM  | JEOLSU |   35 | SEOUL   |
+| LEE  | HOSUNG |   30 | SEOUL   |
+| PARK | JISUNG |   20 | BUSAN   |
+| KIM  | NULL   | NULL | NULL    |
+| LEE  | NULL   | NULL | NULL    |
+| PARK | NULL   | NULL | NULL    |
++------+--------+------+---------+
+
+ 
 
 
 
 ```
-
