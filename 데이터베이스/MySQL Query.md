@@ -207,12 +207,69 @@ MariaDB [school_db]> SELECT * FROM member WHERE name LIKE 'K%';
 | KIM | KMIII |   35 | SEOUL   |
 +-----+-------+------+---------+
    
+MariaDB [school_db]> SELECT * FROM member WHERE name LIKE '%O%' OR '_O';
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| CHOI | MINHO  |   48 | INCHEON |
+| JUNG | SUGON  |   32 | DAGEON  |
+| KANG | MINSEO |   25 | SEOUL   |
++------+--------+------+---------+
+3 rows in set, 5 warnings (0.002 sec)
+
+
+6. NULL 값 다루기
+MariaDB [school_db]> INSERT INTO member VALUES('test','test',25,NULL);
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [school_db]> SELECT * FROM member;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| CHOI | MINHO  |   48 | INCHEON |
+| JUNG | SUGON  |   32 | DAGEON  |
+| KANG | MINSEO |   25 | SEOUL   |
+| KIM  | KMIII  |   35 | SEOUL   |
+| LEE  | SU     |   27 | BUSAN   |
+| MOON | NIDEV  |   20 | SUWON   |
+| SEO  | IK     |   40 | DAGUE   |
+| test | test   |   25 | NULL    |
++------+--------+------+---------+
+8 rows in set (0.001 sec)
+
+MariaDB [school_db]> SELECT * FROM member WHERE address = NULL;
+Empty set (0.001 sec)
+
+MariaDB [school_db]> SELECT * FROM member WHERE address IS NULL;
++------+------+------+---------+
+| id   | name | age  | address |
++------+------+------+---------+
+| test | test |   25 | NULL    |
++------+------+------+---------+
 
 
 
+7. 데이터 수정
+   - UPDATE, DELETE : 반드시 WHERE절 사용
+MariaDB [school_db]> UPDATE member SET age = 50 WHERE id = 'CHOI';
+Query OK, 1 row affected (0.002 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
 
+MariaDB [school_db]> SELECT * FROM member;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| CHOI | MINHO  |   50 | INCHEON |
+| JUNG | SUGON  |   32 | DAGEON  |
+| KANG | MINSEO |   25 | SEOUL   |
+| KIM  | KMIII  |   35 | SEOUL   |
+| LEE  | SU     |   27 | BUSAN   |
+| MOON | NIDEV  |   20 | SUWON   |
+| SEO  | IK     |   40 | DAGUE   |
+| test | test   |   25 | NULL    |
++------+--------+------+---------+
+8 rows in set (0.000 sec)
 
-   
    
 ```
 
