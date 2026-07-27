@@ -270,7 +270,29 @@ MariaDB [school_db]> SELECT * FROM member;
 +------+--------+------+---------+
 8 rows in set (0.000 sec)
 
+ 
+
+8. DELETE
    
+MariaDB [school_db]> DELETE FROM member WHERE id = 'test';
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [school_db]> SELECT * FROM member;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| CHOI | MINHO  |   50 | INCHEON |
+| JUNG | SUGON  |   32 | DAGEON  |
+| KANG | MINSEO |   25 | SEOUL   |
+| KIM  | KMIII  |   36 | BUSAN   |
+| LEE  | SU     |   27 | BUSAN   |
+| MOON | NIDEV  |   20 | SUWON   |
+| PARK | JISUNG |   22 | DAGUE   |
++------+--------+------+---------+
+
+
+
+  
 ```
 
 
