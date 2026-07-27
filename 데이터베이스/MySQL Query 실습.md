@@ -5,7 +5,7 @@
 2. [2. DATABASE TABLE 생성]
 3. [3. ]
 
-**사전 유저 세팅**
+**사전 세팅**
 KALI : test, TEST
 ROCKY : user, user
 
@@ -186,10 +186,32 @@ MariaDB [school_db]> SELECT * FROM member WHERE (age != 25 AND address != 'DAGEO
 
 4. IN : 여러 값 검색하기
    IN / NOT IN - 만족하는 값 중 하나, NOT IN 목록에 없는 값
+MariaDB [school_db]> SELECT name, address FROM member WHERE address IN ('SEOUL', 'BUSAN');
++--------+---------+
+| name   | address |
++--------+---------+
+| MINSEO | SEOUL   |
+| KMIII  | SEOUL   |
+| SU     | BUSAN   |
++--------+---------+
    
    
+5. LIKE : 패턴 매칭하기
+   % : 0개 이상 임의 문자
+   _ : 1개의 임의 문자
    
+MariaDB [school_db]> SELECT * FROM member WHERE name LIKE 'K%';
++-----+-------+------+---------+
+| id  | name  | age  | address |
++-----+-------+------+---------+
+| KIM | KMIII |   35 | SEOUL   |
++-----+-------+------+---------+
    
+
+
+
+
+
    
    
 ```
