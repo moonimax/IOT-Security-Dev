@@ -3,7 +3,8 @@
 
 1. [1. DATABASE 생성]
 2. [2. DATABASE TABLE 생성]
-3. [3. ]
+3. [3. SQL 심화]
+
 
 **사전 세팅**
 KALI : test, TEST
@@ -413,8 +414,54 @@ MariaDB [school_db]> SELECT * FROM member ORDER BY address ASC, age ASC;
 
 
 
+--BETWEEN ORDER BY 함께 사용하기
+  실행 순서상 WHERE, ORDER BY 
+MariaDB [school_db]> SELECT * FROM member WHERE age BETWEEN 25 AND 40 ORDER BY age ASC;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| KANG | MINSEO |   25 | SEOUL   |
+| CHOI | MINHO  |   28 | INCHEON |
+| LEE  | HOSUNG |   30 | SEOUL   |
+| JUNG | SUJIN  |   32 | DAGEON  |
+| KIM  | JEOLSU |   35 | SEOUL   |
+| JOE  | INHO   |   40 | DAGUE   |
++------+--------+------+---------+
+
+-------------------------------------------------------------------
 
 
+특정 쿼리를 괄호로 묶은 후 그 쿼리 결과값을 조건 값으로 사용
+
+-- KIM 나이보다 많은 사람을 출력하라.
+MariaDB [school_db]> SELECT * FROM member WHERE  age > (SELECT age FROM member WHERE i
+d = 'KIM');
++-----+------+------+---------+
+| id  | name | age  | address |
++-----+------+------+---------+
+| JOE | INHO |   40 | DAGUE   |
++-----+------+------+---------+
+1 row in set (0.004 sec)
+
+MariaDB [school_db]> SELECT AVG(age) FROM member;
++----------+
+| AVG(age) |
++----------+
+|  30.0000 |
++----------+
+1 row in set (0.001 sec)
+
+
+-- 평균 나이보다 나이 많은 사람을 출력
+MariaDB [school_db]> SELECT name FROM member WHERE age  > (SELECT AVG(age) FROM member
+);
++--------+
+| name   |
++--------+
+| INHO   |
+| SUJIN  |
+| JEOLSU |
++--------+
 
 
 
