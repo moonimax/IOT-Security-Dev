@@ -362,6 +362,58 @@ MariaDB [school_db]> SELECT * FROM product;
 |          4 | MOUSE        |    2000 |   100 |
 |          5 | WEBCAM       |   60000 |    15 |
 +------------+--------------+---------+-------+
+```
+
+
+```
+
+1. 정렬과 서브쿼리
+   ORDER BY
+   - ASC(오름차순)
+   - DESC(내림차순)
+MariaDB [school_db]> SELECT * FROM member ORDER BY age ASC;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| PARK | JISUNG |   20 | BUSAN   |
+| KANG | MINSEO |   25 | SEOUL   |
+| CHOI | MINHO  |   28 | INCHEON |
+| LEE  | HOSUNG |   30 | SEOUL   |
+| JUNG | SUJIN  |   32 | DAGEON  |
+| KIM  | JEOLSU |   35 | SEOUL   |
+| JOE  | INHO   |   40 | DAGUE   |
++------+--------+------+---------+
+
+MariaDB [school_db]> SELECT * FROM member ORDER BY age DESC;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| JOE  | INHO   |   40 | DAGUE   |
+| KIM  | JEOLSU |   35 | SEOUL   |
+| JUNG | SUJIN  |   32 | DAGEON  |
+| LEE  | HOSUNG |   30 | SEOUL   |
+| CHOI | MINHO  |   28 | INCHEON |
+| KANG | MINSEO |   25 | SEOUL   |
+| PARK | JISUNG |   20 | BUSAN   |
++------+--------+------+---------+
+
+MariaDB [school_db]> SELECT * FROM member ORDER BY address ASC, age ASC;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| PARK | JISUNG |   20 | BUSAN   |
+| JUNG | SUJIN  |   32 | DAGEON  |
+| JOE  | INHO   |   40 | DAGUE   |
+| CHOI | MINHO  |   28 | INCHEON |
+| KANG | MINSEO |   25 | SEOUL   |
+| LEE  | HOSUNG |   30 | SEOUL   |
+| KIM  | JEOLSU |   35 | SEOUL   |
++------+--------+------+---------+
+
+
+
+
+
 
 
 
