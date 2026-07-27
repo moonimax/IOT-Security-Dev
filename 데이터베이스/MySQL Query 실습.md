@@ -1,16 +1,14 @@
 
 ## 목차
 
-1. [[]](#1-%EC%A0%84%EC%B2%B4-%ED%9D%90%EB%A6%84-%EC%9A%94%EC%95%BD)
-2. [Rocky Linux 준비 (IP 확인 → SSH → MariaDB)](#2-rocky-linux-%EC%A4%80%EB%B9%84-ip-%ED%99%95%EC%9D%B8--ssh--mariadb)
-3. [MariaDB 데이터베이스 및 계정 설정](#3-mariadb-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EB%B0%8F-%EA%B3%84%EC%A0%95-%EC%84%A4%EC%A0%95)
-4. [방화벽 설정 (3306 포트 개방)](#4-%EB%B0%A9%ED%99%94%EB%B2%BD-%EC%84%A4%EC%A0%95-3306-%ED%8F%AC%ED%8A%B8-%EA%B0%9C%EB%B0%A9)
-5. [Kali Linux에서 mysql 클라이언트 설치](#5-kali-linux%EC%97%90%EC%84%9C-
+1. [1. DATABASE 생성]
+2. [2. DATABASE TABLE 생성]
+3. [3. ]
 
-
-
+**사전 유저 세팅**
 KALI : test, TEST
 ROCKY : user, user
+
 
 ### 1. DATABASE 생성
 - CREATE DATABASE [테이블명];
@@ -20,7 +18,7 @@ ROCKY : user, user
 
 
 
-### DATABASE TABLE 생성
+### 2. DATABASE TABLE 생성
 - DATA TYPE - INT
 - CONSTRAINT - NULL
 
@@ -107,6 +105,64 @@ MariaDB [school_db]> SELECT * FROM member;
 4 rows in set (0.003 sec)
 
 
+- WHERE -> 조건에 맞는 데이터만 조회
+		-> SELECT, UPDATE		
+MariaDB [school_db]> SELECT * FROM member WHERE address = 'BUSAN';
++-----+------+------+---------+
+| id  | name | age  | address |
++-----+------+------+---------+
+| LEE | SU   |   27 | BUSAN   |
++-----+------+------+---------+
+1 row in set (0.000 sec)
+
+
+-- WHERE 절과 조건검색
+
+1. 비교 연산자 =, !=, <>
+MariaDB [school_db]> SELECT * FROM member WHERE age <= 30;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| KANG | MINSEO |   25 | SEOUL   |
+| LEE  | SU     |   27 | BUSAN   |
+| MOON | NIDEV  |   20 | SUWON   |
++------+--------+------+---------+
+3 rows in set (0.002 sec)
+
+MariaDB [school_db]> SELECT * FROM member WHERE address <> 'SEOUL';
++------+-------+------+---------+
+| id   | name  | age  | address |
++------+-------+------+---------+
+| CHOI | MINHO |   48 | INCHEON |
+| JUNG | SUGON |   32 | DAGEON  |
+| LEE  | SU    |   27 | BUSAN   |
+| MOON | NIDEV |   20 | SUWON   |
+| SEO  | IK    |   40 | DAGUE   |
++------+-------+------+---------+
+5 rows in set (0.002 sec)
+
+
+2. BETWEEN : 범위 지정, 시작값, 끝값 포함해서 지정
+MariaDB [school_db]> SELECT * FROM member WHERE age BETWEEN 25 AND 35;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| JUNG | SUGON  |   32 | DAGEON  |
+| KANG | MINSEO |   25 | SEOUL   |
+| KIM  | KMIII  |   35 | SEOUL   |
+| LEE  | SU     |   27 | BUSAN   |
++------+--------+------+---------+
+4 rows in set (0.001 sec)
+
+MariaDB [school_db]> SELECT * FROM member WHERE age BETWEEN 30 AND 45;
++------+-------+------+---------+
+| id   | name  | age  | address |
++------+-------+------+---------+
+| JUNG | SUGON |   32 | DAGEON  |
+| KIM  | KMIII |   35 | SEOUL   |
+| SEO  | IK    |   40 | DAGUE   |
++------+-------+------+---------+
+3 rows in set (0.000 sec)
 
 
 
