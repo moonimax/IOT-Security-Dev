@@ -428,8 +428,10 @@ MariaDB [school_db]> SELECT * FROM member WHERE age BETWEEN 25 AND 40 ORDER BY a
 | JOE  | INHO   |   40 | DAGUE   |
 +------+--------+------+---------+
 
--------------------------------------------------------------------
 
+```
+
+```
 
 특정 쿼리를 괄호로 묶은 후 그 쿼리 결과값을 조건 값으로 사용
 
@@ -465,4 +467,36 @@ MariaDB [school_db]> SELECT name FROM member WHERE age  > (SELECT AVG(age) FROM 
 
 
 
+
+-- Any를 사용한 서브 쿼리
+   서브쿼리 결과 값 중 단 하나라도 조건을 만족하면 참 
+   (여러개의 결과 값의 OR 조건)
+
+MariaDB [school_db]> SELECT *  FROM member WHERE age > ANY (SELECT age FROM member WHERE address = 'SEOUL');
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| CHOI | MINHO  |   28 | INCHEON |
+| JOE  | INHO   |   40 | DAGUE   |
+| JUNG | SUJIN  |   32 | DAGEON  |
+| KIM  | JEOLSU |   35 | SEOUL   |
+| LEE  | HOSUNG |   30 | SEOUL   |
++------+--------+------+---------+
+5 rows in set (0.001 sec)
+
+MariaDB [school_db]> SELECT *  FROM member WHERE age <  ANY (SELECT age FROM member WHERE address = 'SEOUL');
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| CHOI | MINHO  |   28 | INCHEON |
+| JUNG | SUJIN  |   32 | DAGEON  |
+| KANG | MINSEO |   25 | SEOUL   |
+| LEE  | HOSUNG |   30 | SEOUL   |
+| PARK | JISUNG |   20 | BUSAN   |
++------+--------+------+---------+
+5 rows in set (0.000 sec)
+
+
+
+```
 ```
