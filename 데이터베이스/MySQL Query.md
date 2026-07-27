@@ -1015,7 +1015,33 @@ MariaDB [school_db]> SELECT id FROM member WHERE address = 'SEOUL' UNION  SELECT
 | PARK | NULL   | NULL | NULL    |
 +------+--------+------+---------+
 
- 
+
+```
+
+
+최고 실습
+```
+-- 1.
+MariaDB [school_db]> SELECT * FROM member WHERE ID IN( SELECT member_id FROM orders WHERE product_name = (SELECT product_name FROM product WHERE price = (SELECT MAX(price)
+FROM product)) );
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| KIM  | JEOLSU |   35 | SEOUL   |
+| LEE  | HOSUNG |   30 | SEOUL   |
+| PARK | JISUNG |   20 | BUSAN   |
++------+--------+------+---------+
+3 rows in set (0.001 sec)
+
+
+-- 2.
+MariaDB [school_db]> SELECT name FROM member WHERE id IN( SELECT member_id FROM orders GROUP BY member_id HAVING COUNT(*) >=2 );
++--------+
+| name   |
++--------+
+| JEOLSU |
+| HOSUNG |
++--------+
 
 
 
