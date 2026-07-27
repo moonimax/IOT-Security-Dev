@@ -1019,7 +1019,7 @@ MariaDB [school_db]> SELECT id FROM member WHERE address = 'SEOUL' UNION  SELECT
 ```
 
 
-최고 실습
+### 최고 실습
 ```
 -- 1.
 MariaDB [school_db]> SELECT * FROM member WHERE ID IN( SELECT member_id FROM orders WHERE product_name = (SELECT product_name FROM product WHERE price = (SELECT MAX(price)
@@ -1043,18 +1043,98 @@ MariaDB [school_db]> SELECT name FROM member WHERE id IN( SELECT member_id FROM 
 | HOSUNG |
 +--------+
 
+```
 
+
+### 과제
+```
 
 과제 3개
 
 --과제 1.
 서울에 사는 회원 중 주문한 적이 있는 회원에 대해, 회원 ID(member_id)와 주문 건수를 구하고, 주문 건수가 많은 순으로 정렬하시오.
+MariaDB [school_db]> SELECT member_id, COUNT(*) AS '주문횟수' FROM orders GROUP BY member_id ORDER BY COUNT(*) DESC ;
++-----------+--------------+
+| member_id | 주문횟수     |
++-----------+--------------+
+| LEE       |            2 |
+| KIM       |            2 |
+| PARK      |            1 |
++-----------+--------------+
+
+
 
 --과제 2.
 전체 제품의 평균 가격보다 비싸면서, 재고가 20개 이상인 제품의 이름, 가격,재고를 가격이싼 순으로 조회하세요.
 
+MariaDB [school_db]> SELECT product_name
+    -> FROM product
+    -> WHERE stock >= 20
+    -> AND price >= (SELECT AVG(price) FROM product);
++--------------+
+| product_name |
++--------------+
+| NOTEBOOK     |
+| MONITOR      |
++--------------+
+
+
+
 --과제 3.
 전체 회원의 평균 나이보다 많으면서, 주문한 적이 있는 회원의 이름, 나이를 나이 내림차순으로 조회하세요.
+
+SELECT name, age FROM member
+WHERE age >= AVG(age) AND 
+(SELECT member_id FROM orders GROUP BY member_id) ORDER BY age DESC;
+MariaDB [school_db]> SELECT name, age FROM member WHERE age >= (SELECT AVG(age) FROM member) AND id IN (SELECT member_id FROM orders) ORDER BY age DESC;
++--------+------+
+| name   | age  |
++--------+------+
+| JEOLSU |   35 |
+| HOSUNG |   30 |
++--------+------+
+
+
+
+--
+전제 조건
+MariaDB [school_db]> SELECT * FROM product;
++------------+--------------+---------+-------+
+| product_id | product_name | price   | stock |
++------------+--------------+---------+-------+
+|          1 | NOTEBOOK     | 1200000 |    30 |
+|          2 | MONITOR      |  400000 |    25 |
+|          3 | KEYBOARD     |   50000 |    40 |
+|          4 | MOUSE        |    2000 |   100 |
+|          5 | WEBCAM       |   60000 |    15 |
++------------+--------------+---------+-------+
+5 rows in set (0.001 sec)
+
+MariaDB [school_db]> SELECT * FROM member;
++------+--------+------+---------+
+| id   | name   | age  | address |
++------+--------+------+---------+
+| CHOI | MINHO  |   28 | INCHEON |
+| JOE  | INHO   |   40 | DAGUE   |
+| JUNG | SUJIN  |   32 | DAGEON  |
+| KANG | MINSEO |   25 | SEOUL   |
+| KIM  | JEOLSU |   35 | SEOUL   |
+| LEE  | HOSUNG |   30 | SEOUL   |
+| PARK | JISUNG |   20 | BUSAN   |
++------+--------+------+---------+
+7 rows in set (0.000 sec)
+
+MariaDB [school_db]> SELECT * FROM orders;
++----------+-----------+--------------+----------+
+| order_id | member_id | product_name | quantity |
++----------+-----------+--------------+----------+
+| o001     | KIM       | NOTEBOOK     |        1 |
+| o002     | LEE       | NOTEBOOK     |        1 |
+| o003     | PARK      | NOTEBOOK     |        1 |
+| o004     | KIM       | KEYBOARD     |        1 |
+| o005     | LEE       | MOUSE        |        1 |
++----------+-----------+--------------+----------+
+
 
 
 
