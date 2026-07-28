@@ -16,10 +16,11 @@
 
 **사전 세팅**
 
-|환경|계정|비밀번호|
-|---|---|---|
-|KALI|test|TEST|
-|ROCKY|user|user|
+| 환경        | 계정      | 비밀번호 |
+| --------- | ------- | ---- |
+| KALI      | test    | TEST |
+| ROCKY     | user    | user |
+| MOBAXTERM | abcdadm | root |
 
 ---
 

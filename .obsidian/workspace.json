@@ -197,12 +197,13 @@
   },
   "active": "150555f295f9d045",
   "lastOpenFiles": [
-    "데이터베이스/데이터베이스 기본 개념2.md",
-    "데이터베이스/데이터베이스 기본 개념.md",
-    "데이터베이스/DB 보안 (계정 및 사용자).md",
-    "무제",
     "데이터베이스/MySQL Query.md",
     "데이터베이스/Rokcy Linux + Kali Linux MqSQL 연결.md",
+    "데이터베이스/DB 보안 (계정 및 사용자).md",
+    "Images/Pasted image 20260728143954.png",
+    "데이터베이스/데이터베이스 기본 개념2.md",
+    "데이터베이스/데이터베이스 기본 개념.md",
+    "무제",
     "참고 사이트 모음집.md",
     "웹 · 앱/정적 분석 실습.md",
     "웹 · 앱/웹 보안.md",
@@ -227,7 +228,6 @@
     "Images/Pasted image 20260724141127.png",
     "Images/Pasted image 20260724093146.png",
     "Images/Pasted image 20260723180751.png",
-    "Images/Pasted image 20260722172947.png",
     "Images/MobaXterm_SSH_MySQL_트러블슈팅.md",
     "Images/nosql.pdf",
     "암호학/현대 암호학.md",
@@ -241,7 +241,6 @@
     "Source Code/FlagTwoActivity.md",
     "Source Code",
     "InjuredAndroid-1.0.12-release.apk",
-    "AndroidManifest.xml",
-    "Templates/Daily Log.md"
+    "AndroidManifest.xml"
   ]
 }
