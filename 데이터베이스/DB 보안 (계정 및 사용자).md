@@ -224,5 +224,9 @@ MariaDB [(none)]> SHOW SESSION STATUS LIKE 'ssl_%'
 // Ssl_version, Ssl_cipher 빈 값
 // TLS 1.3 이상 암호
 
+MariaDB [(none)]> ALTER USER 'webapp'@'192.168.63.1' REQUIRE SSL;
+Query OK, 0 rows affected (0.001 sec)
+
+// webapp의 본인 ip 유저에게 SSL 요청을 할 수 있음.
 
 ```
