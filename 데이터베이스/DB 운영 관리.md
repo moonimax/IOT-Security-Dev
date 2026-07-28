@@ -98,21 +98,26 @@ MariaDB [mysql]> SELECT user, host, authentication_string, plugin FROM user;
 
 
 - ```
-  CREATE database test;
+ - CREATE database test;
   
-  use test;
+ - use test;
   
-  CREATE TABLE staff(
+ - CREATE TABLE staff(
     -> id INT,
     -> name VARCHAR(20),
     -> city VARCHAR(20)
     -> );
 
-INSERT INTO staff  VALUES(1,'KIM','SEOUL'),(2,'LEE','BUSAN');
+- INSERT INTO staff  VALUES(1,'KIM','SEOUL'),(2,'LEE','BUSAN');
 
-  ALTER TABLE staff ADD age INT;
-  ALTER TABLE staff DROP age;
- ALTER TABLE staff MODIFY name VARCHAR(20) NOT NULL;
-ALTER TABLE staff ADD PRIMARY KEY (id);
+- ALTER TABLE staff ADD age INT;
+- ALTER TABLE staff DROP age;
+- ALTER TABLE staff MODIFY name VARCHAR(20) NOT NULL;
+- ALTER TABLE staff ADD PRIMARY KEY (id);
+
+
+
+
+
 
   ```
