@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "환영합니다!.md",
+                "file": "데이터베이스/DB 보안 (계정 및 사용자).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "환영합니다! 의 나가는 링크"
+              "title": "DB 보안 (계정 및 사용자) 의 나가는 링크"
             }
           },
           {
@@ -195,7 +195,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "150555f295f9d045",
   "lastOpenFiles": [
     "데이터베이스/MySQL Query.md",
     "데이터베이스/Rokcy Linux + Kali Linux MqSQL 연결.md",
