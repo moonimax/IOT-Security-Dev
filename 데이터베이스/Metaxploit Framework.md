@@ -40,7 +40,6 @@ mysql -h (공격자ip) -u webapp -p --ssl-mode=REQUIRED
 - General log 확인
 - Slow log 확인
 
-
 **mysql 로그**
 - myslqd.log 
 	-  서버 기동, 정지, 오류, 접속 실패
@@ -55,5 +54,8 @@ mysql -h (공격자ip) -u webapp -p --ssl-mode=REQUIRED
 	- 저부하로 성능에 영향 미미
 - 감사 로그(audit plugin)
 	- 강력 추천
+- 에러 로그
 
 
+mysql
+- abcdadm / root
