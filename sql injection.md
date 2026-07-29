@@ -46,8 +46,6 @@ DB에 전체 DB 정보를 저장하고 있음
 	- 'UNION SELECT 1,2,3,m_id,m_pwd,m_name,NULL,NULL from 'member'--
 	![](Images/Pasted%20image%2020260729163310.png)
 	
-	
-	
 
 ---
 
