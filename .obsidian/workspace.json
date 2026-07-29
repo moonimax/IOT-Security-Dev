@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Metaxploit Framework.md",
+                "file": "데이터베이스/Metaxploit Framework.md",
                 "mode": "source",
                 "source": false
               },
@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Metaxploit Framework.md",
+                "file": "데이터베이스/Metaxploit Framework.md",
                 "mode": "source",
                 "source": false
               },
@@ -210,7 +210,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "8eb767411ec8da3e",
+  "active": "dd8d6f022d81f548",
   "lastOpenFiles": [
     "데이터베이스/데이터베이스 기본 개념.md",
     "데이터베이스/Rokcy Linux + Kali Linux MqSQL 연결.md",
@@ -218,7 +218,7 @@
     "데이터베이스/데이터베이스 기본 개념2.md",
     "데이터베이스/DB 보안 (계정 및 사용자).md",
     "데이터베이스/DB Hydra Brute Force Attack.md",
-    "Metaxploit Framework.md",
+    "데이터베이스/Metaxploit Framework.md",
     "무제.md",
     "참고 자료/참고 사이트 모음집.md",
     "참고 자료/수업 준비.md",
