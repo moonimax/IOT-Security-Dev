@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SQL INJECTION.md",
+                "file": "데이터베이스/SQL INJECTION.md",
                 "mode": "source",
                 "source": false
               },
@@ -195,7 +195,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "dd8d6f022d81f548",
   "lastOpenFiles": [
     "Images/Pasted image 20260729175036.png",
     "Images/Pasted image 20260729174750.png",
@@ -204,7 +204,7 @@
     "데이터베이스/MSSQL_Metasploit_실습.md",
     "데이터베이스/MySQL Query.md",
     "데이터베이스/Rokcy Linux + Kali Linux MqSQL 연결.md",
-    "SQL INJECTION.md",
+    "데이터베이스/SQL INJECTION.md",
     "Images/Pasted image 20260729163310.png",
     "Images/Pasted image 20260729162837.png",
     "Images/Pasted image 20260729162744.png",
