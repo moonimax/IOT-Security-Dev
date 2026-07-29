@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "데이터베이스/SQL INJECTION.md",
+                "file": "Linux/Linux 명령어 정리.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SQL INJECTION"
+              "title": "Linux 명령어 정리"
             }
           }
         ]
@@ -195,17 +195,17 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "dd8d6f022d81f548",
+  "active": "b3b8a1ee4470bbb6",
   "lastOpenFiles": [
-    "Images/Pasted image 20260729175036.png",
     "Images/Pasted image 20260729174750.png",
+    "Images/Pasted image 20260729175036.png",
+    "Images/Pasted image 20260729163310.png",
     "Images/Pasted image 20260729174725.png",
+    "데이터베이스/SQL INJECTION.md",
     "데이터베이스/MySQL 로그 확인.md",
     "데이터베이스/MSSQL_Metasploit_실습.md",
     "데이터베이스/MySQL Query.md",
     "데이터베이스/Rokcy Linux + Kali Linux MqSQL 연결.md",
-    "데이터베이스/SQL INJECTION.md",
-    "Images/Pasted image 20260729163310.png",
     "Images/Pasted image 20260729162837.png",
     "Images/Pasted image 20260729162744.png",
     "데이터베이스/DB Hydra Brute Force Attack.md",
@@ -233,7 +233,6 @@
     "Default.base",
     "Images/Pasted image 20260725150136.png",
     "Images/Pasted image 20260725145416.png",
-    "Images/Pasted image 20260725144813.png",
     "Images/MobaXterm_SSH_MySQL_트러블슈팅.md",
     "Images/nosql.pdf",
     "Images/vmware 고장나면.txt",
