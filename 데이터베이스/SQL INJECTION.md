@@ -241,3 +241,5 @@ python sqlmap.py -r 1.txt --dbs --dbms="Microsoft SQL Server 2005" -p keyword(�
 1. Host PC - rdp(원격 데스크톱 연결)
 2. 공격할 대상 ip 입력(192.168.63.132)
 3. 생성한 `hacker` `hacker` 입력 후 접속
+
+![](../Images/Pasted%20image%2020260730115248.png)
