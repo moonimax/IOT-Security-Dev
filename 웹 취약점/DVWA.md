@@ -82,7 +82,7 @@ sudo systemctl restart httpd
 
 1. `기본 공격
 ```mysql
-' or 2=2--
+' or 2=2-- -
 ```
 ![](../Images/Pasted%20image%2020260730144804.png)
 
@@ -114,6 +114,8 @@ mysqli_real_escape_string
 ```
 
 다시 공격.
+`myqli_real_escape_string`은 사실상 보안에 사용되는 함수라기보다 오타, 특수 문자값을 검열해주는 기능의 함수와 다름없다. 따라서 sql 문에 포함되어 있는 ' 값이나 \ 값 정도만 sorting해주는 단순한 함수로 홑따옴표를 제외한 쿼리문을 작성하게 되면 똑같이 공격을 시도할 수 있다.
+
 ```mysql
 0 or 1=1
 ```
@@ -155,7 +157,9 @@ $query  = "SELECT first_name, last_name FROM users WHERE user_id = '$
 ```
 
 공격.
-
+ 사실상 medium level에 주어진 문제보다 더 허술하게 짜여진 PHP값이 보인다. 세션에서 주어진 input에 대하여 추가적으로 검증하는 로직 없이 submit 버튼에 따른 input값을 그대로 `$_SESSION`에서 받아버리기 때문에 의미가 없어진다.
+  추가로 `$id' LIMIT 1은` query문의 `-- -`문으로 주석처리가 되면 무시되기 때문에 비교 연산 true 공격과 UNION SELECT를 통해서 그대로 테이블, user_name, user_password값이 탈취되는 아주 허접한 보안이다.
+ 
 ```mysql
 1' or '1'='1' UNION SELECT user, password FROM users #
 ```
