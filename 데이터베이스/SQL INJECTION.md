@@ -158,7 +158,7 @@ Web URL 파라미터를 통해서 위 값을 공격해볼 수 있다.
 
 ---
 
-## sqlmap.py 
+## 6. SQLMAP 
 - sqlmap 자동화 도구
 
 python sqlmap.py -r 1.txt -p keyword
