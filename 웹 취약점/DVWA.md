@@ -37,6 +37,39 @@ GRANT ALL ON dvwa.* TO 'dvwa'@'localhost'
 FLUSH PRIVILEGES;
 ```
 
+**생성 데이터베이스 테이블은 아래와 같음**
+```mysql
+MariaDB [dvwa]> SHOW TABLES;
++----------------+
+| Tables_in_dvwa |
++----------------+
+| access_log     |
+| guestbook      |
+| security_log   |
+| users          |
++----------------+
+
+MariaDB [dvwa]> DESCRIBE users;
++-----------------+-------------+------+-----+---------------------+-------------------------------+
+| Field           | Type        | Null | Key | Default             | Extra                         |
++-----------------+-------------+------+-----+---------------------+-------------------------------+
+| user_id         | int(6)      | NO   | PRI | NULL                |                               |
+| first_name      | varchar(15) | YES  |     | NULL                |                               |
+| last_name       | varchar(15) | YES  |     | NULL                |                               |
+| user            | varchar(15) | YES  |     | NULL                |                               |
+| password        | varchar(32) | YES  |     | NULL                |                               |
+| avatar          | varchar(70) | YES  |     | NULL                |                               |
+| last_login      | timestamp   | NO   |     | current_timestamp() | on update current_timestamp() |
+| failed_login    | int(3)      | YES  |     | NULL                |                               |
+| role            | varchar(20) | YES  |     | user                |                               |
+| account_enabled | tinyint(1)  | YES  |     | 1                   |                               |
++-----------------+-------------+------+-----+---------------------+-------------------------------+
+
+
+```
+
+
+
 ```bash
 vi /etc/php.ini
 
