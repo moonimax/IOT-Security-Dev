@@ -93,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -213,8 +212,11 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
-    "웹 취약점/DVWA.md",
+    "참고 자료/수업 준비.md",
+    "참고 자료/참고 사이트 모음집.md",
     "웹 취약점/Google Hacking(Google Dork).md",
+    "참고 자료/Mission.md",
+    "웹 취약점/DVWA.md",
     "Images/Pasted image 20260730153635.png",
     "Images/Pasted image 20260730152358.png",
     "Images/Pasted image 20260730151807.png",
@@ -237,10 +239,7 @@
     "데이터베이스/데이터베이스 기본 개념.md",
     "데이터베이스/데이터베이스 기본 개념2.md",
     "데이터베이스/DB 보안 (계정 및 사용자).md",
-    "참고 자료/참고 사이트 모음집.md",
-    "참고 자료/수업 준비.md",
     "참고 자료/VMWare 고장 나면.md",
-    "참고 자료/Mission.md",
     "암호학/암호학.md",
     "웹 · 앱/정적 분석 실습.md",
     "웹 · 앱/웹 보안.md",
