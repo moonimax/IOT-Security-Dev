@@ -10,3 +10,11 @@ cd /var/www/html
 git clone https://github.com/digininja/dvwa.git dvwa
 
 ```
+
+- 설정 파일과 데이터베이스 세팅
+```bash
+cd /var/www/html/dvwa/config
+cp config.inc.php.dist config.inc.php
+
+
+```
