@@ -1,4 +1,4 @@
-웹 취약점 사이트 랩
+웹 취약점 사이트 LAB
 
 - Install set 명령어
 ```bash
@@ -16,5 +16,11 @@ git clone https://github.com/digininja/dvwa.git dvwa
 cd /var/www/html/dvwa/config
 cp config.inc.php.dist config.inc.php
 
-
+vi config.inc.php
 ```
+
+![](../Images/Pasted%20image%2020260730122400.png)
+
+계정 : dvwa / p@ssw0rd
+
+

