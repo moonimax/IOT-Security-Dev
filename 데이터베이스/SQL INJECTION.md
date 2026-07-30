@@ -161,6 +161,8 @@ Web URL 파라미터를 통해서 위 값을 공격해볼 수 있다.
 ## 6. SQLMAP 
 - sqlmap 자동화 도구
 
+Webhacking VMware Port: 9090
+
 python sqlmap.py -r 1.txt -p keyword
 - keyword는 sql 파라미터 값
 - 1.txt는 keyword 값이 들어있는 텍스트 파일
