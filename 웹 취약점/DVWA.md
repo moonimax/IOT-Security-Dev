@@ -75,7 +75,8 @@ sudo systemctl restart httpd
 	// 계정 id / passwd admin / password
 ```
 
-**Source Code**
+**Low Level**
+*Source Code
 
 ![](../Images/Pasted%20image%2020260730144735.png)
 
@@ -100,10 +101,11 @@ sudo systemctl restart httpd
 
 ![](../Images/Pasted%20image%2020260730145020.png)
 
+---
 
 
 
-**Medium
+**Medium Level
 
 ```php
 mysqli_real_escape_string 
@@ -125,8 +127,22 @@ mysqli_real_escape_string
 ![](../Images/Pasted%20image%2020260730152358.png)
 
 
+---
+
+**High Level
+
+source code
+```php
+|   |
+|---|
+|`<?php      if( isset( $_SESSION [ 'id' ] ) ) {    // Get input    $id = $_SESSION[ 'id' ];          switch ($_DVWA['SQLI_DB']) {           case MYSQL:            // Check database            $query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id' LIMIT 1;";            $result = mysqli_query($GLOBALS["___mysqli_ston"], $query ) or die( '<pre>Something went wrong.</pre>' );            // Get results            while( $row = mysqli_fetch_assoc( $result ) ) {                // Get values                $first = $row["first_name"];                $last  = $row["last_name"];                // Feedback for end user                echo "<pre>ID: {$id}<br />First name: {$first}<br />Surname: {$last}</pre>";               }                  ((is_null($___mysqli_res = mysqli_close($GLOBALS["___mysqli_ston"]))) ? false : $___mysqli_res);                       break;           case SQLITE:               global $sqlite_db_connection;            $query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id' LIMIT 1;";            #print $query;            try {                $results = $sqlite_db_connection->query($query);               } catch (Exception $e) {                   echo 'Caught exception: ' . $e->getMessage();                   exit();               }                  if ($results) {                   while ($row = $results->fetchArray()) {                    // Get values                    $first = $row["first_name"];                    $last  = $row["last_name"];                    // Feedback for end user                    echo "<pre>ID: {$id}<br />First name: {$first}<br />Surname: {$last}</pre>";                   }               } else {                   echo "Error in fetch ".$sqlite_db->lastErrorMsg();               }               break;       }   }      ?>   `|
+```
 
 
+`문제에 대한 url 백업용
+```txt
+http://192.168.63.134/dvwa/vulnerabilities/sqli/session-input.php
+```
 
 
 
