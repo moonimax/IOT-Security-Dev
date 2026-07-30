@@ -21,7 +21,11 @@ vi config.inc.php
 
 ![](../Images/Pasted%20image%2020260730122400.png)
 
-계정 : dvwa / p@ssw0rd
+- 세팅 계정 확인 : dvwa / p@ssw0rd
+
+
+##### dvma 데이터베이스 생성
+
 ```bash
 mysql -u root -p
 ```
