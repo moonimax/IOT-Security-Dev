@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "데이터베이스/SQL INJECTION.md",
+                "file": "웹 취약점/DVWA.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SQL INJECTION"
+              "title": "DVWA"
             }
           }
         ]
@@ -41,7 +41,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "파일 탐색기"
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -197,8 +198,8 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
-    "웹 취약점/DVWA.md",
     "데이터베이스/SQL INJECTION.md",
+    "웹 취약점/DVWA.md",
     "Images/Pasted image 20260730122400.png",
     "웹 취약점",
     "무제.md",
