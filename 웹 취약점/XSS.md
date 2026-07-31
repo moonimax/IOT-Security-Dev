@@ -88,3 +88,28 @@ ASPSESSIONIDCSTBCQTA=GACOEGOCDGLKBECBNFANBGDN
 ![](../Images/Pasted%20image%2020260731112409.png)
 
 
+
+---
+
+## DVWA(XSS)
+
+```php
+"><marquee>test</marquee>
+```
+
+```php
+# Reflected XSS Source
+
+## vulnerabilities/xss_r/source/low.php
+
+|   |
+|---|
+|`<?php      header ("X-XSS-Protection: 0");  //HTTP XSS 기능 비활성화 명령어 header
+    // Is there any input?   if( array_key_exists( "name", $_GET ) && $_GET[ 'name' ] != NULL ) {    // Feedback for end user    echo '<pre>Hello ' . $_GET[ 'name' ] . '</pre>';   }      ?>   `|
+
+```
+
+**공격 시나리오**
+- `$_GET` 이후 아무런 조치 없이 모든 input 값에 대하여 서버에 검증하는 도구도 없기 때문에 위에 기술된 공격 내용이 모두 적용된다.
+- Medium 방식도 단순하게 `<script> 문자열을 포함`하는 string 값에 대한 처리만 이루어지기 때문에 이외 모든 공격이 가능하다.
+- Impossible 값에도 비슷하게 ` checkToken( $_REQUEST[ 'user_token' ], $_SESSION[ 'session_token' ], 'index.php' );`에 대한 처리가 이루어지지만 사실상 특수문자를 기입하게 되면 그대로 XSS 공격이 가능하기 때문에 좋은 방어책이 아니게 보인다.
