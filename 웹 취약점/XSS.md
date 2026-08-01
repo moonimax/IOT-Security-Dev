@@ -117,6 +117,7 @@ ASPSESSIONIDCSTBCQTA=GACOEGOCDGLKBECBNFANBGDN
 
 ---
 ## Document Object Model
+
 - innetHTML , document.write()
 - textContent innerText
 >html 코드나 javascript 중 문자열 화면에 출력하는 메서드
