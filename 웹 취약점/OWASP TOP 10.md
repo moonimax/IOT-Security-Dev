@@ -6,6 +6,5 @@ vulnerability 판별 기준?
 etc) vsftpd 2.3.4 [Metasploitable2]
 
 **OWASP TOP 10
-
 -  **[2025]**
 
