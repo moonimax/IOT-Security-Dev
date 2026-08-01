@@ -1,5 +1,5 @@
 
-vulnerability 판별 기준?
+**vulnerability 판별 기준?
 1. EOL
 2. OS -v : CVE 존재 여부
 
