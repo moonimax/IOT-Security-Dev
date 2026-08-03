@@ -44,4 +44,6 @@ filename="../shellw7876.asp"
 Content-Type: image/gif
 ```
 이후, 다시 웹 쉘을 실행할 수 있게 된다.
+>웹 쉘 탈취가 가능하여 정말 강력한 취약점이다 b.b
+
 
