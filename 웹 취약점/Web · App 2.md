@@ -74,4 +74,8 @@ Content-Type: image/gif
  ;.jpg 
  js%70 
  %2ejsp
+ xxx.php.kr
+ webshell.php::$data
 ```
+
+``
