@@ -24,6 +24,7 @@ Content-Type: application/octet-stream
 -> Content-Type: image/gif 변경
 ```
 
+---
 
 **시나리오 1.**
 
@@ -181,4 +182,30 @@ dvwa/vulnerabilities/fi/?page=../../hackable/uploads/shell.jpg&cmd=id
 ---
 
 ## File Download 취약점
+
+파일 업로드 취약점은 화이트리스트 방식의 확장자 필터링 및 업로드 되는 url 지점 실행권한을 제한한다. `../` 필터링하여 업로드된 파일의 파일 포맷실제 확인하며 업로드된 파일을 다시 재변환하는 공격이다.
+
+- web root 경로에 파일을 저장하지 않고 시스템에 웹과 상관없는 다른 경로에 저장하는 `/var/www/html/dvwa`가 아닌 `/sav/file` 경로에 저장을 하는 방법이다.
+- 혹은 업로드 기능을 차단하는 방식이다.
+- 접근이 제한된 파일을 다운받는 취약점이다.
+- Directory Traversal 기법을 통해 주로 공격한다.
+
+![](../Images/Pasted%20image%2020260803152043.png)
+
+**공격 기법**
+../../../ ==> 루트 디렉토리로 cd 변경한 이후 BurpSuite로 request의 `GET` 값을 통해 `winnit/win.ini` 파일을 다운로드 받게 유도된다.
+
+
+퀴즈.
+down.asp 파일을 다운로드 하시오
+
+정답
+```php
+../../../../down.asp
+```
+
+
+아래는 서버 사이드 스크립트의 원본 코드를 탈취했다!
+
+![](../Images/Pasted%20image%2020260803153234.png)
 
