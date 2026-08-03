@@ -86,4 +86,6 @@ Content-Type: image/gif
  webshell.jsp
 ```
 
-``
+
+**해결 방법**
+파일 확장자를 .asa 변경시키면 파일 업로드 가능하다.
