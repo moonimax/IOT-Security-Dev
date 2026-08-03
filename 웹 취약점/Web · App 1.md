@@ -19,7 +19,10 @@
 "><marquee>xss</marquee>
 ```
 ![](../Images/Pasted%20image%2020260731102012.png)
+
+
 -  원리
+
 > 경고 알림창을 띄우면 XSS 취약점 존재한다고 판정
 ```tag
 "><script>alert("xss")</script>
@@ -80,13 +83,14 @@ ASPSESSIONIDCSTBCQTA=HOONEGOCIKLNFDCEKHCCDNFH
 ASPSESSIONIDCSTBCQTA=GACOEGOCDGLKBECBNFANBGDN
 ```
 
-**시나리오**
+**시나리오 1**
 1. 사용자 게시판 접속
 2. 쿠키 탈취되어 개별 txt에 쿠키 저장
 3. 웹 서버에 다른 사용자 쿠키 값으로 변경 시 계정 탈취 가능
 
-기존 로그인 정보값
-- mmmm > asdqwe(hacker) 값으로 변경
+기존 로그인 정보값이 mmmm > asdqwe(hacker) 값으로 변경
+아래는 탈취된 로그인된 계정이다.
+
 ![](../Images/Pasted%20image%2020260731112409.png)
 
 

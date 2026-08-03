@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "웹 취약점/Web · App 2.md",
+                "file": "웹 취약점/Web · App 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Web · App 2"
+              "title": "Web · App 1"
             }
           }
         ]
@@ -197,14 +197,14 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "982795ca688b0024",
+  "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "웹 취약점/Web · App 2.md",
     "Images/Pasted image 20260803113150.png",
     "Images/Pasted image 20260803112502.png",
     "Images/Pasted image 20260803111935.png",
     "Images/Pasted image 20260803111203.png",
     "웹 취약점/Web · App 1.md",
-    "웹 취약점/Web · App 2.md",
     "웹 취약점/DVWA.md",
     "웹 취약점/Google Hacking(Google Dork).md",
     "참고 자료/참고 사이트 모음집.md",
@@ -221,7 +221,6 @@
     "Images/dfadsafasdfasdgah.png",
     "Images/Pasted image 20260731112647.png",
     "Images/Pasted image 20260731112409.png",
-    "Images/Pasted image 20260731105122.png",
     "데이터베이스/SQL INJECTION.md",
     "데이터베이스/MySQL Query.md",
     "데이터베이스/Rokcy Linux + Kali Linux MqSQL 연결.md",

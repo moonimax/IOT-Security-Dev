@@ -71,6 +71,8 @@ Content-Type: image/gif
 - jsp -> war jsf
 - asp.net -> aspx asax ascx ashx asmx axd
 
+
+
 ```txt
 취약점 이용한 우회
  ::$data 
