@@ -25,7 +25,7 @@ Content-Type: application/octet-stream
 ```
 
 
-**시나리오 1.
+**시나리오 1.**
 
 업로드된 파일 실행
 ![](../Images/Pasted%20image%2020260803111935.png)
@@ -33,9 +33,14 @@ Content-Type: application/octet-stream
 웹 쉘 탈취 가능
 
 
+---
+
+
 **시나리오 2.**
 업로드 파일 실행
+
 ![](../Images/Pasted%20image%2020260803112502.png)
+
 
 - HTTP 403.1 금지 - 실행 권한이 주어지지 않아 실행 실패.
 
@@ -47,6 +52,8 @@ Content-Type: image/gif
 이후, 다시 웹 쉘을 실행할 수 있게 된다.
 >웹 쉘 탈취가 가능하여 정말 강력한 취약점이다 b.b
 
+
+---
 
 **시나리오 3
 
