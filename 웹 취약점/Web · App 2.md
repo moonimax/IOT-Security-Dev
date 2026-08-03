@@ -97,6 +97,9 @@ Content-Type: image/gif
 ## Deface 웹 사이트 변조
 
 
+## File Upload 취약점
+
+
 ```php
 |   |
 |---|
@@ -173,3 +176,9 @@ dvwa/vulnerabilities/fi/?page=../../hackable/uploads/shell.jpg&cmd=id
 > 위 공격 대응 방안으로 upload되는 이미지 자체를 new Image() 생성자로 호출하여 악성 코드가 내재된 이미지를 쓰지 않는 방식으로 대처 가능
 
 ![](../Images/Pasted%20image%2020260803145323.png)
+
+
+---
+
+## File Download 취약점
+
