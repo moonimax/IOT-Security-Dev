@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "웹 취약점/XSS.md",
+                "file": "웹 취약점/Web · App 2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "XSS"
+              "title": "Web · App 2"
             }
           }
         ]
@@ -200,14 +200,16 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "웹 취약점/XSS.md",
+    "참고 자료/수업 준비.md",
+    "2026-08-03.md",
+    "웹 취약점/Web · App 2.md",
     "웹 취약점/DVWA.md",
     "웹 취약점/Google Hacking(Google Dork).md",
-    "웹 취약점/XSS.md",
     "Images/Pasted image 20260803094533.png",
     "참고 자료/VMWare 고장 나면.md",
     "참고 자료/Mission.md",
     "참고 자료/참고 사이트 모음집.md",
-    "참고 자료/수업 준비.md",
     "Network/Wireshark.md",
     "Images/icmpping.png",
     "웹 취약점/OWASP TOP 10.md",
@@ -236,7 +238,6 @@
     "암호학/암호학.md",
     "웹 · 앱/정적 분석 실습.md",
     "웹 · 앱/웹 보안.md",
-    "웹 · 앱/앱 · 애플리케이션 보안 실습.md",
     "Default.base",
     "Images/nosql.pdf",
     "Images/vmware 고장나면.txt",

