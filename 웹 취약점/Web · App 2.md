@@ -2,8 +2,46 @@
 
 Webshell : 서버 사이드 언어를 활용해서 웹 서버의 쉘을 취득하는 악성코드.
 
+---
+
 
 파일 업로드 공격
 1. 웹쉘 파일 올리기
 2. 올린 파일의 위치를 찾고 해당 위치 url에 접속해서 파일을 실행
 3. 실행에 성공해서 쉘 취득에 성공
+
+
+파일 올릴 때
+![](../Images/Pasted%20image%2020260803111203.png)
+
+``` php
+Content-Type: image/gif
+```
+
+webshell 파일 올릴 때
+```php
+Content-Type: application/octet-stream
+-> Content-Type: image/gif 변경
+```
+
+
+**시나리오 1.
+
+업로드된 파일 실행
+![](../Images/Pasted%20image%2020260803111935.png)
+
+웹 쉘 탈취 가능
+
+**시나리오 2.**
+업로드 파일 실행
+![](../Images/Pasted%20image%2020260803112502.png)
+
+- HTTP 403.1 금지 - 실행 권한이 주어지지 않아 실행 실패.
+
+해결 방법 : 파일 업로드 위치를 변경해준다.
+```php
+filename="../shellw7876.asp"
+Content-Type: image/gif
+```
+이후, 다시 웹 쉘을 실행할 수 있게 된다.
+
