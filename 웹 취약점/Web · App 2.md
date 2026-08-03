@@ -58,10 +58,14 @@ Content-Type: image/gif
 **시나리오 3
 
 동일하게 파일 업로드 시 아래와 같은 alert 메시지 출력된다.
+
 ![](../Images/Pasted%20image%2020260803113150.png)
+
 
 위 구현은 반드시 클라이언트가 아닌 서버에서 검증이 필요하다. 심지어 화이트리스트 방식이 아닌 블랙리스트 방식이기 때문에 문제점이 있다..!
 
+
+**File Format Diverse**
 - asp -> cer cdx asa cds
 - php(애매) -> php3 php4 php5 html htm phtml inc
 - jsp -> war jsf
@@ -76,6 +80,8 @@ Content-Type: image/gif
  %2ejsp
  xxx.php.kr
  webshell.php::$data
+ webshell.php%00.jpg
+ webshell.jsp
 ```
 
 ``
