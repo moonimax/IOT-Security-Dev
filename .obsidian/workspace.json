@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
+                "file": "Network/Wireshark.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "웹 애플리케이션 보안 취약점 2"
+              "title": "Wireshark"
             }
           }
         ]
@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -116,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
+                "file": "Network/Wireshark.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -159,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
+                "file": "Network/Wireshark.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -200,16 +199,17 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
-    "웹 취약점/웹 애플리케이션 보안 취약점.md",
+    "웹 취약점/OWASP TOP 10.md",
+    "웹 취약점/Google Hacking(Google Dork).md",
+    "웹 취약점/DVWA.md",
     "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
+    "웹 취약점/웹 애플리케이션 보안 취약점.md",
     "참고 자료/참고 사이트 모음집.md",
     "참고 자료/수업 준비.md",
     "Images/Pasted image 20260803153234.png",
     "Images/Pasted image 20260803152043.png",
     "Images/Pasted image 20260803145323.png",
     "Images/Pasted image 20260803143219.png",
-    "웹 취약점/DVWA.md",
-    "웹 취약점/Google Hacking(Google Dork).md",
     "Images/Pasted image 20260803113150.png",
     "Images/Pasted image 20260803112502.png",
     "Images/Pasted image 20260803111935.png",
@@ -220,7 +220,6 @@
     "참고 자료/Mission.md",
     "Network/Wireshark.md",
     "Images/icmpping.png",
-    "웹 취약점/OWASP TOP 10.md",
     "Network",
     "데이터베이스/SQL INJECTION.md",
     "데이터베이스/MySQL Query.md",
