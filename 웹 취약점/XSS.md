@@ -237,6 +237,31 @@ generateSessionToken();
 
 ## File Inclusion
 
-웹 어플리케이션에 파일을 불러들이는 기능이 존재할때 서버 내부의 임의의 파일을 불러올 수 있으면 *LFI 취약점*이 있다. 서버 외부의 파일을 불러올 수 있으면 *RFI 취약점*이 있다.
+웹 어플리케이션에 파일을 불러들이는 기능이 존재할때 서버 내부의 임의의 파일을 불러올 수 있으면 *LFI 취약점*이 있다. 서버 외부의 파일을 불러올 수 있으면 *RFI 취약점*이 있다. 특정 Window 혹은 Linux에 대한 공격을 대상으로 하고 있다.
 
 
+=file1.php
+```php 
+../
+..\
+.././../
+../../../../etc/passwd
+=https:/txt
+
+
+-- Source Code
+<?php  
+  
+// The page we wish to display  
+$file = $_GET[ 'page' ];  
+  
+?>
+```
+- path traversal
+	- 경로 조작/변경
+- 페이지 파라미터에 관한 어떤 검증 내용도 없다.
+- 공격 타입은 `../../../` , `./././`
+- 공격 위치 `../etc/passwd`, `../etc/hosts`, `/var/log/apache2/access.log`, `/var/log/httpd/access_log`
+- 로컬 파일 접근 시 파일 이름을 파라미터로 접근할 때 접속하고자 하는 설정에 접근할 수 있다.
+
+![](../Images/Pasted%20image%2020260803094533.png)

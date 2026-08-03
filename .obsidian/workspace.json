@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 643.9000244140625,
+    "collapsed": true
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -199,18 +200,20 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "웹 취약점/DVWA.md",
+    "웹 취약점/Google Hacking(Google Dork).md",
+    "웹 취약점/XSS.md",
+    "Images/Pasted image 20260803094533.png",
     "참고 자료/VMWare 고장 나면.md",
     "참고 자료/Mission.md",
     "참고 자료/참고 사이트 모음집.md",
     "참고 자료/수업 준비.md",
     "Network/Wireshark.md",
     "Images/icmpping.png",
-    "웹 취약점/XSS.md",
     "웹 취약점/OWASP TOP 10.md",
     "Network",
     "Images/dfadsafasdfasdgah 1.png",
     "Images/dfadsafasdfasdgah.png",
-    "웹 취약점/DVWA.md",
     "Images/Pasted image 20260731112647.png",
     "Images/Pasted image 20260731112409.png",
     "Images/Pasted image 20260731105122.png",
@@ -219,10 +222,8 @@
     "데이터베이스/Rokcy Linux + Kali Linux MqSQL 연결.md",
     "().md",
     "Images/Pasted image 20260731102012.png",
-    "웹 취약점/Google Hacking(Google Dork).md",
     "Images/Pasted image 20260730153635.png",
     "Images/Pasted image 20260730152358.png",
-    "Images/Pasted image 20260730151807.png",
     "웹 취약점",
     "무제 1.md",
     "Linux/Linux 명령어 정리.md",
@@ -242,7 +243,7 @@
     "참고 자료/vmware 고장나면.txt",
     "참고 자료",
     "데이터베이스",
-    "Source Code",
+    "Templates/Source Code",
     "InjuredAndroid-1.0.12-release.apk"
   ]
 }
