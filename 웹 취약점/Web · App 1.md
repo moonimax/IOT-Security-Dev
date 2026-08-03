@@ -1,5 +1,7 @@
-![](../Images/dfadsafasdfasdgah.png)> Cross Site Scripting 취약점이 있는 웹사이트에 방문한 사용자의 웹 브라우저에서 악의적인 HTML 태그나 자바스크립트가 동작하는 공격이다. 악의적인 공격자가 작성한 스크립트 코드가 피해자의 시스템에서 실행되는 것.
+![](../Images/dfadsafasdfasdgah.png)
+> Cross Site Scripting 취약점이 있는 웹사이트에 방문한 사용자의 웹 브라우저에서 악의적인 HTML 태그나 자바스크립트가 동작하는 공격이다. 악의적인 공격자가 작성한 스크립트 코드가 피해자의 시스템에서 실행되는 것.
 
+### XSS
 **공격 목적**
 - 쿠키 훔치기
 - 악성 코드 주소로 이동
@@ -256,7 +258,7 @@ Medium ..././..././..././..././..././..././..././etc/passwd
 --High
 
 //$file, 'include.php' string 값 차단
-// file:// -> php에 내재된 Local file 접근 프로토콜
+//file:// -> php에 내재된 Local file 접근 프로토콜
 
 
 =https:/txt

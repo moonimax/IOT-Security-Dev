@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 643.9000244140625,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -200,16 +199,16 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
-    "웹 취약점/XSS.md",
-    "참고 자료/수업 준비.md",
-    "2026-08-03.md",
+    "웹 취약점/Web · App 1.md",
     "웹 취약점/Web · App 2.md",
     "웹 취약점/DVWA.md",
     "웹 취약점/Google Hacking(Google Dork).md",
+    "참고 자료/참고 사이트 모음집.md",
+    "참고 자료/수업 준비.md",
+    "2026-08-03.md",
     "Images/Pasted image 20260803094533.png",
     "참고 자료/VMWare 고장 나면.md",
     "참고 자료/Mission.md",
-    "참고 자료/참고 사이트 모음집.md",
     "Network/Wireshark.md",
     "Images/icmpping.png",
     "웹 취약점/OWASP TOP 10.md",
