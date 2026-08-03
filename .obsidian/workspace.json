@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Network/Wireshark.md",
+                "file": "Network/Base Network.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Wireshark"
+              "title": "Base Network"
             }
           }
         ]
@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -115,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Network/Wireshark.md",
+                "file": "Network/Base Network.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -158,7 +159,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Network/Wireshark.md",
+                "file": "Network/Base Network.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -197,13 +198,25 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "982795ca688b0024",
   "lastOpenFiles": [
+    "웹 · 앱/안드로이드 기본 개념.md",
+    "웹 · 앱/딥링크(Deep Link) 개념.md",
+    "웹 취약점/웹 애플리케이션 보안 취약점.md",
+    "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
     "웹 취약점/OWASP TOP 10.md",
     "웹 취약점/Google Hacking(Google Dork).md",
     "웹 취약점/DVWA.md",
-    "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
-    "웹 취약점/웹 애플리케이션 보안 취약점.md",
+    "데이터베이스/SQL INJECTION.md",
+    "데이터베이스/DB 보안 (계정 및 사용자).md",
+    "데이터베이스/MySQL 로그 확인.md",
+    "데이터베이스/DB Hydra Brute Force Attack.md",
+    "데이터베이스/MSSQL_Metasploit_실습.md",
+    "데이터베이스/데이터베이스 기본 개념2.md",
+    "데이터베이스/데이터베이스 기본 개념.md",
+    "데이터베이스/MySQL Query.md",
+    "데이터베이스/Rokcy Linux + Kali Linux MqSQL 연결.md",
+    "Network/Base Network.md",
     "참고 자료/참고 사이트 모음집.md",
     "참고 자료/수업 준비.md",
     "Images/Pasted image 20260803153234.png",
@@ -218,24 +231,13 @@
     "Images/Pasted image 20260803094533.png",
     "참고 자료/VMWare 고장 나면.md",
     "참고 자료/Mission.md",
-    "Network/Wireshark.md",
     "Images/icmpping.png",
     "Network",
-    "데이터베이스/SQL INJECTION.md",
-    "데이터베이스/MySQL Query.md",
-    "데이터베이스/Rokcy Linux + Kali Linux MqSQL 연결.md",
     "().md",
     "웹 취약점",
     "무제 1.md",
     "Linux/Linux 명령어 정리.md",
-    "데이터베이스/MySQL 로그 확인.md",
-    "데이터베이스/MSSQL_Metasploit_실습.md",
-    "데이터베이스/DB Hydra Brute Force Attack.md",
-    "데이터베이스/데이터베이스 기본 개념.md",
-    "데이터베이스/데이터베이스 기본 개념2.md",
-    "데이터베이스/DB 보안 (계정 및 사용자).md",
     "암호학/암호학.md",
-    "웹 · 앱/정적 분석 실습.md",
     "Default.base",
     "Images/nosql.pdf",
     "Images/vmware 고장나면.txt",
