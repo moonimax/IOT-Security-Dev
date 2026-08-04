@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Network/Base Network.md",
+                "file": "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Base Network"
+              "title": "웹 애플리케이션 보안 취약점 2"
             }
           }
         ]
@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -116,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Network/Base Network.md",
+                "file": "웹 · 앱/안드로이드 기본 개념.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -159,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Network/Base Network.md",
+                "file": "웹 · 앱/안드로이드 기본 개념.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -200,9 +199,16 @@
   },
   "active": "982795ca688b0024",
   "lastOpenFiles": [
-    "웹 · 앱/안드로이드 기본 개념.md",
-    "웹 · 앱/딥링크(Deep Link) 개념.md",
+    "참고 자료/참고 사이트 모음집.md",
+    "참고 자료/수업 준비.md",
     "웹 취약점/웹 애플리케이션 보안 취약점.md",
+    "웹 · 앱/딥링크(Deep Link) 개념.md",
+    "웹 · 앱/Burp Suite로 HTTP 기초 세우기.md",
+    "웹 · 앱/안드로이드 기본 개념 2.md",
+    "웹 · 앱/안드로이드 기본 개념.md",
+    "웹 · 앱/앱 · 애플리케이션 보안 실습.md",
+    "웹 · 앱/웹 보안.md",
+    "Network/Base Network.md",
     "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
     "웹 취약점/OWASP TOP 10.md",
     "웹 취약점/Google Hacking(Google Dork).md",
@@ -216,9 +222,6 @@
     "데이터베이스/데이터베이스 기본 개념.md",
     "데이터베이스/MySQL Query.md",
     "데이터베이스/Rokcy Linux + Kali Linux MqSQL 연결.md",
-    "Network/Base Network.md",
-    "참고 자료/참고 사이트 모음집.md",
-    "참고 자료/수업 준비.md",
     "Images/Pasted image 20260803153234.png",
     "Images/Pasted image 20260803152043.png",
     "Images/Pasted image 20260803145323.png",
@@ -233,11 +236,7 @@
     "참고 자료/Mission.md",
     "Images/icmpping.png",
     "Network",
-    "().md",
     "웹 취약점",
-    "무제 1.md",
-    "Linux/Linux 명령어 정리.md",
-    "암호학/암호학.md",
     "Default.base",
     "Images/nosql.pdf",
     "Images/vmware 고장나면.txt",
