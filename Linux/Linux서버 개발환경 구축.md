@@ -12,6 +12,10 @@ sudo semanage port -l | grep http
 > 
 ```
 
+*설정*
+>labuser / labuser
+mysql 비밀번호 설정 : P@SSW0RD 혹은 password
+
 
 ![](Images/sdfgdfg4.png)
 프레임워크
@@ -72,6 +76,14 @@ windows 터미널로 돌아와서
 
 -- 원격 접속을 하기 위해서 키를 지정하겠다
 ssh -i id_ed25519 labuser@(ip)
-
+ssh -i i_ed25519 labuser@192.168.63.128 
 
 ```
+
+
+다시 Rocky linux로 돌아와서 
+- 80, 22, 443, 3001-3013 tcp를 열어준다.
+
+
+![](../Images/Pasted%20image%2020260805113105.png)
+
