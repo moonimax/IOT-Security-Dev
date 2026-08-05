@@ -13,15 +13,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
+                "file": "참고 자료/수업 준비.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "웹 애플리케이션 보안 취약점 2"
+              "title": "수업 준비"
+            }
+          },
+          {
+            "id": "0a36d29ff499eb12",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux/Linux서버 개발환경 구축.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Linux서버 개발환경 구축"
+            }
+          },
+          {
+            "id": "9f17c7df78989d1b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Network/Base Network.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Base Network"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -80,7 +109,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -197,10 +227,18 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "d498729617b337ff",
+  "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
-    "웹 취약점/앱 변조 실습.md",
+    "Images/Pasted image 20260805104325.png",
+    "Images/sdfgdfg4.png",
+    "참고 자료/수업 준비.md",
+    "Linux/Linux서버 개발환경 구축.md",
+    "참고 자료/참고 사이트 모음집.md",
+    "Network/Base Network.md",
+    "네트워크 실습용.md",
+    "네트워크 실습용 1.md",
     "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
+    "웹 취약점/앱 변조 실습.md",
     "Images/Pasted image 20260804152922.png",
     "Images/Pasted image 20260804150931.png",
     "Images/Pasted image 20260804150859.png",
@@ -211,7 +249,6 @@
     "Images/Pasted image 20260804122557.png",
     "Images/burp인증서.png",
     "Images/Pasted image 20260804121513.png",
-    "Images/Pasted image 20260804121306.png",
     "웹 취약점/웹 애플리케이션 보안 취약점.md",
     "참고 자료/기타 참고 파일/클라우드_취약점_점검_가이드(2024).pdf",
     "참고 자료/기타 참고 파일/주요정보통신기반시설 기술적 취약점 분석·평가 방법 상세가이드.pdf",
@@ -221,15 +258,12 @@
     "참고 자료/기타 참고 파일/csrf 풀이.txt",
     "참고 자료/기타 참고 파일",
     "웹 취약점/DVWA.md",
-    "참고 자료/참고 사이트 모음집.md",
-    "참고 자료/수업 준비.md",
     "웹 · 앱/딥링크(Deep Link) 개념.md",
     "웹 · 앱/Burp Suite로 HTTP 기초 세우기.md",
     "웹 · 앱/안드로이드 기본 개념 2.md",
     "웹 · 앱/안드로이드 기본 개념.md",
     "웹 · 앱/앱 · 애플리케이션 보안 실습.md",
     "웹 · 앱/웹 보안.md",
-    "Network/Base Network.md",
     "웹 취약점/OWASP TOP 10.md",
     "웹 취약점/Google Hacking(Google Dork).md",
     "데이터베이스/SQL INJECTION.md",
@@ -239,10 +273,6 @@
     "데이터베이스/MSSQL_Metasploit_실습.md",
     "데이터베이스/데이터베이스 기본 개념2.md",
     "데이터베이스/데이터베이스 기본 개념.md",
-    "데이터베이스/MySQL Query.md",
-    "데이터베이스/Rokcy Linux + Kali Linux MqSQL 연결.md",
-    "2026-08-03.md",
-    "참고 자료/VMWare 고장 나면.md",
     "Network",
     "웹 취약점"
   ]
