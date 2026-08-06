@@ -14,7 +14,12 @@ sudo semanage port -l | grep http
 
 *설정*
 >labuser / labuser
-mysql 비밀번호 설정 : P@SSW0RD 혹은 password
+>MYSQL root -> TestPass123!
+>MYSQL lab -> password 혹은 P@SSW0RD / P@SSW0RD
+
+
+
+
 
 
 ![](Images/sdfgdfg4.png)

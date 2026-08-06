@@ -109,8 +109,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -229,11 +228,11 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "참고 자료/수업 준비.md",
+    "Linux/Linux서버 개발환경 구축.md",
     "Images/Pasted image 20260805113105.png",
     "Images/Pasted image 20260805104325.png",
     "Images/sdfgdfg4.png",
-    "참고 자료/수업 준비.md",
-    "Linux/Linux서버 개발환경 구축.md",
     "참고 자료/참고 사이트 모음집.md",
     "Network/Base Network.md",
     "네트워크 실습용.md",
@@ -248,7 +247,6 @@
     "Images/Pasted image 20260804142308.png",
     "참고 자료/기타 참고 파일/DivaApplication.apk",
     "Images/Pasted image 20260804122557.png",
-    "Images/burp인증서.png",
     "웹 취약점/웹 애플리케이션 보안 취약점.md",
     "참고 자료/기타 참고 파일/클라우드_취약점_점검_가이드(2024).pdf",
     "참고 자료/기타 참고 파일/주요정보통신기반시설 기술적 취약점 분석·평가 방법 상세가이드.pdf",
