@@ -4,6 +4,7 @@
 >labuser / labuser
 >MYSQL root -> TestPass123!
 >MYSQL lab -> password 혹은 P@SSW0RD / P@SSW0RD
+>Lab -> LabPass123!
 
 
 
