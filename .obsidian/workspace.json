@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "App Programing/Server 개발 환경.md",
+                "file": "App Programing/Server 개발 구축.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Server 개발 환경"
+              "title": "Server 개발 구축"
             }
           }
         ]
@@ -201,7 +201,7 @@
   "lastOpenFiles": [
     "App Programing",
     "참고 자료/수업 준비.md",
-    "App Programing/Server 개발 환경.md",
+    "App Programing/Server 개발 구축.md",
     "Images/Pasted image 20260805113105.png",
     "Images/Pasted image 20260805104325.png",
     "Images/sdfgdfg4.png",
