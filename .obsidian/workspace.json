@@ -212,10 +212,13 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "6180be4d50b31ada",
   "lastOpenFiles": [
-    "참고 자료/웹 , Node.js 수업 자료.md",
+    "참고 자료/기타 참고 파일/주요정보통신기반시설 기술적 취약점 분석·평가 방법 상세가이드.pdf",
+    "참고 자료/기타 참고 파일/클라우드_취약점_점검_가이드(2024).pdf",
     "참고 자료/참고 사이트 모음집.md",
+    "참고 자료/VMWare 고장 나면.md",
+    "참고 자료/웹 , Node.js 수업 자료.md",
     "참고 자료/Mission.md",
     "App Programing/Lab Trouble Shooting 모음.md",
     "App Programing/Server 개발 구축.md",
@@ -237,8 +240,6 @@
     "참고 자료/기타 참고 파일/DivaApplication.apk",
     "Images/Pasted image 20260804122557.png",
     "웹 취약점/웹 애플리케이션 보안 취약점.md",
-    "참고 자료/기타 참고 파일/클라우드_취약점_점검_가이드(2024).pdf",
-    "참고 자료/기타 참고 파일/주요정보통신기반시설 기술적 취약점 분석·평가 방법 상세가이드.pdf",
     "참고 자료/기타 참고 파일/웹쉘.zip",
     "참고 자료/기타 참고 파일/down.asp",
     "참고 자료/기타 참고 파일/csrf 풀이 1.txt",
@@ -257,8 +258,6 @@
     "데이터베이스/DB 보안 (계정 및 사용자).md",
     "데이터베이스/MySQL 로그 확인.md",
     "데이터베이스/DB Hydra Brute Force Attack.md",
-    "데이터베이스/MSSQL_Metasploit_실습.md",
-    "데이터베이스/데이터베이스 기본 개념2.md",
     "Network"
   ]
 }
