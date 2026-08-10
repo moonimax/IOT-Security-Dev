@@ -256,16 +256,4 @@ apktool d injuredandroid.apk
 - 이 파일은 **ELF 형식**이라 리눅스에서 실행해야 한다
 - 실행하면 플래그 `HIIMASTRING`을 얻을 수 있다
 
-### 실습 흐름 요약
-
-```
-1. Deep Links 버튼 클릭 → 아무 반응 없음 (스킴 조건 불만족)
-2. 코드 분석 → 스킴이 정확히 "flag11"이어야 startActivity 실행됨 확인
-3. AndroidManifest.xml 확인 → DeepLinkActivity에 flag11 스킴 등록 확인
-4. adb am start -a android.intent.action.VIEW -d "flag11://" 로 조건 충족시켜 진입
-5. 화면 내 힌트("바이너리를 찾아라") 확인
-6. apktool로 APK 디컴파일 → assets/menu (ELF 바이너리) 발견
-7. 리눅스에서 menu 실행 → 플래그 HIIMASTRING 획득
-```
-
 ---
