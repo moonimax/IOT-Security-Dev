@@ -21,6 +21,10 @@
 - Ansible.config
 
 
+**command vs shell**
+- command : 단순 명령어 실행
+- shell : 쉘 내장 변수, 함수 등을 사용하여 명령어 실행
+
 
 ---
 
@@ -276,7 +280,7 @@ ansible 192.168.51.131 -m user -a 'name=ansible_user uid=1122 state=present'
 
 
 
-manage linux 쪽
+**manage linux 쪽 세팅**
 ```shell
 #!/bin/bash
 echo "hello i am managed OS"
@@ -288,4 +292,11 @@ echo "hello i am managed OS"
 ls -l hello.sh                                                      -rw-r--r--. 1 user user 42 Aug 11 15:24 hello.sh
 chmod a+x hello.sh 
 [user@managed ~]$ cp hello.sh /usr/bin/hello                                  cp: cannot create regular file '/usr/bin/hello': Permission denied            [user@managed ~]$ sudo cp hello.sh /usr/bin/hello                             [user@managed ~]$ hello                                                       hello i am managed OS                             
+```
+
+
+**control node**
+```bash
+[user@control 03_ansible_adhoc]$ ansible 192.168.63.134 -m command -a /usr/bin/hello              
+192.168.63.134 | CHANGED | rc=0 >>                                            hello i am managed OS  
 ```
