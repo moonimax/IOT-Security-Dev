@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ansible.md",
+                "file": "Ansible/Ansible.md",
                 "mode": "source",
                 "source": false
               },
@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -198,10 +197,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "dd8d6f022d81f548",
   "lastOpenFiles": [
+    "Ansible",
     "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
-    "Ansible.md",
+    "Ansible/Ansible.md",
     "Images/Pasted image 20260811093733.png",
     "Images/Pasted image 20260811093706.png",
     "Images/Pasted image 20260811093232.png",
