@@ -94,6 +94,44 @@ Ansible
 ---
 
 
-Inventory 
+## Inventory 
+
+단일 주소
 - 관리 노드들을 모아 놓은 파일 형식
 - 추후 ansible.cfg 파일 내 `파일명`을 명시
+
+```bash
+vim inventory_ex_01
+
+# ip 주소, 도메인 주소
+# /etc/hosts는 관여하지 않음
+192.168.51.129
+192.168.51.131
+web01.example.com
+[web02.example.com](http://web02.example.com)
+```
+
+그룹 단위 주소
+
+```bash
+#그룹 이름은 [] 대괄호로 묶음
+[webservers]
+web01.example.com
+web02.example.com
+192.168.63.134
+192.168.63.128
+
+[dbservers]
+db01.example.com
+db02.example.com
+
+```
+
+
+중첩 그룹 단위 주소
+```bash
+
+
+
+
+```
