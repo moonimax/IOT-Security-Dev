@@ -1,24 +1,27 @@
 
-**IAC**
-- Instructure As a Code
-- Terraform
+## IAC (Infrastructure As Code)
+
+- Terraform 등이 대표적인 도구
 
 
-**구성 요소**
-- 제어 노드(Rocky Linux1)
-	- 대량의 노드들에게 코드를 제어하여 취약점 탐지에 유리하다.
-	- `Ansible` 설치는 제어 노드에서만 이루어진다.
-	- 자기 자신도 관리 대상에 포함될 수 있으므로 python 설치 필요
-- 관리 노드(Rocky Linux2)
-	- python 설치 필요
 
+## 구성 요소
 
-**제어 노드 기능**
-- 관리 노드 목록
-	- `Inventory`
-- 코드 파일
-	- `Playbook(.yaml or .yml)`
-- Ansible.config
+**제어 노드 (Rocky Linux1)**
+
+- 대량의 노드들을 코드로 제어 → 취약점 탐지 등에 유리
+- `Ansible` 설치는 제어 노드에서만 이루어짐
+- 자기 자신도 관리 대상에 포함될 수 있으므로 python 설치 필요
+
+**관리 노드 (Rocky Linux2)**
+
+- python 설치 필요
+
+## 제어 노드 기능
+
+- 관리 노드 목록 → `Inventory`
+- 코드 파일 → `Playbook (.yaml / .yml)`
+- 설정 파일 → `ansible.cfg`
 
 
 ---
@@ -31,35 +34,33 @@
  sudo vim /etc/ssh/sshd_config
 ```
 
-2. 터미널 1 rocky1 연동
+2. 터미널에서 rocky1(제어 노드) 연동
 
 ![](Images/Pasted%20image%2020260811093232.png)
 
-3. 제어 노드
+3. 호스트네임 설정
 
 ```bash
 -- 제어 노드
 sudo hostnamectl set-hostname control
 -- 관리 노드
 sudo hostnamectl set-hostname managed
-
-bash
 ```
 
-4. 제어 노드와 관리 노드 설정 완료
+4. 제어 노드 / 관리 노드 설정 완료 확인
 
 ![](Images/Pasted%20image%2020260811093706.png)
 ![](Images/Pasted%20image%2020260811093733.png)
 
 
-5. Ansible Install
+5. Ansible 설치
 ```bash
 sudo dnf install -y epel-release
 sudo dnf install -y ansible
 ```
 
 
-6. 
+6. sudo 비밀번호 없이 사용하도록 설정
 ```
 sudo vim /etc/sudoers.d/user
 
@@ -72,7 +73,7 @@ user ALL=(ALL) NOPASSWD:ALL
 [user@managed ~]$ sudo vim /etc/sudoers.d/user                                [user@managed ~]$ sudo getenforce                                             Permissive                                                                    [user@managed ~]$ sudo setenforce 1                                           [user@managed ~]$ ls /etc/sudoers                                             /etc/sudoers
 ```
 
-- 사용자 작업 디렉토리 > 사용자 홈 디렉토리 > etc 디렉토리 > etc 설정 파일
+- 우선순위: 사용자 작업 디렉토리 > 사용자 홈 디렉토리 > `/etc` 디렉토리 > `/etc` 설정 파일
 
 
 ---
@@ -94,6 +95,8 @@ Ansible
 
 
 ## Inventory 
+
+관리 노드 목록을 모아둔 파일. 추후 `ansible.cfg`에서 파일명을 지정해 사용.
 
 **단일 주소**
 - 관리 노드들을 모아 놓은 파일 형식
@@ -162,51 +165,53 @@ security
 
 [user@control 01_ansible_inventory]$ ansible 192.168.51.1 -i inventory_ex_04 --list-hosts              hosts (1):                                    192.168.51.1   
 ```
-
+→ `-i`로 인벤토리 파일을 명시하지 않으면 대상 호스트를 찾지 못함.
 
 ---
 
-## Ansible.cfg
+## ansible.cfg
 
-- 작업 디렉토리의 ansible.cfg
-- 사용자 홈 디렉토리의 ansible.cfg
-- etc 디렉토리의 ansible.cfg
+설정 파일 탐색 우선순위:
+
+1. 작업 디렉토리의 `ansible.cfg`
+2. 사용자 홈 디렉토리의 `ansible.cfg`
+3. `/etc` 디렉토리의 `ansible.cfg`
 
 
-**Ansible 파일 설정 위치**
+**기본 설정 확인**
+
+
 ```bash
 [user@control 02_ansible_cfg]$ ansible --version
-config file = /etc/ansible/ansible.cfg                                                               configured module search path = ['/home/user/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+config file = /etc/ansible/ansible.cfg
+configured module search path = ['/home/user/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+```
 
+**주요 옵션**
 
-[defaults] - ansible 작업의 기본값 설정
-
+```ini
+[defaults]
 inventory = /etc/ansible/hosts
 remote_user = root
 ask_pass = True
 
-  
-
-[privilege_escalation] 
-
-#become=True           --사용자 전환 허용
-#become_method=sudo    
+[privilege_escalation]
+#become=True            # 사용자 전환 허용
+#become_method=sudo
 #become_user=root
-#become_ask_pass=False   -- 사용자 sudo 사용 시 pass 요청
-
+#become_ask_pass=False  # sudo 사용 시 비밀번호 요청 여부
 ```
 
-[[Ansible 기본 파일 설정]( https://github.com/ansible/ansible/blob/stable-2.9/examples/ansible.cfg)]
-
+> [Ansible 기본 파일 설정 예시 (GitHub)](https://github.com/ansible/ansible/blob/stable-2.9/examples/ansible.cfg)
 
 
 ---
 
 
-관리 노드에서 ssh 키를 제어 노드에 넘기기
+관리 노드 SSH 키를 제어 노드에 등록하기
 
 
-제어 노드
+제어 노드에서 키 생성
 ```bash
 ssh-keygen -- 공개키 생성
 
@@ -214,11 +219,9 @@ ssh-keygen -- 공개키 생성
 /home/user/.ssh/id_ed25519.pub
 
 vim playbook.yaml 
-
---원격 접속
-ansible-playbook playbook.yaml
 ```
 
+playbook 작성
 ```yaml
 ---
 - name: Public key is deployed to managed hosts for ansible
@@ -233,79 +236,104 @@ ansible-playbook playbook.yaml
         - ~/.ssh/id_ed25519.pub
 ```
 
+실행
 ```bash
+--원격 접속
+ansible-playbook playbook.yaml
 ansible --help
 ```
 
 
 ---
 
-에드훅
+Ad-hoc 명령
 
 구조 : `ansible host-pattern -m MODULE_NAME -a MODULE_ARGS -i INVENTORY`
 
 
-사용 옵션
-- 인벤토리: -i
-- remote_user : -u
-- ask_pass : --ask-pass, -k
-- become : --become, -b
-- become_method : --become-method
-- become_user : --become-user
-- become_ask_pass : --ask-become-pass, -K 
 
+**주요 옵션**
 
+|옵션|설명|
+|---|---|
+|`-i`|인벤토리 파일 지정|
+|`-u`|remote_user 지정|
+|`--ask-pass`, `-k`|비밀번호 인증|
+|`--become`, `-b`|권한 상승(sudo) 사용|
+|`--become-method`|권한 상승 방식|
+|`--become-user`|상승할 사용자|
+|`--ask-become-pass`, `-K`|권한 상승 시 비밀번호 요청|
 
-디렉토리 생성
+**디렉토리 준비**
 ```bash
 mkdir 03_ansible_adhoc
 cp ../02_ansible_cfg/inventory .
 co ../02_ansible_cfg/ansible.cfg .
 ```
 
-ansible.cfg 편집
+**ansible.cfg 편집**
 ```cfg
 inventory = inventory
 ask_pass = False
 ```
 
 
-ssh 타 통신 서버 icmp 확인
+**ssh 타 통신 서버 icmp 확인**
 ```bash
 ansible [host-name] -m ping
 SUCCESS => {                                                                            "ansible_facts": {                                                  "discovered_interpreter_python": "/usr/bin/python3"},                         "changed": false,                                                             "ping": "pong"         
 ```
 
-
+**사용자 생성 (user 모듈)**
 ```bash
 
-ansible 192.168.51.131 -m user -a 'name=ansible_user uid=1111 state=present'
-192.168.63.134 | CHANGED => {                                                                            "ansible_facts": {                                                                                       "discovered_interpreter_python": "/usr/bin/python3"                                              },                                                                                                   "changed": true,                                                                                     "comment": "",                                                                                       "create_home": true,                                                                                 "group": 1111,                                                                                       "home": "/home/ansible_user",                                                                        "name": "ansible_user",                                                                              "shell": "/bin/bash",                                                                                "state": "present",                                                                                  "system": false,                                                                                     "uid": 1111                                                                                      }  
+ansible 192.168.51.131 -m user -a 'name=ansible_user uid=1111 192.168.63.134 | CHANGED => {
+  "ansible_facts": { "discovered_interpreter_python": "/usr/bin/python3" },
+  "changed": true,
+  "comment": "",
+  "create_home": true,
+  "group": 1111,
+  "home": "/home/ansible_user",
+  "name": "ansible_user",
+  "shell": "/bin/bash",
+  "state": "present",
+  "system": false,
+  "uid": 1111
+}
+```
 
+
+동일 명령을 다른 uid로 재실행 시 멱등성 확인
+
+```bash
 ansible 192.168.51.131 -m user -a 'name=ansible_user uid=1122 state=present'
 ```
 
 
+**관리 노드 쪽 스크립트 준비**
 
-**manage linux 쪽 세팅**
-```shell
+```bash
 #!/bin/bash
 echo "hello i am managed OS"
 ```
 
-
-일반적으로 ssh로 /usr/bin 경로 내 명령어 실행
 ```bash
-ls -l hello.sh                                                      -rw-r--r--. 1 user user 42 Aug 11 15:24 hello.sh
-chmod a+x hello.sh 
-[user@managed ~]$ cp hello.sh /usr/bin/hello                                  cp: cannot create regular file '/usr/bin/hello': Permission denied            [user@managed ~]$ sudo cp hello.sh /usr/bin/hello                             [user@managed ~]$ hello                                                       hello i am managed OS                             
+ls -l hello.sh
+# -rw-r--r--. 1 user user 42 Aug 11 15:24 hello.sh
+chmod a+x hello.sh
+cp hello.sh /usr/bin/hello     # Permission denied
+sudo cp hello.sh /usr/bin/hello
+hello
+# hello i am managed OS
 ```
 
 
-**control node**
+**제어 노드에서 명령 실행 (command 모듈)**
+
 ```bash
-[user@control 03_ansible_adhoc]$ ansible 192.168.63.134 -m command -a /usr/bin/hello              
-192.168.63.134 | CHANGED | rc=0 >>                                            hello i am managed OS  
+ansible 192.168.63.134 -m command -a /usr/bin/hello
+# 192.168.63.134 | CHANGED | rc=0 >>
+# h
 ```
 
 
@@ -317,6 +345,123 @@ chmod a+x hello.sh
 
 아래 내용처럼 command를 명령어로 실행했을 때와 shell로 명령어를 실행하였을 때 출력 값이 달라진다는 것을 알 수 있다.
 
+
 ```bash
-[user@control 03_ansible_adhoc]$ ansible 192.168.63.134 -m command -a set                            SSH password:                                                                                        192.168.63.134 | FAILED | rc=2 >>                                                                    [Errno 2] No such file or directory: b'set'                                                          [user@control 03_ansible_adhoc]$ ansible 192.168.63.134 -m shell -a set                              SSH password:                                                                                        192.168.63.134 | CHANGED | rc=0 >>                                                                   BASH=/bin/sh                                                                                         BASHOPTS=checkwinsize:cmdhist:complete_fullquote:extquote:force_fignore:globasciiranges:hostcomplete:interactive_comments:progcomp:promptvars:sourcepath                                                  BASH_ALIASES=()                                                                                      BASH_ARGC=()                                                                                         BASH_ARGV=()                                                                                         BASH_CMDS=()                                                                                         BASH_EXECUTION_STRING=set                                                                            BASH_LINENO=()                                                                                       BASH_SOURCE=()                                                                                       BASH_VERSINFO=([0]="5" [1]="1" [2]="8" [3]="1" [4]="release" [5]="x86_64-redhat-linux-gnu")          BASH_VERSION='5.1.8(1)-release'                                                                      DIRSTACK=()                                                                                          EUID=0                                                                                               GROUPS=()                                                                                            HOME=/root                                                                                           HOSTNAME=managed                                                                                     HOSTTYPE=x86_64                                                                                      IFS='                                                                                                '                                                                                                    LANG=en_US.UTF-8                                                                                     LOGNAME=root                                                                                         LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:'                                                                                          MACHTYPE=x86_64-redhat-linux-gnu                                                                     MAIL=/var/mail/root                                                                                  OPTERR=1                                                                                             OPTIND=1                                                                                             OSTYPE=linux-gnu                                                                                     PATH=/sbin:/bin:/usr/sbin:/usr/bin                                                                   POSIXLY_CORRECT=y                                                                                    PPID=8776                                                                                            PS4='+ '                                                                                             PWD=/home/user                                                                                       SHELL=/bin/bash                                                                                      SHELLOPTS=braceexpand:hashall:interactive-comments:posix                                             SHLVL=1                                                                                              SUDO_COMMAND='/bin/sh -c echo BECOME-SUCCESS-yrhxnjjqjbbfdwdpwarmvdvgfdajwwqc ; /usr/bin/python3 /home/user/.ansible/tmp/ansible-tmp-1786430275.9297597-83495-225033303584119/AnsiballZ_command.py'       SUDO_GID=1000                                                                                        SUDO_UID=1000                                                                                        SUDO_USER=user                                                                                       TERM=xterm-256color                                                                                  UID=0                                                                                                USER=root                                                                                            _=/usr/bin/python3       
+ansible 192.168.63.134 -m command -a set
+# FAILED | rc=2 >>
+# [Errno 2] No such file or directory: b'set'
+```
+
+
+```bash
+ansible 192.168.63.134 -m shell -a set
+# CHANGED | rc=0 >>
+# BASH=/bin/sh ... (셸 환경 변수 전체 출력)
+```
+
+→ `command`는 `set`을 실행 파일로 찾으려다 실패, `shell`은 bash 내장 명령으로 정상 처리.
+
+
+
+
+
+---
+
+
+## 공개키 배포 트러블슈팅
+
+앞서 작성한 `playbook.yaml`을 그대로 실행하면 아래 문제들이 순서대로 발생할 수 있다.
+
+### 1. YAML 문법 오류
+
+들여쓰기와 리스트 표시(`-`)가 빠지면 파싱이 안 된다.
+
+**틀린 예**
+
+```yaml
+name: Public key is deployed to managed hosts for ansible
+hosts: 192.168.51.131
+tasks:
+- name: Ensure key is in user's authorized_keys
+authorized_keys:
+user: user
+state: present
+key: '{{ item }}'
+with_file:
+- ~/.ssh/id_ed25519.pub
+```
+
+**YAML 들여쓰기 규칙**
+
+- 플레이북 최상위는 play들의 **리스트** → `- name:`으로 시작
+- play의 속성(`hosts`, `tasks`)은 `- name:`보다 한 단계 들여쓰기
+- `tasks:` 아래 각 태스크도 `-`로 시작, 한 단계 더 들여쓰기
+- 모듈(`authorized_key`)과 태스크 키워드(`with_file`)는 같은 레벨
+- 모듈의 파라미터(`user`, `state`, `key`)는 모듈보다 한 단계 더 들여쓰기
+
+
+### 2. SSH 인증 실패 (Permission denied)
+
+```
+UNREACHABLE! => {
+  "msg": "Failed to connect to the host via ssh: user@192.168.63.134:
+          Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).",
+}
+```
+
+**확인 순서**
+
+1. 개인키 권한 확인 (control 노드)
+
+```bash
+ls -l ~/.ssh/id_ed25519
+# -rw------- (600) 이어야 함
+chmod 600 ~/.ssh/id_ed25519
+```
+
+2. `ssh -v`로 상세 로그 확인
+
+```bash
+ssh -v user@192.168.63.134
+```
+
+아래처럼 나오면 → **키를 제시했지만 서버가 거부**한 것 (managed 노드에 공개키가 없음)
+
+```
+debug1: Offering public key: /home/user/.ssh/id_ed25519 ...
+debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password
+debug1: Next authentication method: password
+```
+
+3. 비밀번호로 우선 접속해서 상태 확인
+
+```bash
+ssh user@192.168.63.134
+# 비밀번호 입력 시 접속 성공 → password 인증은 살아있음을 확인
+```
+
+### 4. 공개키 배포 (`ssh-copy-id`)
+
+가장 간단한 해결책은 `ssh-copy-id`로 직접 배포하는 것.
+
+```bash
+# control 노드에서 실행
+ssh-copy-id -i ~/.ssh/id_ed25519.pub user@192.168.63.134
+```
+
+- 비밀번호 인증으로 로그인 후, 공개키를 managed 노드의 `~/.ssh/authorized_keys`에 자동 추가
+- `~/.ssh` 권한(700), `authorized_keys` 권한(600)도 자동으로 맞춰줌
+
+
+
+배포 후 비밀번호 없이 접속되는지 확인:
+
+```bash
+ssh user@192.168.63.134
+```
+
+playbook을 직접 실행하는 방법 (아직 키가 없는 최초 1회는 `--ask-pass` 필요):
+
+```bash
+ansible-playbook playbook.yaml -i inventory --ask-pass
 ```
