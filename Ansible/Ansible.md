@@ -163,3 +163,11 @@ security
 
 [user@control 01_ansible_inventory]$ ansible 192.168.51.1 -i inventory_ex_04 --list-hosts              hosts (1):                                    192.168.51.1   
 ```
+
+
+---
+
+Ansible.cfg
+- 작업 디렉토리의 ansible.cfg
+- 사용자 홈 디렉토리의 ansible.cfg
+- etc 디렉토리의 ansible.cfg
