@@ -212,8 +212,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "dd8d6f022d81f548",
+  "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "Images/Pasted image 20260811093733.png",
+    "Images/Pasted image 20260811093706.png",
+    "Images/Pasted image 20260811093232.png",
     "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
     "Ansible.md",
     "웹 취약점/웹 애플리케이션 보안 취약점.md",
@@ -253,12 +256,9 @@
     "Images/Pasted image 20260804150859.png",
     "Images/Pasted image 20260804144405.png",
     "Images/Pasted image 20260804143313.png",
-    "Images/Pasted image 20260804142308.png",
-    "Images/Pasted image 20260804122557.png",
     "웹 취약점/DVWA.md",
     "웹 · 앱/Burp Suite로 HTTP 기초 세우기.md",
     "웹 · 앱/웹 보안.md",
-    "웹 취약점/OWASP TOP 10.md",
-    "웹 취약점/Google Hacking(Google Dork).md"
+    "웹 취약점/OWASP TOP 10.md"
   ]
 }
