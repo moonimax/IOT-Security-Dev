@@ -216,5 +216,50 @@ ssh-keygen -- 공개키 생성
 
 vim playbook.yaml 
 
+--원격 접속
+ansible-playbook playbook.yaml
 ```
 
+```yaml
+---
+- name: Public key is deployed to managed hosts for ansible
+  hosts: 192.168.51.131
+  tasks:
+    - name: Ensure key is in user's authorized_keys
+      authorized_keys:
+        user: user
+        state: present
+        key: '{{ item }}'
+      with_file:
+        - ~/.ssh/id_ed25519.pub
+```
+
+```bash
+ansible --help
+```
+
+
+---
+
+에드훅
+
+구조 : `ansible host-pattern -m MODULE_NAME -a MODULE_ARGS -i INVENTORY`
+
+디렉토리 생성
+```bash
+mkdir 03_ansible_adhoc
+cp ../02_ansible_cfg/inventory .
+co ../02_ansible_cfg/ansible.cfg .
+```
+
+ansible.cfg 편집
+```cfg
+inventory = inventory
+ask_pass = False
+```
+
+
+ssh 타 통신 서버 icmp 확인
+```bash
+ansible [host-name] -m ping
+```
