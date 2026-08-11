@@ -94,3 +94,6 @@ Ansible
 ---
 
 
+Inventory 
+- 관리 노드들을 모아 놓은 파일 형식
+- 추후 ansible.cfg 파일 내 `파일명`을 명시
