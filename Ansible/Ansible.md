@@ -154,4 +154,12 @@ security
 ```
 
 
-**단일 주소와 그룹 조합**
+
+**인벤토리 조회**
+```bash
+[user@control 01_ansible_inventory]$ ansible 192.168.51.1 --list-hosts 
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit         localhost does not match 'all'                                                                       [WARNING]: Could not match supplied host pattern, ignoring: 192.168.51.1      
+
+
+[user@control 01_ansible_inventory]$ ansible 192.168.51.1 -i inventory_ex_04 --list-hosts              hosts (1):                                    192.168.51.1   
+```
