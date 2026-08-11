@@ -21,11 +21,6 @@
 - Ansible.config
 
 
-**command vs shell**
-- command : 단순 명령어 실행
-- shell : 쉘 내장 변수, 함수 등을 사용하여 명령어 실행
-
-
 ---
 
 ## 환경 세팅
@@ -249,6 +244,18 @@ ansible --help
 
 구조 : `ansible host-pattern -m MODULE_NAME -a MODULE_ARGS -i INVENTORY`
 
+
+사용 옵션
+- 인벤토리: -i
+- remote_user : -u
+- ask_pass : --ask-pass, -k
+- become : --become, -b
+- become_method : --become-method
+- become_user : --become-user
+- become_ask_pass : --ask-become-pass, -K 
+
+
+
 디렉토리 생성
 ```bash
 mkdir 03_ansible_adhoc
@@ -299,4 +306,17 @@ chmod a+x hello.sh
 ```bash
 [user@control 03_ansible_adhoc]$ ansible 192.168.63.134 -m command -a /usr/bin/hello              
 192.168.63.134 | CHANGED | rc=0 >>                                            hello i am managed OS  
+```
+
+
+---
+
+**command vs shell**
+- command : 단순 명령어 실행
+- shell : 쉘 내장 변수, 함수 등을 사용하여 명령어 실행
+
+아래 내용처럼 command를 명령어로 실행했을 때와 shell로 명령어를 실행하였을 때 출력 값이 달라진다는 것을 알 수 있다.
+
+```bash
+[user@control 03_ansible_adhoc]$ ansible 192.168.63.134 -m command -a set                            SSH password:                                                                                        192.168.63.134 | FAILED | rc=2 >>                                                                    [Errno 2] No such file or directory: b'set'                                                          [user@control 03_ansible_adhoc]$ ansible 192.168.63.134 -m shell -a set                              SSH password:                                                                                        192.168.63.134 | CHANGED | rc=0 >>                                                                   BASH=/bin/sh                                                                                         BASHOPTS=checkwinsize:cmdhist:complete_fullquote:extquote:force_fignore:globasciiranges:hostcomplete:interactive_comments:progcomp:promptvars:sourcepath                                                  BASH_ALIASES=()                                                                                      BASH_ARGC=()                                                                                         BASH_ARGV=()                                                                                         BASH_CMDS=()                                                                                         BASH_EXECUTION_STRING=set                                                                            BASH_LINENO=()                                                                                       BASH_SOURCE=()                                                                                       BASH_VERSINFO=([0]="5" [1]="1" [2]="8" [3]="1" [4]="release" [5]="x86_64-redhat-linux-gnu")          BASH_VERSION='5.1.8(1)-release'                                                                      DIRSTACK=()                                                                                          EUID=0                                                                                               GROUPS=()                                                                                            HOME=/root                                                                                           HOSTNAME=managed                                                                                     HOSTTYPE=x86_64                                                                                      IFS='                                                                                                '                                                                                                    LANG=en_US.UTF-8                                                                                     LOGNAME=root                                                                                         LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:'                                                                                          MACHTYPE=x86_64-redhat-linux-gnu                                                                     MAIL=/var/mail/root                                                                                  OPTERR=1                                                                                             OPTIND=1                                                                                             OSTYPE=linux-gnu                                                                                     PATH=/sbin:/bin:/usr/sbin:/usr/bin                                                                   POSIXLY_CORRECT=y                                                                                    PPID=8776                                                                                            PS4='+ '                                                                                             PWD=/home/user                                                                                       SHELL=/bin/bash                                                                                      SHELLOPTS=braceexpand:hashall:interactive-comments:posix                                             SHLVL=1                                                                                              SUDO_COMMAND='/bin/sh -c echo BECOME-SUCCESS-yrhxnjjqjbbfdwdpwarmvdvgfdajwwqc ; /usr/bin/python3 /home/user/.ansible/tmp/ansible-tmp-1786430275.9297597-83495-225033303584119/AnsiballZ_command.py'       SUDO_GID=1000                                                                                        SUDO_UID=1000                                                                                        SUDO_USER=user                                                                                       TERM=xterm-256color                                                                                  UID=0                                                                                                USER=root                                                                                            _=/usr/bin/python3       
 ```
