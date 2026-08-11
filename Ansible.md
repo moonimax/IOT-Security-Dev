@@ -111,6 +111,7 @@ web01.example.com
 [web02.example.com](http://web02.example.com)
 ```
 
+
 그룹 단위 주소
 
 ```bash
@@ -130,8 +131,24 @@ db02.example.com
 
 중첩 그룹 단위 주소
 ```bash
+#중첩 그룹
+#그룹을 한 번 더 묶기
+#[중첩 그룹 이름 : children]
+[webdevelopers]
+192.168.51.1
+192.168.51.2
 
+[operators]
+192.168.51.3
+192.168.51.4
 
+[security]
+192.168.51.5
+192.168.51.6
 
+[company:children]
+webdevelopers
+operators
+security
 
 ```
