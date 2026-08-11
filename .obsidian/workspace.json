@@ -95,7 +95,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -212,7 +213,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "0f8377fada2a4e48",
   "lastOpenFiles": [
     "Images/Pasted image 20260811093733.png",
     "Images/Pasted image 20260811093706.png",

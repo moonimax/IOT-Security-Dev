@@ -1,35 +1,30 @@
-IAC
+
+**IAC**
 - Instructure As a Code
 - Terraform
 
 
-두 가지를 이용해서 시작
+**두 가지를 이용해서 시작**
 - 제어 노드(Rocky Linux1)
 	- 대량의 노드들에게 코드를 제어하여 취약점 탐지에 유리하다.
-	- Ansible 설치는 제어 노드에서만 이루어진다.
+	- `Ansible` 설치는 제어 노드에서만 이루어진다.
 	- 자기 자신도 관리 대상에 포함될 수 있으므로 python 설치 필요
 - 관리 노드(Rocky Linux2)
 	- python 설치 필요
 
 
-파일 형식
-- .yaml or .yml
+**제어 노드 기능**
+- 관리 노드 목록
+	- `Inventory`
+- 코드 파일
+	- `Playbook(.yaml or .yml)`
+- Ansible.config
 
-네트워크
-- 소켓 통신
-- IP 주소
-- TCP / UDP
-- 포트 번호
 
-리눅스
-- 운영 체제
-- 서버용
-- 구성 & 명령어
-- 오픈 소스
 
 ---
 
-환경 세팅
+## 환경 세팅
 
 1. 사용자 비밀번호 로그인 가능 설정 
 
