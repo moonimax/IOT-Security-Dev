@@ -167,7 +167,38 @@ security
 
 ---
 
-Ansible.cfg
+## Ansible.cfg
+
 - 작업 디렉토리의 ansible.cfg
 - 사용자 홈 디렉토리의 ansible.cfg
 - etc 디렉토리의 ansible.cfg
+
+
+**Ansible 파일 설정 위치**
+```bash
+[user@control 02_ansible_cfg]$ ansible --version
+config file = /etc/ansible/ansible.cfg                                                               configured module search path = ['/home/user/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+
+
+[defaults] - ansible 작업의 기본값 설정
+
+inventory = /etc/ansible/hosts
+remote_user = root
+ask_pass = True
+
+  
+
+[privilege_escalation] 
+
+#become=True
+#become_method=sudo
+#become_user=root
+#become_ask_pass=False
+
+```
+
+[[Ansible 기본 파일 설정]( https://github.com/ansible/ansible/blob/stable-2.9/examples/ansible.cfg)]
+
+
+
+
