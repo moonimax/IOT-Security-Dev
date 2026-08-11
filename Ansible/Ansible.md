@@ -262,4 +262,30 @@ ask_pass = False
 ssh 타 통신 서버 icmp 확인
 ```bash
 ansible [host-name] -m ping
+SUCCESS => {                                                                            "ansible_facts": {                                                  "discovered_interpreter_python": "/usr/bin/python3"},                         "changed": false,                                                             "ping": "pong"         
+```
+
+
+```bash
+
+ansible 192.168.51.131 -m user -a 'name=ansible_user uid=1111 state=present'
+192.168.63.134 | CHANGED => {                                                                            "ansible_facts": {                                                                                       "discovered_interpreter_python": "/usr/bin/python3"                                              },                                                                                                   "changed": true,                                                                                     "comment": "",                                                                                       "create_home": true,                                                                                 "group": 1111,                                                                                       "home": "/home/ansible_user",                                                                        "name": "ansible_user",                                                                              "shell": "/bin/bash",                                                                                "state": "present",                                                                                  "system": false,                                                                                     "uid": 1111                                                                                      }  
+
+ansible 192.168.51.131 -m user -a 'name=ansible_user uid=1122 state=present'
+```
+
+
+
+manage linux 쪽
+```shell
+#!/bin/bash
+echo "hello i am managed OS"
+```
+
+
+일반적으로 ssh로 /usr/bin 경로 내 명령어 실행
+```bash
+ls -l hello.sh                                                      -rw-r--r--. 1 user user 42 Aug 11 15:24 hello.sh
+chmod a+x hello.sh 
+[user@managed ~]$ cp hello.sh /usr/bin/hello                                  cp: cannot create regular file '/usr/bin/hello': Permission denied            [user@managed ~]$ sudo cp hello.sh /usr/bin/hello                             [user@managed ~]$ hello                                                       hello i am managed OS                             
 ```
