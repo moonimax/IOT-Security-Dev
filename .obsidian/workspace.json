@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -197,7 +198,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "0f8377fada2a4e48",
+  "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
     "CTF/ScriptCTF/[ScriptCTF] Pwn Leaks.md",
     "Ansible/Ansible.md",

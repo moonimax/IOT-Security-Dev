@@ -190,10 +190,10 @@ ask_pass = True
 
 [privilege_escalation] 
 
-#become=True
-#become_method=sudo
+#become=True           --사용자 전환 허용
+#become_method=sudo    
 #become_user=root
-#become_ask_pass=False
+#become_ask_pass=False   -- 사용자 sudo 사용 시 pass 요청
 
 ```
 
@@ -201,4 +201,20 @@ ask_pass = True
 
 
 
+---
+
+
+관리 노드에서 ssh 키를 제어 노드에 넘기기
+
+
+제어 노드
+```bash
+ssh-keygen -- 공개키 생성
+
+공개키 생성 후 위치 확인
+/home/user/.ssh/id_ed25519.pub
+
+vim playbook.yaml 
+
+```
 
