@@ -246,7 +246,7 @@ ansible --help
 
 ---
 
-Ad-hoc 명령
+## Ad-hoc 명령
 
 구조 : `ansible host-pattern -m MODULE_NAME -a MODULE_ARGS -i INVENTORY`
 
@@ -281,7 +281,7 @@ ask_pass = False
 **ssh 타 통신 서버 icmp 확인**
 ```bash
 ansible [host-name] -m ping
-SUCCESS => {                                                                            "ansible_facts": {                                                  "discovered_interpreter_python": "/usr/bin/python3"},                         "changed": false,                                                             "ping": "pong"         
+SUCCESS => {                                                  "ansible_facts": {                                                  "discovered_interpreter_python": "/usr/bin/python3"},         "changed": false,                                             "ping": "pong"         
 ```
 
 **사용자 생성 (user 모듈)**
@@ -335,6 +335,21 @@ ansible 192.168.63.134 -m command -a /usr/bin/hello
 # 192.168.63.134 | CHANGED | rc=0 >>
 # h
 ```
+
+
+
+**Master -> Worker Adhoc 명령어로 권한 상승**
+
+Worker
+```bash
+ansible [대상 ip] -m authorized_key -a "user=ansible_user state=present key=\"{{ lookup('file', '/home/ansible_user/.ssh/id_ed25519.pub') }}\"" -i inventory -u ansible_user --ask-pass
+```
+
+Master
+```bash
+ansible 192.168.63.134 -m authorized_key -a 'user=ansible_user state=present key="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAljZEp0hrg+m6TWyMfkozB1I4dJuz4NjFhVL1L8ke6j ansible_user@master"' -i inventory -u ansible_user --ask-pass
+```
+
 
 
 ---
