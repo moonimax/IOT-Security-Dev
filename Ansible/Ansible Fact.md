@@ -233,6 +233,8 @@ Playbook 내 (Ubuntu는 apt, Rocky는 dnf)을 분리하여 설치.
 **목적**
 postfix 서비스 결과 값을 `register`로 저장해두고 `rc`을 이전 명시한 task의 `when` 조건으로 사용. `ignore_errors`로 명령 실패 시 playbook 이어서 진행
 
+---
+
 
 
 

@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -198,12 +197,12 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "327b59c6cdc6a302",
+  "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
-    "Images/Pasted image 20260813121820.png",
-    "Ansible/Ansible Adhoc.md",
     "Ansible/Ansible Playbook.md",
     "Ansible/Ansible Fact.md",
+    "Ansible/Ansible Adhoc.md",
+    "Images/Pasted image 20260813121820.png",
     "Images/Pasted image 20260813113531.png",
     "Images/Pasted image 20260813113426.png",
     "Images/Pasted image 20260813113305.png",
@@ -244,7 +243,6 @@
     "참고 자료/기타 참고 파일/app/10장.pdf",
     "참고 자료/기타 참고 파일/app/09장.pdf",
     "참고 자료/기타 참고 파일/app/08장.pdf",
-    "참고 자료/VMWare 고장 나면.md",
-    "Images/Pasted image 20260805113105.png"
+    "참고 자료/VMWare 고장 나면.md"
   ]
 }
