@@ -42,82 +42,196 @@ playbook 실행 시 `gather_facts: true` 명령어가 기본적으로 세팅되�
 
 ---
 
+## Playbook 모음
+
+
+## 1. 패키지/서비스 설치
 
 
 
-```yaml
----
-- name: Check ipv4 address & Check loopback interface
-  hosts: 192.168.63.134
-  tasks:
-    - name: check ipv4 address
-      debug:
-        msg: "The default ipv4 address is {{ ansible_facts['default_ipv4']['address'] }}"
-
-    - name: check loopback interface
-      debug:
-        msg: "The interface name of loopback is {{ ansible_facts['interfaces'] | select('match', '^lo') | list }}"
-```
-
-![](../Images/Pasted%20image%2020260813121820.png)
-
-
-gather_facts: false룰 넣어서 Gather facts 태스크를 출력하지 않게 바꿀 수 있다. 아래와 같다.
 ```yaml
 ---
 - name: Install httpd and Start httpd
-  hosts: 192.168.63.134
-  gather_facts: false
+  hosts:
+    - 192.168.63.134
+    - 192.168.63.128
+  vars_files:
+    - httpd.yaml
   tasks:
-    - name: sudo dnf -y install httpd
+    - name: sudo dnf install httpd
       dnf:
-        name: httpd
+        name: "{{ httpd_pkg }}"
         state: present
 
     - name: sudo systemctl enable httpd --now
       service:
-        name: httpd
+        name: "{{ httpd_svc }}"
         state: started
         enabled: yes
-
-- name: Install mysql-server and Start mysqld
-  hosts:
-    - 192.168.63.134
-  gather_facts: false
-  tasks:
-    - name: Install mysql-server
-      dnf:
-        name: mysql-server
-        state: present
-
-    - name: Start mysqld
-      service:
-        name: mysqld
-        state: started
-        enabled: true
 ```
+
+**목적**
+패키지명/서비스명을 `vars_files`로 외부 변수 파일에서 불러오도록 구성
+
+---
+
+## 2. Ubuntu / Rocky 배포판별 조건 설치
+
+
+```yaml
+---
+- name: Rocky & Ubuntu
+  hosts: 192.168.51.131
+  tasks:
+    - name: Install web package in Ubuntu
+      apt:
+        name: apache2
+        state: present
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Install web package in Rocky
+      dnf:
+        name: httpd
+        state: present
+      when: ansible_distribution == "Rocky"
+```
+
+**목적**
+Playbook 내 (Ubuntu는 apt, Rocky는 dnf)을 분리하여 설치. 
+`when` 조건으로 `ansible_distribution`로 패키지 구분
+
+---
+
+## 3. vars / loop
+
+
+```yaml
+---
+- name: Configurer Mail Server
+  hosts:
+    - 192.168.63.128
+    - 192.168.63.134
+  vars:
+    mail_servers:
+      - postfix
+      - dovecot
+  tasks:
+    - name: sudo dnf install mail packages
+      dnf:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ mail_servers }}"
+
+    - name: sudo systemctl enable packages --now
+      service:
+        name: "{{ item }}"
+        state: started
+        enabled: yes
+      loop: "{{ mail_servers }}"
+```
+
+**목적** 
+여러 패키지(postfix, dovecot)를 반복문으로 한 번에 설치 
+
+---
+
+## 4. 딕셔너리 리스트 + loop
 
 
 
 ```yaml
-vars:
-  mail_servers:
-    - postfix
-    - dovecot
+---
+- name: User exists and are in the correct group
+  hosts: 192.168.63.128
+  tasks:
+    - name: Check user or Create user
+      user:
+        name: "{{ item.name }}"
+        state: present
+        group: "{{ item.group }}"
+      loop:
+        - name: Jane
+          group: wheel
+        - name: Joe
+          group: root
+```
 
-tasks:
-  - name: sudo dnf install mail packages
-    dnf:
-      name: "{{ item }}"
-    loop: "{{ mail_servers }}"          
+**목적**
+사용자별 `item.name`, `item.group`로 구분지음 
+
+---
+
+## 5. 변수 정의 when 여부에 따른 실행
+
+
+
+```yaml
+---
+- name: Test variable is defined
+  hosts: 192.168.63.134
+  vars:
+    my_service: httpd
+  tasks:
+    - name: sudo dnf -y install "{{ my_service }}"
+      dnf:
+        name: "{{ my_service }}"
+        state: present
+      when: my_service is defined
 ```
 
 
+**목적**
+변수가 정의되어 있을 때만 task를 실행
+
+>  `vars`의 변수명과 `when`에서 변수명이 일치 필요하며 다를 시 `skipping` 처리
+
+---
+
+## 6. 디스크 여유 공간 조건부 설치
 
 
-- 리스트 원소가 **딕셔너리**(key-value 쌍) — 각 원소가 `name`, `group` 두 개의 속성을 가짐
-- 그래서 `item` 하나로 끝나지 않고, **`item.name`**, **`item.group`**처럼 딕셔너리의 키를 지정해서 값을 꺼내야 함
+```yaml
+---
+- name: Install mysql-server all server
+  hosts: all
+  tasks:
+    - name: sudo dnf -y install mysql-server
+      dnf:
+        name: mysql-server
+        state: present
+      loop: "{{ ansible_mounts }}"
+      when: item.mount == "/" and item.size_available >= 300000000
+```
 
+**목적**
+실습 삼아 루트(`/`)  파티션의 디스크 공간이 300MB 이상일 때만 mysql-server를 설치. `loop`으로 마운트 목록을 순회하며 `when` 조건으로 필터링
+
+
+---
+
+## 7. register + ignore_errors + when
+
+
+
+```yaml
+---
+- name: Restart httpd if postfix is running
+  hosts: 192.168.63.134
+  tasks:
+    - name: Get postfix server status
+      command: /usr/bin/systemctl is-active postfix
+      ignore_errors: yes
+      register: result
+
+    - name: Restart httpd based on postfix status
+      service:
+        name: httpd
+        state: restarted
+      when: result.rc == 0
+```
+
+**목적**
+postfix 서비스 결과 값을 `register`로 저장해두고 `rc`을 이전 명시한 task의 `when` 조건으로 사용. `ignore_errors`로 명령 실패 시 playbook 이어서 진행
 
 
 
