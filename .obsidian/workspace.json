@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ansible/Fact.md",
+                "file": "Ansible/Ansible Fact.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Fact"
+              "title": "Ansible Fact"
             }
           }
         ]
@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -197,12 +198,12 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "327b59c6cdc6a302",
   "lastOpenFiles": [
     "Images/Pasted image 20260813121820.png",
     "Ansible/Ansible Adhoc.md",
     "Ansible/Ansible Playbook.md",
-    "Ansible/Fact.md",
+    "Ansible/Ansible Fact.md",
     "Images/Pasted image 20260813113531.png",
     "Images/Pasted image 20260813113426.png",
     "Images/Pasted image 20260813113305.png",
