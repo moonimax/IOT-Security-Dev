@@ -4,25 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8dc03182facf4d27",
+        "id": "a0e7bbee842f25df",
         "type": "tabs",
         "children": [
           {
-            "id": "327b59c6cdc6a302",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Ansible/Ansible Playbook.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Ansible Playbook"
-            }
-          },
-          {
-            "id": "ff7ce0c35c3cfb74",
+            "id": "ef61d25ff8ceefcf",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -36,17 +22,17 @@
             }
           },
           {
-            "id": "f95189b6193d5996",
+            "id": "0b7b4090b2b06401",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ansible/Ansible Fact.md",
+                "file": "참고 자료/기타 참고 파일/Ansible 취약점 진단 스크립트.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ansible Fact"
+              "title": "Ansible 취약점 진단 스크립트"
             }
           }
         ],
@@ -109,8 +95,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -227,17 +212,18 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "dd8d6f022d81f548",
   "lastOpenFiles": [
-    "Ansible/Ansible Fact.md",
     "Ansible/Handler Ignore.md",
+    "참고 자료/기타 참고 파일/Ansible 취약점 진단 스크립트.md",
+    "Ansible/Ansible Fact.md",
+    "Ansible/Ansible Playbook.md",
+    "Ansible/Ansible Adhoc.md",
     "스크립트 점검.md",
     "Images/Pasted image 20260814104329.png",
     "Images/Pasted image 20260814104122.png",
     "Images/Pasted image 20260814103648.png",
     "Images/Pasted image 20260814103550.png",
-    "Ansible/Ansible Adhoc.md",
-    "Ansible/Ansible Playbook.md",
     "웹 · 앱/딥링크(Deep Link) 개념.md",
     "Network/Base Network.md",
     "Database/DB Hydra Brute Force Attack.md",

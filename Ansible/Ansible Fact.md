@@ -157,7 +157,7 @@ Playbook 내 (Ubuntu는 apt, Rocky는 dnf)을 분리하여 설치.
 ```
 
 **목적**
-사용자별 `item.name`, `item.group`로 구분지음 
+사용자별 `item.name`, `item.group`로 구분 지음 
 
 ---
 
