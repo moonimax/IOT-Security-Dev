@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Handler Ignore.md",
+                "file": "Ansible/Handler Ignore.md",
                 "mode": "source",
                 "source": false
               },
@@ -212,10 +212,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "dd8d6f022d81f548",
   "lastOpenFiles": [
     "Ansible/Ansible Playbook.md",
-    "Handler Ignore.md",
+    "Ansible/Handler Ignore.md",
     "Ansible/Ansible Adhoc.md",
     "웹 · 앱/딥링크(Deep Link) 개념.md",
     "Network/Base Network.md",
