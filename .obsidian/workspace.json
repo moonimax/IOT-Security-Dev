@@ -8,20 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ef61d25ff8ceefcf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Ansible/Handler Ignore.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Handler Ignore"
-            }
-          },
-          {
             "id": "0b7b4090b2b06401",
             "type": "leaf",
             "state": {
@@ -33,6 +19,20 @@
               },
               "icon": "lucide-file",
               "title": "스크립트 점검"
+            }
+          },
+          {
+            "id": "52c1fa676dae7d08",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "시스템 보안 프로젝트.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "시스템 보안 프로젝트"
             }
           }
         ],
@@ -95,7 +95,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -130,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "참고 자료/기타 참고 파일/스크립트 점검.md",
+                "file": "시스템 보안 프로젝트.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -212,14 +213,15 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "52c1fa676dae7d08",
   "lastOpenFiles": [
+    "참고 자료/기타 참고 파일/스크립트 점검.md",
+    "시스템 보안 프로젝트.md",
     "참고 자료/기타 참고 파일/Ansible 취약점 진단 스크립트.md",
     "Ansible/Handler Ignore.md",
     "Ansible/Ansible Fact.md",
     "Ansible/Ansible Playbook.md",
     "Ansible/Ansible Adhoc.md",
-    "참고 자료/기타 참고 파일/스크립트 점검.md",
     "Images/Pasted image 20260814104329.png",
     "Images/Pasted image 20260814104122.png",
     "Images/Pasted image 20260814103648.png",
@@ -250,7 +252,6 @@
     "웹 · 앱/앱 · 애플리케이션 보안 실습.md",
     "웹 · 앱/관련 보안 포인트.md",
     "경로 조작.md",
-    "웹 · 앱/안드로이드 기본 개념 2.md",
     "CTF/ScriptCTF",
     "CTF",
     "참고 자료/기타 참고 파일/app/05장.pdf",
