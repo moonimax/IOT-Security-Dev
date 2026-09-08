@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS.md",
+                "file": "AWS/AWS 기본.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AWS"
+              "title": "AWS 기본"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS 웹 아키텍처 구축.md",
+                "file": "AWS/AWS 기본.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AWS 웹 아키텍처 구축"
+              "title": "AWS 기본"
             }
           }
         ],
@@ -213,6 +213,11 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "무제.md",
+    "AWS",
+    "AWS/AWS 기본.md",
+    "시스템 보안 프로젝트.md",
+    "AWS/AWS 웹 아키텍처 구축.md",
     "Images/Pasted image 20260908122646.png",
     "Images/Pasted image 20260908122557.png",
     "Images/Pasted image 20260908122510.png",
@@ -222,11 +227,7 @@
     "Images/Pasted image 20260908122248.png",
     "Images/Pasted image 20260908122202.png",
     "Images/Pasted image 20260908122125.png",
-    "AWS.md",
-    "AWS 웹 아키텍처 구축.md",
     "Images/Pasted image 20260902102912.png",
-    "Images/Pasted image 20260902102547.png",
-    "시스템 보안 프로젝트.md",
     "참고 자료/참고 사이트 모음집.md",
     "Database/DB Hydra Brute Force Attack.md",
     "Database/MSSQL_Metasploit_실습.md",
@@ -249,7 +250,6 @@
     "CTF/ScriptCTF/[ScriptCTF] 404 Found — Web.md",
     "Ansible",
     "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
-    "웹 취약점/웹 애플리케이션 보안 취약점.md",
     "CTF/ScriptCTF",
     "CTF",
     "참고 자료/기타 참고 파일/app/05장.pdf",
@@ -257,7 +257,6 @@
     "참고 자료/기타 참고 파일/app/12장.pdf",
     "참고 자료/기타 참고 파일/app/11장.pdf",
     "참고 자료/기타 참고 파일/app/10장.pdf",
-    "참고 자료/기타 참고 파일/app/09장.pdf",
-    "참고 자료/기타 참고 파일/app/08장.pdf"
+    "참고 자료/기타 참고 파일/app/09장.pdf"
   ]
 }
