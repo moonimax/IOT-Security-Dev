@@ -39,3 +39,100 @@ IasS, SasS, PasS
 
 AWS NW FireWall Hands - FW NW 정책 설정
 
+---
+
+### 1-1. Identity-based Policy
+
+S3 Bucket Access
+
+**권한 없는 terry** 
+![](../Images/Pasted%20image%2020260909100921.png)
+
+
+*AmazonS3ReadOnlyAccess 연결*
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:Get*",
+                "s3:List*",
+                "s3:Describe*",
+                "s3-object-lambda:Get*",
+                "s3-object-lambda:List*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+
+S3 Bucket 재연결
+![](../Images/Pasted%20image%2020260909101508.png)
+
+
+사용자 정의 JSON 정책 부여
+```json
+{
+  "Version": "2012-10-17",
+  // Bucket 모든 연결 접근 부여
+  "Statement": [
+    {
+      "Sid": "AllowListAllBuckets",
+      "Effect": "Allow",
+      "Action": "s3:ListAllMyBuckets",
+      "Resource": "*"
+    },
+    // IamPolicy정책에 의해 버킷 연결 접근 부여
+    {
+      "Sid": "AllowListIAMTestBucket",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::saps3bucketpolicytest"
+    },
+    //S3 버킷 읽기 전용 접근 권한 부여
+    {
+      "Sid": "AllowReadObjectsInIAMTest",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::saps3bucketpolicytest/*"
+    }
+  ]
+}
+```
+
+
+
+---
+### 1-2. Resource-based Policy
+
+
+]S3 Bucket - shareplease 정책 편집
+
+![](../Images/Pasted%20image%2020260909102447.png)
+
+>이 정책의 영향을 받는 주체의 범위가 Resource Policy에만 존재하여 Principal 원칙에 `::root` 명시하여, *이 계정에 속한 모든 ID 주체를 의미*
+
+
+위 정책을 아래와 같이 변경하게 된다면 정책 요구 사항은 다음과 같이 변경된다.
+
+-  1. "Effect" : Deny
+	- `admin` 유저조차 접근 불가한 강력한 통제에 걸린다.
+-  2. "AWS": [arn:aws:iam:::user/jake]
+	- 화이트 리스트 정책에 의해 위 Effect 단위에서 전체 접근을 제한한 정책에 대해 명시한 유저만을 접근 허용해준다.
+
+최종 판정 순서로, Deny가 명시되어 있는가? Identify Policy 또는 Resource Policy 중 하나라도 Allow 된 항목이 있는가? 그 어떤 것도 조건으로 걸려 있지 않으면 기본적으로 거부 상태로 제한되어 있다.
+
+
+---
+
+### 1-3. IAM-Role(Assume Role)
+
+
+
+
+
+
