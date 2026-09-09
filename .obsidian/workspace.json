@@ -55,7 +55,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "App Programing/Application Load Balance.md",
+                "file": "AWS/Application Load Balance.md",
                 "mode": "source",
                 "source": false
               },
@@ -239,8 +239,12 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "b7d5a0a9cf588895",
   "lastOpenFiles": [
+    "AWS/AWS Secrets Manager Part 2..md",
+    "AWS/AWS 웹 아키텍처 구축 Part 1..md",
+    "AWS/AWS 기본.md",
+    "AWS/Application Load Balance.md",
     "Images/Pasted image 20260909154007.png",
     "Images/Pasted image 20260909153935.png",
     "Images/Pasted image 20260909153932.png",
@@ -251,13 +255,8 @@
     "Images/02-alb-security-groups.png",
     "Images/01-alb-detail-listener.png",
     "Images/03-tg-t1.png",
-    "Images/09-ec2-e33-detail.png",
-    "AWS/AWS 기본.md",
-    "App Programing/Application Load Balance.md",
     "App Programing/Server 개발 구축.md",
     "App Programing/Lab Trouble Shooting 모음.md",
-    "AWS/AWS Secrets Manager Part 2..md",
-    "AWS/AWS 웹 아키텍처 구축 Part 1..md",
     "AWS",
     "시스템 보안 프로젝트.md",
     "참고 자료/참고 사이트 모음집.md",
