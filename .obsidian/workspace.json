@@ -41,7 +41,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS Secrets Manager Part 2..md",
+                "file": "AWS/AWS Secrets Manager Part 2..md",
                 "mode": "source",
                 "source": false
               },
@@ -227,14 +227,14 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "AWS/AWS 기본.md",
+    "AWS/AWS 웹 아키텍처 구축 Part 1..md",
+    "AWS/AWS Secrets Manager Part 2..md",
     "Images/Pasted image 20260908145601.png",
     "Images/Pasted image 20260908145504.png",
     "Images/Pasted image 20260908144932.png",
     "Images/Pasted image 20260908144834.png",
     "Images/Pasted image 20260908144440.png",
-    "AWS/AWS 웹 아키텍처 구축 Part 1..md",
-    "AWS Secrets Manager Part 2..md",
-    "AWS/AWS 기본.md",
     "AWS",
     "시스템 보안 프로젝트.md",
     "Images/Pasted image 20260908122646.png",
@@ -242,7 +242,6 @@
     "Images/Pasted image 20260908122510.png",
     "Images/Pasted image 20260908122448.png",
     "Images/Pasted image 20260908122423.png",
-    "Images/Pasted image 20260908122330.png",
     "참고 자료/참고 사이트 모음집.md",
     "Database/DB Hydra Brute Force Attack.md",
     "Database/MSSQL_Metasploit_실습.md",
