@@ -312,16 +312,6 @@ PHP 8부터 mysqli 연결 실패는 경고가 아닌 **예외**를 던진다. �
 mysqli_report(MYSQLI_REPORT_OFF);
 ```
 
-### 에러 메시지 읽는 법
-
-|에러|원인|
-|---|---|
-|`AccessDenied ... no identity-based policy allows`|IAM 권한 누락|
-|`AccessDenied ... explicit deny in SCP`|조직 정책 차단|
-|`ParameterNotFound`|이름 오타 또는 리전 불일치|
-|`Connection timed out`|보안 그룹|
-|`Access denied for user`|DB 계정/host|
-|`getaddrinfo failed`|호스트 주소 오류|
 
 ### Session Manager 접속 실패 시 점검 순서
 

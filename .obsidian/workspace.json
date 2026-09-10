@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/AWS Secrets Manager Part 2..md",
+                "file": "AWS/AWS 웹 아키텍처 구축 Part 1..md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AWS Secrets Manager Part 2."
+              "title": "AWS 웹 아키텍처 구축 Part 1."
+            }
+          },
+          {
+            "id": "01b5085663ba0a91",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NACL.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "NACL"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -196,12 +211,22 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "dd8d6f022d81f548",
+  "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "Images/Pasted image 20260910172741.png",
+    "Images/Pasted image 20260910172654.png",
+    "Images/Pasted image 20260910172406.png",
+    "Images/Pasted image 20260910170447.png",
+    "Images/캡처.png",
+    "Images/Pasted image 20260910164716.png",
+    "AWS/AWS 웹 아키텍처 구축 Part 1..md",
+    "NACL.md",
+    "AWS/AWS 기본.md",
+    "AWS/Application Load Balance.md",
+    "AWS/AWS Secrets Manager Part 2..md",
     "Database/MSSQL_Metasploit_실습.md",
     "Database/DB Hydra Brute Force Attack.md",
     "Crypto/암호학.md",
-    "AWS/AWS 기본.md",
     "웹 취약점/DVWA.md",
     "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
     "웹 취약점/웹 애플리케이션 보안 취약점.md",
@@ -216,25 +241,15 @@
     "Database/데이터베이스 기본 개념.md",
     "Database/MySQL Query.md",
     "Database/MySQL 로그 확인.md",
-    "AWS/Application Load Balance.md",
-    "AWS/AWS 웹 아키텍처 구축 Part 1..md",
-    "AWS/AWS Secrets Manager Part 2..md",
     "Images/Pasted image 20260909154007.png",
     "Images/Pasted image 20260909153935.png",
     "Images/Pasted image 20260909153932.png",
     "Images/10-cloudfront-origin.png",
     "Images/08-sg-rejectalbdns.png",
-    "Images/06-sg-launch-wizard-1.png",
-    "Images/07-sg-albsg.png",
-    "Images/02-alb-security-groups.png",
-    "Images/01-alb-detail-listener.png",
-    "Images/03-tg-t1.png",
     "AWS",
     "시스템 보안 프로젝트.md",
     "참고 자료/참고 사이트 모음집.md",
     "Database/데이터베이스 기본 개념2.md",
-    "Linux/Linux 명령어 정리.md",
-    "참고 자료/기타 참고 파일/스크립트 점검.md",
     "Ansible",
     "CTF/ScriptCTF",
     "CTF",
