@@ -84,7 +84,7 @@
 ```
 
 - `command` 모듈로 단순 echo 태스크 실행
-- 
+
 
 ---
 
@@ -107,6 +107,7 @@
 - `ignore_errors: yes`로 플레이북 실행이 중단되지 않고 진행됨
 
 ---
+
 
 ### playbook2.yaml - handler + ignore_errors 조합
 

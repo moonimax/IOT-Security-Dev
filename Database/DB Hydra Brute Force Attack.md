@@ -134,7 +134,7 @@ hydra -L /root/Desktop/user.txt -P /root/Desktop/pass.txt 192.168.63.128 mysql
 
 ---
 
-## 4. 실습이 시사하는 방어 포인트
+## 4. 방어 포인트
 
 - **강력한 비밀번호 정책** (`validate_password`/`simple_password_check` 플러그인 등으로 강제)
 - **호스트 제한**: 계정 생성 시 `LIKE`, `%` , `_` 와일드카드 남발 자제, 필요한 IP/대역만 허용
