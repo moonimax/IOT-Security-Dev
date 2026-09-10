@@ -24,6 +24,7 @@ Step 3)
 - `AmazonS3ReadOnlyAccess`
 
 
+
 Step 4)
 Gateway Endpoint 생성
 
