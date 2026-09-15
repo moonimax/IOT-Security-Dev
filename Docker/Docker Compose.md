@@ -91,3 +91,86 @@ springboot
 
 
 ![](../Images/Pasted%20image%2020260915114333.png)
+
+
+
+```java
+package com.example.demo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.RestController;
+
+  
+
+@RestController
+
+public class UserController {
+
+  
+
+@Autowired
+
+private JdbcTemplate jdbcTemplate;
+
+  
+
+@GetMapping("/hello")
+
+public String hello() {
+
+return "Hello from Spring Boot!";
+
+}
+
+  
+
+@GetMapping("/db-test")
+
+public String dbTest() {
+
+try {
+
+String sql = "SELECT testcol FROM test WHERE testid = 1";
+
+String result = jdbcTemplate.queryForObject(sql, String.class);
+
+return "Database test successful. The result of '1 + 1' is: " +
+
+result;
+
+} catch (Exception e) {
+
+e.printStackTrace();
+
+return "Database connection failed! Error: " + e.getMessage();
+
+}
+
+}
+
+}
+```
+
+
+db 테이블 생성
+```sql
+mysql> select * from test
+    -> ;
++--------+---------+
+| testid | testcol |
++--------+---------+
+|      1 |  apple  |
++--------+---------+
+1 row in set (0.00 sec)
+```
+
+
+출력 값
+![](../Images/Pasted%20image%2020260915122347.png)
+
+
