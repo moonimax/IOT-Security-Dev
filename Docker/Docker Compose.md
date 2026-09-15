@@ -4,26 +4,32 @@
 
 한번에 원하는 시스템을 구축할 수 있도록 시스템 전반적인 구축 과정을 실행하고 제거할 수 있는 설정 파일의 기능을 돕는 프로그램이다.
 
-기존 docker run을 여러 개로 배포된 설정 파일을 한번에 여러 개의 컨테이너를 생성하고, 이 컨테이너를 통해 네트워크 , 볼륨, 설정 파일, 환경 설정 필수 파일 등을 함께 만들 수 있다.
+기존 `docker run`을 여러 개로 배포된 설정 파일을 한번에 여러 개의 컨테이너를 생성하고, 이 컨테이너를 통해 네트워크 , 볼륨, 설정 파일, 환경 설정 필수 파일 등을 함께 만들 수 있다.
 
 ---
 
+## 워크플로우
 
-워크플로우
-
-1) 프로젝트 폴더 만들기
-2) compose.yaml 작성
-3) docker compse up -d
-4) 상태 로그 확인
-5) 수정 시 --build 또는 build
-6) 종료/정리(stop, down, down -v)
-
+1. 프로젝트 폴더 만들기
+2. compose.yaml 작성
+3. `docker compose up -d`
+4. 상태 / 로그 확인
+5. 수정 시 `--build`
+6. 종료 / 정리 (`stop`, `down`, `down -v`)
 
 
 ---
 
-AWS 폴더 생성 후 하위 디렉토리로 
-myweb- compose.yaml/ html 하위로 index.html을 생성한다.
+## 실습 1 - nginx
+
+AWS 폴더 생성 후 하위 디렉토리로 `myweb`을 만들고, 그 아래에 compose.yaml과 html/index.html을 생성.
+
+```
+myweb
+├── compose.yaml
+└── html
+    └── index.html
+```
 
 ![](Images/Pasted%20image%2020260915095228.png)
 
@@ -51,6 +57,7 @@ services:
 3) docker compose up -d
 ![](Images/Pasted%20image%2020260915100709.png)
 
+`.yaml` 파일의 환경 변수를 설정해서 이전에 했던 **IAC** 기반 배포/관리를 **CaC** 기반 구조로 바꿔봤다. 
 
 
 4) Postman에서 Get 요청 시 아래와 같은 결과 값 출력
@@ -59,17 +66,14 @@ services:
 ![](Images/Pasted%20image%2020260915101554.png)
 
 
-.yaml 파일의 환경 변수를 설정하여 이전에 실습했던 Iac 기반의 배포, 관리를 CaC로 변경하는 구조로 환경 설정을 코드로 관리하는 방식의 실습을 진행해 보았다.
 - 이 설정에 의해 서버 설정의 일관성이 유지될 수 있다는 장점을 챙길 수 있다.
 - 대표적인 도구 : Ansible, Chef, Puppet, SaltStack
 
-
 ---
 
-### 도커 컴포즈 springboot로 구현
+### 실습 2 - Spring Boot + MySQL
 
-
-서비스 정의
+##### 구조
 
 ```
 springboot
@@ -89,10 +93,43 @@ springboot
                 └── application.properties
 ```
 
+##### docker-compose.yml
 
 ![](../Images/Pasted%20image%2020260915114333.png)
 
+```
+services:
+  web:
+    build: ./springboot-app
+    container_name: springboot_app
+    ports:
+      - "8800:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/demo_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=1234
+    depends_on:
+      - db
+    restart: always
 
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=demo_db
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3366:3306"
+    restart: always
+
+volumes:
+  mysql_data:
+```
+
+
+##### UserController.java
 
 ```java
 package com.example.demo;
@@ -157,7 +194,8 @@ return "Database connection failed! Error: " + e.getMessage();
 ```
 
 
-db 테이블 생성
+##### DB 테이블 생성
+
 ```sql
 mysql> select * from test
     -> ;
@@ -170,7 +208,20 @@ mysql> select * from test
 ```
 
 
-출력 값
+**출력 값**
+
 ![](../Images/Pasted%20image%2020260915122347.png)
 
 
+---
+
+## 명령어 모음집
+```bash
+docker compose up -d           # 백그라운드 실행
+docker compose up -d --build   # 이미지 다시 빌드하고 실행
+docker compose ps              # 상태 확인
+docker compose logs -f         # 로그
+docker logs <컨테이너명> --tail 30
+docker compose down            # 컨테이너/네트워크 삭제
+docker compose down -v         # 볼륨까지 삭제
+```
