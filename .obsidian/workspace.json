@@ -34,9 +34,23 @@
               "icon": "lucide-file",
               "title": "VPC Endpoint"
             }
+          },
+          {
+            "id": "3631631bea829435",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Docker Compose.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Docker Compose"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -211,8 +225,15 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "dd8d6f022d81f548",
+  "active": "3631631bea829435",
   "lastOpenFiles": [
+    "Images/Pasted image 20260915101554.png",
+    "Images/Pasted image 20260915100709.png",
+    "Images/Pasted image 20260915095228.png",
+    "AWS/VPC Endpoint.md",
+    "Docker Compose.md",
+    "무제",
+    "Docker",
     "Images/Pasted image 20260910182028.png",
     "Images/Pasted image 20260910181534.png",
     "Images/Pasted image 20260910181352.png",
@@ -220,13 +241,9 @@
     "Images/Pasted image 20260910173944.png",
     "Images/Pasted image 20260910173643.png",
     "AWS/NACL.md",
-    "AWS/VPC Endpoint.md",
     "AWS/AWS 웹 아키텍처 구축 Part 1..md",
     "Images/Pasted image 20260910172741.png",
     "Images/Pasted image 20260910172654.png",
-    "Images/Pasted image 20260910172406.png",
-    "Images/Pasted image 20260910170447.png",
-    "Images/캡처.png",
     "AWS/AWS 기본.md",
     "AWS/Application Load Balance.md",
     "AWS/AWS Secrets Manager Part 2..md",
@@ -249,15 +266,12 @@
     "Database/MySQL 로그 확인.md",
     "AWS",
     "시스템 보안 프로젝트.md",
-    "참고 자료/참고 사이트 모음집.md",
     "Ansible",
     "CTF/ScriptCTF",
     "CTF",
     "참고 자료/기타 참고 파일/app/05장.pdf",
     "참고 자료/기타 참고 파일/05장.pdf",
     "참고 자료/기타 참고 파일/app/12장.pdf",
-    "참고 자료/기타 참고 파일/app/11장.pdf",
-    "참고 자료/기타 참고 파일/app/10장.pdf",
-    "참고 자료/기타 참고 파일/app/09장.pdf"
+    "참고 자료/기타 참고 파일/app/11장.pdf"
   ]
 }
