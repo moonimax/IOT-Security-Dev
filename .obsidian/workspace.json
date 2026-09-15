@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "VPC Endpoint.md",
+                "file": "AWS/VPC Endpoint.md",
                 "mode": "source",
                 "source": false
               },
@@ -95,8 +95,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -212,7 +211,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "24e414e36c84a594",
+  "active": "dd8d6f022d81f548",
   "lastOpenFiles": [
     "Images/Pasted image 20260910182028.png",
     "Images/Pasted image 20260910181534.png",
@@ -221,7 +220,7 @@
     "Images/Pasted image 20260910173944.png",
     "Images/Pasted image 20260910173643.png",
     "AWS/NACL.md",
-    "VPC Endpoint.md",
+    "AWS/VPC Endpoint.md",
     "AWS/AWS 웹 아키텍처 구축 Part 1..md",
     "Images/Pasted image 20260910172741.png",
     "Images/Pasted image 20260910172654.png",
