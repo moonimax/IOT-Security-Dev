@@ -89,3 +89,5 @@ springboot
                 └── application.properties
 ```
 
+
+![](../Images/Pasted%20image%2020260915114333.png)
