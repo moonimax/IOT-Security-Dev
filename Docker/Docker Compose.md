@@ -1,4 +1,14 @@
 
+---
+### 개념
+
+한번에 원하는 시스템을 구축할 수 있도록 시스템 전반적인 구축 과정을 실행하고 제거할 수 있는 설정 파일의 기능을 돕는 프로그램이다.
+
+기존 docker run을 여러 개로 배포된 설정 파일을 한번에 여러 개의 컨테이너를 생성하고, 이 컨테이너를 통해 네트워크 , 볼륨, 설정 파일, 환경 설정 필수 파일 등을 함께 만들 수 있다.
+
+---
+
+
 워크플로우
 
 1) 프로젝트 폴더 만들기
@@ -49,4 +59,33 @@ services:
 ![](Images/Pasted%20image%2020260915101554.png)
 
 
+.yaml 파일의 환경 변수를 설정하여 이전에 실습했던 Iac 기반의 배포, 관리를 CaC로 변경하는 구조로 환경 설정을 코드로 관리하는 방식의 실습을 진행해 보았다.
+- 이 설정에 의해 서버 설정의 일관성이 유지될 수 있다는 장점을 챙길 수 있다.
+- 대표적인 도구 : Ansible, Chef, Puppet, SaltStack
+
+
+---
+
+### 도커 컴포즈 springboot로 구현
+
+
+서비스 정의
+
+```
+springboot
+├── docker-compose.yml
+└── springboot-app
+    ├── build.gradle
+    ├── Dockerfile
+    └── src
+        └── main
+            ├── java
+            │   └── com
+            │       └── example
+            │           └── demo
+            │               ├── DemoApplication.java
+            │               └── UserController.java
+            └── resources
+                └── application.properties
+```
 
