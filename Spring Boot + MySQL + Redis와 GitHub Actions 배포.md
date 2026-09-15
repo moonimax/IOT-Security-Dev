@@ -315,3 +315,27 @@ jobs:
 ![](Images/Pasted%20image%2020260915193006.png)
 
 
+---
+
+AWS EC2 Instance Public 연결
+
+**Docker 공식 저장소 등록 후 설치**
+```bash
+sudo apt update
+sudo apt install -y ca-certificates curl gnupg lsb-release
+# 도커 서비스 상태 확인
+sudo systemctl status docker
+# 비활성/에러면 시작 및 부팅 자동 시작
+sudo systemctl enable --now docker
+# docker 그룹에 현재 사용자 추가
+sudo usermod -aG docker $USER
+# 현재 세션에 즉시 반영
+newgrp docker
+
+# 설치된 docker 버전 확인
+docker --version
+docker compose version
+docker info 
+```
+
+
