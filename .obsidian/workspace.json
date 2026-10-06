@@ -197,8 +197,18 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "513c33a24c25e722",
   "lastOpenFiles": [
+    "Images/Pfsense DMZ&LAN 구축.mp4",
+    "Images/Pasted image 20261006154101.png",
+    "Images/Pasted image 20261006154031.png",
+    "Images/Pfsense Firewall.mp4",
+    "Images/Pasted image 20261006102240.png",
+    "Images/Pasted image 20261006102118.png",
+    "Images/Pasted image 20261006101831.png",
+    "Images/Pasted image 20261006101734.png",
+    "Images/Pasted image 20261006101717.png",
+    "Images/Pasted image 20261006092044.png",
     "보안 장비의 이해.md",
     "AWS/Spring Boot + MySQL + Redis와 GitHub Actions 배포.md",
     "Docker/Docker Compose.md",
@@ -206,16 +216,8 @@
     "AWS/NACL.md",
     "Images/Pasted image 20260915193140.png",
     "Images/Pasted image 20260915193006.png",
-    "Images/Pasted image 20260915122347.png",
-    "Images/Pasted image 20260915114333.png",
-    "Images/Pasted image 20260915101554.png",
-    "Images/Pasted image 20260915100709.png",
-    "Images/Pasted image 20260915095228.png",
     "무제",
     "Docker",
-    "Images/Pasted image 20260910182028.png",
-    "Images/Pasted image 20260910181534.png",
-    "Images/Pasted image 20260910181352.png",
     "AWS/AWS 웹 아키텍처 구축 Part 1..md",
     "AWS/AWS 기본.md",
     "AWS/Application Load Balance.md",
@@ -236,14 +238,12 @@
     "Ansible/Ansible Playbook.md",
     "Database/데이터베이스 기본 개념.md",
     "Database/MySQL Query.md",
-    "Database/MySQL 로그 확인.md",
     "AWS",
     "Ansible",
     "CTF/ScriptCTF",
     "CTF",
     "참고 자료/기타 참고 파일/app/05장.pdf",
     "참고 자료/기타 참고 파일/05장.pdf",
-    "참고 자료/기타 참고 파일/app/12장.pdf",
-    "참고 자료/기타 참고 파일/app/11장.pdf"
+    "참고 자료/기타 참고 파일/app/12장.pdf"
   ]
 }
