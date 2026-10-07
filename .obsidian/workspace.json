@@ -95,7 +95,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -213,6 +214,8 @@
   },
   "active": "0ec77b1c6292be88",
   "lastOpenFiles": [
+    "Images/Pasted image 20261007110929.png",
+    "Images/Pasted image 20261007094953.png",
     "Images/Pasted image 20261007092517.png",
     "보안 장비의 이해.md",
     "IDS 와 IPS.md",
@@ -226,12 +229,10 @@
     "Images/Pasted image 20261006101831.png",
     "Images/Pasted image 20261006101734.png",
     "Images/Pasted image 20261006101717.png",
-    "Images/Pasted image 20261006092044.png",
     "AWS/Spring Boot + MySQL + Redis와 GitHub Actions 배포.md",
     "Docker/Docker Compose.md",
     "AWS/VPC Endpoint.md",
     "AWS/NACL.md",
-    "Images/Pasted image 20260915193140.png",
     "무제",
     "Docker",
     "AWS/AWS 웹 아키텍처 구축 Part 1..md",

@@ -16,3 +16,8 @@
 **VMnet1**
 - IP = 192.168.30.1
 - Subnet = 255.255.255.0
+
+![](Images/Pasted%20image%2020261007094953.png)
+
+
+![](Images/Pasted%20image%2020261007110929.png)
