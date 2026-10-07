@@ -214,6 +214,11 @@
   },
   "active": "0ec77b1c6292be88",
   "lastOpenFiles": [
+    "Images/Pasted image 20261007152406.png",
+    "Images/Pasted image 20261007150212.png",
+    "Images/Pasted image 20261007150156.png",
+    "Images/Suricata ping test 1.mp4",
+    "Images/Suricata ping test.mp4",
     "Images/Pasted image 20261007110929.png",
     "Images/Pasted image 20261007094953.png",
     "Images/Pasted image 20261007092517.png",
@@ -226,9 +231,6 @@
     "Images/Pfsense Firewall.mp4",
     "Images/Pasted image 20261006102240.png",
     "Images/Pasted image 20261006102118.png",
-    "Images/Pasted image 20261006101831.png",
-    "Images/Pasted image 20261006101734.png",
-    "Images/Pasted image 20261006101717.png",
     "AWS/Spring Boot + MySQL + Redis와 GitHub Actions 배포.md",
     "Docker/Docker Compose.md",
     "AWS/VPC Endpoint.md",
@@ -257,8 +259,6 @@
     "AWS",
     "Ansible",
     "CTF/ScriptCTF",
-    "CTF",
-    "참고 자료/기타 참고 파일/app/05장.pdf",
-    "참고 자료/기타 참고 파일/05장.pdf"
+    "CTF"
   ]
 }
