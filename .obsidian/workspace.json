@@ -225,10 +225,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "aca5c37be7e48791",
+  "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
     "IDS 와 IPS.md",
     "정규 표현식.md",
+    "Docker/Docker Compose.md",
     "Images/Pasted image 20261007152406.png",
     "Images/Pasted image 20261007150212.png",
     "Images/Pasted image 20261007150156.png",
@@ -245,7 +246,6 @@
     "Images/Pfsense Firewall.mp4",
     "Images/Pasted image 20261006102240.png",
     "AWS/Spring Boot + MySQL + Redis와 GitHub Actions 배포.md",
-    "Docker/Docker Compose.md",
     "AWS/VPC Endpoint.md",
     "AWS/NACL.md",
     "무제",
