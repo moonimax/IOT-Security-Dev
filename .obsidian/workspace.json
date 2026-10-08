@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "정규 표현식.md",
+                "file": "IDS 와 IPS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "정규 표현식"
+              "title": "IDS 와 IPS"
             }
           }
         ],
@@ -225,10 +225,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "aca5c37be7e48791",
   "lastOpenFiles": [
-    "IDS 와 IPS.md",
+    "시스템 보안 프로젝트.md",
     "정규 표현식.md",
+    "IDS 와 IPS.md",
     "Docker/Docker Compose.md",
     "Images/Pasted image 20261007152406.png",
     "Images/Pasted image 20261007150212.png",
@@ -268,7 +269,6 @@
     "Ansible/Ansible Fact.md",
     "Ansible/Ansible Adhoc.md",
     "Ansible/Ansible Playbook.md",
-    "Database/데이터베이스 기본 개념.md",
     "AWS",
     "Ansible",
     "CTF/ScriptCTF",
