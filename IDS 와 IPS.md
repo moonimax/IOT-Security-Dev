@@ -65,6 +65,7 @@ Snort는 네트워크가 오고 가는 패킷(iSO 3-Layer)을 실시간으로 �
 WAF(Web Application Firewall)
 
 HTTP(s) 본문 해석과 SSL/TLS 처리를 위하여 장비 자체의 부하 발생
+
 Forward Proxy
 - 외부에서 내부 웹서버 접근 시 웹 서버 IP를 숨겨주는 역할
 Reverse Proxy
