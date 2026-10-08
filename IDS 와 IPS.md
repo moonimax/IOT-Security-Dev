@@ -65,7 +65,13 @@ Snort는 네트워크가 오고 가는 패킷(iSO 3-Layer)을 실시간으로 �
 WAF(Web Application Firewall)
 
 HTTP(s) 본문 해석과 SSL/TLS 처리를 위하여 장비 자체의 부하 발생
+Parsing 불일치로 인하여 우회 기법이 지속적으로 존재
+Parsing은 WAF가 데이터를 해석하는 방식과 백엔드 Web/ DB가 해석하는 방식의 틈새를 노리는 우회 공격 원리
 
+[tip]
+- 새로운 룰을 만들 때, 무조건 차단 모드를 바로 켜버리면 안됨
+	`script`라는 태그 값을 차단하게 되면, alert 형식으로 패턴 파악부터 진행
+	 이로 인해, 오탐률이 0에 수렴하게 된다면 차단 룰로 등록할 수 있는 가능성이 높아짐
 Forward Proxy
 - 외부에서 내부 웹서버 접근 시 웹 서버 IP를 숨겨주는 역할
 Reverse Proxy
