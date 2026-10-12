@@ -94,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -211,9 +210,12 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "aca5c37be7e48791",
   "lastOpenFiles": [
+    "정규 표현식.md",
     "이상 징후 탐지.md",
+    "시스템 보안 프로젝트.md",
+    "보안 솔루션 및 장비 이해.md",
     "IDS 와 IPS.md",
     "Images/NoteTo.md",
     "Images/Pasted image 20261012162950.png",
@@ -228,9 +230,6 @@
     "Images/Pasted image 20261012153038.png",
     "Images/Pasted image 20261012152326.png",
     "Images/Pasted image 20261012152041.png",
-    "정규 표현식.md",
-    "보안 솔루션 및 장비 이해.md",
-    "시스템 보안 프로젝트.md",
     "Docker/Docker Compose.md",
     "Images/Suricata ping test 1.mp4",
     "Images/Suricata ping test.mp4",
