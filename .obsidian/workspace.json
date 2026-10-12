@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "보안 솔루션 및 장비 이해.md",
+                "file": "보안 솔루션/보안 솔루션 및 장비 이해.md",
                 "mode": "source",
                 "source": false
               },
@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pfsense 실습.md",
+                "file": "보안 솔루션/Pfsense 실습.md",
                 "mode": "source",
                 "source": false
               },
@@ -41,7 +41,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "이상 징후 탐지.md",
+                "file": "보안 솔루션/이상 징후 탐지.md",
                 "mode": "source",
                 "source": false
               },
@@ -225,14 +225,15 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "38a861cefa3e0dcb",
+  "active": "dd8d6f022d81f548",
   "lastOpenFiles": [
-    "보안 솔루션 및 장비 이해.md",
-    "Pfsense 실습.md",
-    "정규 표현식.md",
-    "이상 징후 탐지.md",
+    "보안 솔루션",
+    "보안 솔루션/보안 솔루션 및 장비 이해.md",
+    "보안 솔루션/Pfsense 실습.md",
+    "보안 솔루션/정규 표현식.md",
+    "보안 솔루션/이상 징후 탐지.md",
     "시스템 보안 프로젝트.md",
-    "IDS 와 IPS.md",
+    "보안 솔루션/IDS 와 IPS.md",
     "Images/NoteTo.md",
     "Images/Pasted image 20261012162950.png",
     "Images/Pasted image 20261012162431.png",
@@ -254,7 +255,6 @@
     "AWS/Spring Boot + MySQL + Redis와 GitHub Actions 배포.md",
     "AWS/VPC Endpoint.md",
     "AWS/NACL.md",
-    "무제",
     "Docker",
     "AWS/AWS 웹 아키텍처 구축 Part 1..md",
     "AWS/AWS 기본.md",
@@ -270,7 +270,6 @@
     "웹 취약점/Google Hacking(Google Dork).md",
     "App Programing/Server 개발 구축.md",
     "App Programing/Lab Trouble Shooting 모음.md",
-    "Ansible/Handler Ignore.md",
     "AWS",
     "Ansible"
   ]
