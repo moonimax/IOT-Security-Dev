@@ -214,12 +214,16 @@
   },
   "active": "48f992b6347ed085",
   "lastOpenFiles": [
+    "Images/NoteTo.md",
+    "이상 징후 탐지.md",
+    "Images/NoteTo 1",
+    "Images/NoteTo",
+    "Images/Pasted image 20261012155225.png",
     "Images/Pasted image 20261012154928.png",
     "Images/Pasted image 20261012153038.png",
     "Images/Pasted image 20261012152326.png",
     "Images/Pasted image 20261012152041.png",
     "IDS 와 IPS.md",
-    "이상 징후 탐지.md",
     "정규 표현식.md",
     "보안 장비의 이해.md",
     "시스템 보안 프로젝트.md",
@@ -231,8 +235,6 @@
     "Images/Suricata ping test.mp4",
     "Images/Pasted image 20261007110929.png",
     "Images/Pasted image 20261007094953.png",
-    "Images/Pasted image 20261007092517.png",
-    "Images/Pasted image 20261006163737.png",
     "Images/Pfsense DMZ&LAN 구축.mp4",
     "Images/Pfsense Firewall.mp4",
     "AWS/Spring Boot + MySQL + Redis와 GitHub Actions 배포.md",
@@ -255,10 +257,7 @@
     "App Programing/Server 개발 구축.md",
     "App Programing/Lab Trouble Shooting 모음.md",
     "Ansible/Handler Ignore.md",
-    "Ansible/Ansible Fact.md",
     "AWS",
-    "Ansible",
-    "CTF/ScriptCTF",
-    "CTF"
+    "Ansible"
   ]
 }
