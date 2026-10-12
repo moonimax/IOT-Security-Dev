@@ -243,7 +243,7 @@ public class UserController2 {
 
 **Docker HUB**
 등록한 레포지토리에 build를 통해 image 배포가 가능한 래포지토리를 등록하면 다음과 같은 화면을 뜬다.
-![](Images/Pasted%20image%2020260915193140.png)
+![](../Images/Pasted%20image%2020260915193140.png)
 
 
 
@@ -312,7 +312,7 @@ jobs:
 
 
 ***Secrets 등록***
-![](Images/Pasted%20image%2020260915193006.png)
+![](../Images/Pasted%20image%2020260915193006.png)
 
 
 ---

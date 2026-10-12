@@ -69,7 +69,7 @@ RDS는 Secrets Manager와 연동되어 AWS가 이 과정을 대신 수행한다.
 
 RDS 콘솔 → 서브넷 그룹 → **DB 서브넷 그룹 생성**
 
-![](Images/Pasted%20image%2020260908144440.png)
+![](../Images/Pasted%20image%2020260908144440.png)
 
 | 항목    | 값                                    |
 | ----- | ------------------------------------ |
@@ -133,7 +133,7 @@ Secrets Manager 관리를 선택하면 비밀번호 입력란이 사라지고 KM
 
 Secret Name `rds!db-` 로 시작하는 자동 생성 이름이다.
 
-![](Images/Pasted%20image%2020260908144834.png)
+![](../Images/Pasted%20image%2020260908144834.png)
 ```
 rds!db-453c64f6-9fbc-4c17-8039-c93bf85fca8a
 ```
@@ -147,7 +147,7 @@ rds!db-453c64f6-9fbc-4c17-8039-c93bf85fca8a
 
 ### 6-1. 비밀번호 확인
 
-![](Images/Pasted%20image%2020260908144932.png)
+![](../Images/Pasted%20image%2020260908144932.png)
 Secrets Manager → 해당 시크릿 → 아래로 스크롤 → **보안 암호 값** → **보안 암호 값 검색** 버튼
 
 `username`과 `password`가 표로 표시된다. 
@@ -287,7 +287,7 @@ sudo php /var/www/html/index.php
 
 ### 8-4. 무엇이 달라졌는지 확인
 
-![](Images/Pasted%20image%2020260908145504.png)
+![](../Images/Pasted%20image%2020260908145504.png)
 
 변수에 담기는 과정만 있고 **값 자체가 코드에 없다.**
 Part 1의 `$pass = "webuser";`와 비교할 것.
@@ -325,7 +325,7 @@ password가 전히 다른 문자열이어야 한다.
 
 브라우저에서 `http://<웹서버_퍼블릭IP>` **새로고침**.
 
-![](Images/Pasted%20image%2020260908145601.png)
+![](../Images/Pasted%20image%2020260908145601.png)
 
 - 코드는 한 글자도 수정하지 않았다
 - 서버를 재시작하지 않았다

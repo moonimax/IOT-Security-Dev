@@ -31,7 +31,7 @@ myweb
     └── index.html
 ```
 
-![](Images/Pasted%20image%2020260915095228.png)
+![](../Images/Pasted%20image%2020260915095228.png)
 
 
 compose.yaml 작성
@@ -55,7 +55,7 @@ services:
 
 
 3) docker compose up -d
-![](Images/Pasted%20image%2020260915100709.png)
+![](../Images/Pasted%20image%2020260915100709.png)
 
 `.yaml` 파일의 환경 변수를 설정해서 이전에 했던 **IAC** 기반 배포/관리를 **CaC** 기반 구조로 바꿔봤다. 
 
@@ -63,7 +63,7 @@ services:
 4) Postman에서 Get 요청 시 아래와 같은 결과 값 출력
 
 
-![](Images/Pasted%20image%2020260915101554.png)
+![](../Images/Pasted%20image%2020260915101554.png)
 
 
 - 이 설정에 의해 서버 설정의 일관성이 유지될 수 있다는 장점을 챙길 수 있다.

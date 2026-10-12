@@ -36,7 +36,7 @@
 
 2. 터미널에서 rocky1(제어 노드) 연동
 
-![](Images/Pasted%20image%2020260811093232.png)
+![](../Images/Pasted%20image%2020260811093232.png)
 
 3. 호스트네임 설정
 
@@ -49,8 +49,8 @@ sudo hostnamectl set-hostname managed
 
 4. 제어 노드 / 관리 노드 설정 완료 확인
 
-![](Images/Pasted%20image%2020260811093706.png)
-![](Images/Pasted%20image%2020260811093733.png)
+![](../Images/Pasted%20image%2020260811093706.png)
+![](../Images/Pasted%20image%2020260811093733.png)
 
 
 5. Ansible 설치

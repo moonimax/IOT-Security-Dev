@@ -53,27 +53,27 @@ VPC 콘솔 → VPC 생성 → **VPC 등** 선택
 - NAT GW: 없음 (Step 2에서 생성)
 
 생성 후 Public Subnet → 작업 → 서브넷 설정 편집 → **퍼블릭 IPv4 자동 할당 활성화**
-![](Images/Pasted%20image%2020260908122248.png)
+![](../Images/Pasted%20image%2020260908122248.png)
 
 
 ### IAM 역할
 
 IAM → 역할 생성 → AWS 서비스 → EC2 → 정책 `AmazonSSMManagedInstanceCore` 연결 → 이름 `ec2-ssm-role`
 
-![](Images/Pasted%20image%2020260908122330.png)
+![](../Images/Pasted%20image%2020260908122330.png)
 
 
 
 ### 보안 그룹 3종
 
 *web-sg*
-![](Images/Pasted%20image%2020260908122423.png)
+![](../Images/Pasted%20image%2020260908122423.png)
 
 *db-sg*
-![](Images/Pasted%20image%2020260908122448.png)
+![](../Images/Pasted%20image%2020260908122448.png)
 
 *endpoint-sg*
-![](Images/Pasted%20image%2020260908122510.png)
+![](../Images/Pasted%20image%2020260908122510.png)
 
 |이름|인바운드|소스|
 |---|---|---|
@@ -121,7 +121,7 @@ echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/index.php
 ## 4. Step 2 — Private EC2 (DB서버)
 
 ### 4-1. NAT Gateway
-![](Images/Pasted%20image%2020260908122557.png)
+![](../Images/Pasted%20image%2020260908122557.png)
 VPC → NAT 게이트웨이 생성
 
 - 서브넷: **Public Subnet**
@@ -133,13 +133,13 @@ Private Subnet에 연결된 라우팅 테이블 선택 → 라우팅 편집 → 
 
 편집 전 **서브넷 연결 탭**에서 Private인지 반드시 확인. 
 Public 라우팅 테이블을 수정하면 웹서버가 죽는다.
-![](Images/Pasted%20image%2020260908122202.png)
+![](../Images/Pasted%20image%2020260908122202.png)
 
 ### 4-3. VPC Endpoint 3개
 
 Session Manager는 아래 3개가 모두 있어야 동작한다.
 
-![](Images/Pasted%20image%2020260908122646.png)
+![](../Images/Pasted%20image%2020260908122646.png)
 ```
 com.amazonaws.ap-northeast-2.ssm
 com.amazonaws.ap-northeast-2.ssmmessages
@@ -272,7 +272,7 @@ sudo php /var/www/html/index.php    # CLI 실행 (에러 그대로 출력)
 
 
 브라우저에서 `http://<웹서버_퍼블릭IP>` → tom, jerry 표 출력
-![](Images/Pasted%20image%2020260908122125.png)
+![](../Images/Pasted%20image%2020260908122125.png)
 
 ---
 
