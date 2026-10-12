@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "IDS 와 IPS.md",
+                "file": "보안 솔루션 및 장비 이해.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "IDS 와 IPS"
+              "title": "보안 솔루션 및 장비 이해"
             }
           },
           {
@@ -35,8 +35,7 @@
               "title": "이상 징후 탐지"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -214,8 +213,9 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
-    "Images/NoteTo.md",
     "이상 징후 탐지.md",
+    "IDS 와 IPS.md",
+    "Images/NoteTo.md",
     "Images/Pasted image 20261012162950.png",
     "Images/Pasted image 20261012162431.png",
     "Images/Pasted image 20261012162219.png",
@@ -228,9 +228,8 @@
     "Images/Pasted image 20261012153038.png",
     "Images/Pasted image 20261012152326.png",
     "Images/Pasted image 20261012152041.png",
-    "IDS 와 IPS.md",
     "정규 표현식.md",
-    "보안 장비의 이해.md",
+    "보안 솔루션 및 장비 이해.md",
     "시스템 보안 프로젝트.md",
     "Docker/Docker Compose.md",
     "Images/Suricata ping test 1.mp4",
