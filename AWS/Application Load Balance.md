@@ -94,7 +94,7 @@ echo "<h1>Hello from EC2 $(hostname -f)</h1>" > /var/www/html/index.html
 
 ### 인스턴스 상세 내용
 
-![](Images/09-ec2-e33-detail.png)
+![](../Images/09-ec2-e33-detail.png)
 
 |항목|값|
 |---|---|
@@ -124,7 +124,7 @@ echo "<h1>Hello from EC2 $(hostname -f)</h1>" > /var/www/html/index.html
 ### t1 → e1에서 모든 대상 그룹 매핑
 
 
-![](Images/03-tg-t1.png)
+![](../Images/03-tg-t1.png)
 
 
 > 위 캡처는 대상 등록 직후 시점이라 상태가 `Unhealthy`로 보인다.
@@ -136,7 +136,7 @@ echo "<h1>Hello from EC2 $(hostname -f)</h1>" > /var/www/html/index.html
 
 ### 세부 정보 및 리스너
 
-![](Images/01-alb-detail-listener.png)
+![](../Images/01-alb-detail-listener.png)
 
 |항목|값|
 |---|---|
@@ -177,7 +177,7 @@ echo "<h1>Hello from EC2 $(hostname -f)</h1>" > /var/www/html/index.html
 
 ### 보안 탭
 
-![](Images/02-alb-security-groups.png)
+![](../Images/02-alb-security-groups.png)
 
 
 |보안 그룹 ID|이름|인바운드|
@@ -192,7 +192,7 @@ echo "<h1>Hello from EC2 $(hostname -f)</h1>" > /var/www/html/index.html
 ## 5. 보안 그룹 구성
 
 ### albSG — ALB
-![](Images/07-sg-albsg.png)
+![](../Images/07-sg-albsg.png)
 
 
 |항목|값|
@@ -204,7 +204,7 @@ echo "<h1>Hello from EC2 $(hostname -f)</h1>" > /var/www/html/index.html
 
 ### launch-wizard-1 — EC2에 부착
 
-![](Images/06-sg-launch-wizard-1.png)
+![](../Images/06-sg-launch-wizard-1.png)
 
 |유형|프로토콜|포트|소스|
 |---|---|---|---|
@@ -226,7 +226,7 @@ echo "<h1>Hello from EC2 $(hostname -f)</h1>" > /var/www/html/index.html
 
 
 ### RejectAlbDNS — 미사용
-![](Images/08-sg-rejectalbdns.png)
+![](../Images/08-sg-rejectalbdns.png)
 
 
 |항목|값|
@@ -241,7 +241,7 @@ CloudFront 엣지 IP 대역만 허용하려고 만들었으나 최종 구성에�
 
 ## 6. CloudFront 구성
 
-![](Images/10-cloudfront-origin.png)
+![](../Images/10-cloudfront-origin.png)
 
 |항목|값|
 |---|---|
@@ -286,9 +286,9 @@ CloudFront 엣지 IP 대역만 허용하려고 만들었으나 최종 구성에�
 
 ## 8. 검증 결과
 
-![](Images/Pasted%20image%2020260909153935.png)
+![](../Images/Pasted%20image%2020260909153935.png)
 
-![](Images/Pasted%20image%2020260909154007.png)
+![](../Images/Pasted%20image%2020260909154007.png)
 
 | #   | 접속 경로                                                     | 기대  | 결과              |
 | --- | --------------------------------------------------------- | --- | --------------- |

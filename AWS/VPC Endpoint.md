@@ -14,14 +14,14 @@
 **Step 1 )**
 
 `S3 Buket - vpce-test-sh` 
-![](Images/Pasted%20image%2020260910173643.png)
+![](../Images/Pasted%20image%2020260910173643.png)
 
 
 
 **Step 2)**
 
 `Iam Role - role-ec2-ssm-s3`
-![](Images/Pasted%20image%2020260910173944.png)
+![](../Images/Pasted%20image%2020260910173944.png)
 
 
 **Step 3)**
@@ -39,13 +39,13 @@
 
 >Gateway Endpoint 생성
 
-![](Images/Pasted%20image%2020260910181534.png)
+![](../Images/Pasted%20image%2020260910181534.png)
 
 
 
 **Step 5)**
 private 라우팅 테이블 인바운드 규칙 설립
-![](Images/Pasted%20image%2020260910182028.png)
+![](../Images/Pasted%20image%2020260910182028.png)
 
 
 
@@ -92,7 +92,7 @@ curl -s -m 3 http://169.254.169.254/latest/meta-data/public-ipv4 && echo "공인
 ```
 
 
-![](Images/Pasted%20image%2020260910180810.png)
+![](../Images/Pasted%20image%2020260910180810.png)
 
 
 
@@ -103,7 +103,7 @@ curl -s -m 3 http://169.254.169.254/latest/meta-data/public-ipv4 && echo "공인
 즉, **인터넷은 완전히 막혀 있는데 AWS 서비스는 쓸 수 있는 상태**.
 이게 규제 준수 환경에서 VPC EndPoint를 쓰는 이유고, 이번 실습에서 보여주려는 그림이였다!!
 
-![](Images/Pasted%20image%2020260910181352.png)
+![](../Images/Pasted%20image%2020260910181352.png)
 
 
 ---

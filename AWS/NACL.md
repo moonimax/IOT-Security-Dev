@@ -1,7 +1,7 @@
 
 ---
 
-![](Images/Pasted%20image%2020260910172741.png)
+![](../Images/Pasted%20image%2020260910172741.png)
 
 **NACL Hands-on**
 
@@ -12,7 +12,7 @@ Step 1)
 Windows 터미널 환경으로 ssh 연결 확인
 `public instance key pair -> nacl-test.pem` 생성됨을 사전 조건
 
-![](Images/Pasted%20image%2020260910164716.png)
+![](../Images/Pasted%20image%2020260910164716.png)
 
 접속됨을 확인
 
@@ -20,11 +20,11 @@ Windows 터미널 환경으로 ssh 연결 확인
 Step 2)
 NACL 생성 후 인/아웃바운드 규칙 설정
 
-![](Images/캡처.png)
+![](../Images/%EC%BA%A1%EC%B2%98.png)
 
 **Inbound Rules**
 
-![](Images/Pasted%20image%2020260910170447.png)
+![](../Images/Pasted%20image%2020260910170447.png)
 
  **Outbound Rules**
 
@@ -41,7 +41,7 @@ SG의 In/Out Bound 트래픽을 모두 허용해야 한다.
 
 `public instance - ec2-pb-nac1`
 
-![](Images/Pasted%20image%2020260910172406.png)
+![](../Images/Pasted%20image%2020260910172406.png)
 
 
 
@@ -52,7 +52,7 @@ Step 4)
 ssh -i nacl-test.pem ec2-user@[내 ip 주소]
 ```
 
-![](Images/Pasted%20image%2020260910172654.png)
+![](../Images/Pasted%20image%2020260910172654.png)
 
 
 **NACL 구축 완료 확인!**
