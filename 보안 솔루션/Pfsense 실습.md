@@ -1,24 +1,30 @@
+# pfSense 방화벽 실습
+
+> 📌 이론 정리는 [보안 솔루션 및 장비 이해](<보안 솔루션 및 장비 이해.md>) 참고
+
+---
+
 ## 1. VMware 네트워크 모드
 
-이미지 표시
+![](../Images/Pasted%20image%2020261006092044.png)
 
-|모드|설명|
-|---|---|
-|Bridge|VM이 호스트 PC와 **같은 네트워크 대역**에 위치 (공유기에서 IP를 직접 받음)|
-|NAT|VM은 VMware 내부 **사설 대역**을 사용하고, 외부로 나갈 때는 호스트 PC의 IP로 변환되어 통신|
-|Host-only|외부 통신 차단, **호스트 PC와 VM 간 통신만** 가능|
+| 모드 | 설명 |
+| --- | --- |
+| Bridge | VM이 호스트 PC와 **같은 네트워크 대역**에 위치 (공유기에서 IP를 직접 받음) |
+| NAT | VM은 VMware 내부 **사설 대역**을 사용하고, 외부로 나갈 때는 호스트 PC의 IP로 변환되어 통신 |
+| Host-only | 외부 통신 차단, **호스트 PC와 VM 간 통신만** 가능 |
 
 ---
 
 ## 2. pfSense 설치 및 기본 설정
 
-이미지 표시
+![](../Images/Pasted%20image%2020261006101734.png)
 
-이미지 표시
+![](../Images/Pasted%20image%2020261006101717.png)
 
-이미지 표시
+![](../Images/Pasted%20image%2020261006101831.png)
 
-이미지 표시
+![](../Images/Pasted%20image%2020261006102118.png)
 
 ---
 
@@ -26,55 +32,52 @@
 
 - `ping 8.8.8.8` → **막힘**
 - 방화벽은 기본적으로 `화이트리스트` 정책을 따른다.
-    - 허용(Pass) 룰에 해당하지 않는 트래픽은 모두 차단된다 (Default Deny)
+	- 허용(Pass) 룰에 해당하지 않는 트래픽은 모두 차단된다 (Default Deny)
 
 > ⚠️ 룰 하나만 잘못 건드려도 접근이 안 되거나, 관리자 페이지(WebGUI)조차 들어가지 못할 수 있다.
 
-이미지 표시
+![](../Images/Pasted%20image%2020261006102240.png)
 
 **방화벽 설정 영상**
 
-▶ pfSense Firewall 설정 영상
+[▶ pfSense Firewall 설정 영상](<../Images/Pfsense Firewall.mp4>)
 
 ---
 
 ## 4. 문제 #3 - DMZ 구성
 
 ### 요구사항
-
 - DMZ 존을 생성하여 서버를 위치시킨다.
 - LAN에 있는 PC 하나는 원격으로 DMZ 존에 있는 서버에 접근하여 쉘(SSH) 실행이 가능해야 한다.
 - DMZ 존에 있는 서버는 인터넷이 되어야 하며, 나머지 LAN에 있는 PC는 다른 외부 통신이 불가능해야 한다.
 
 ### 구성
-
-|인터페이스|역할|
-|---|---|
-|WAN|외부 인터넷|
-|LAN|내부 PC|
-|OPT1|DMZ (서버)|
+| 인터페이스 | 역할 |
+| --- | --- |
+| WAN | 외부 인터넷 |
+| LAN | 내부 PC |
+| OPT1 | DMZ (서버) |
 
 ### LAN 방화벽 설정
 
-이미지 표시
+![](../Images/Pasted%20image%2020261006154031.png)
 
 - LAN → DMZ 서버로 가는 **SSH(TCP 22)** 연결만 허용
 - 22번 포트 외에는 허용 룰을 추가하지 않았기 때문에, 나머지 통신은 기본 정책에 의해 차단됨
 
 ### OPT(DMZ) 방화벽 설정
 
-이미지 표시
+![](../Images/Pasted%20image%2020261006163737.png)
 
 - DMZ 존의 서버가 WAN(인터넷)과 통신할 수 있도록 허용
 - **HTTP(80), HTTPS(443), DNS(53)** 통신을 허용하여 세팅
 
 ### 체크포인트
-
-- [ ]  LAN의 기본 룰(`Default allow LAN to any`)이 비활성화되어 있는지 → 켜져 있으면 LAN PC도 인터넷이 됨
-- [ ]  SSH 허용 룰의 Source를 "LAN net" 전체가 아닌 **특정 PC 한 대**로 지정했는지
-- [ ]  DNS는 UDP/TCP 53 둘 다 허용했는지
-- [ ]  DMZ → LAN 방향 통신은 차단되는지
+- [ ] LAN의 기본 룰(`Default allow LAN to any`)이 비활성화되어 있는지 → 켜져 있으면 LAN PC도 인터넷이 됨
+- [ ] SSH 허용 룰의 Source를 "LAN net" 전체가 아닌 **특정 PC 한 대**로 지정했는지
+- [ ] DNS는 UDP/TCP 53 둘 다 허용했는지
+- [ ] DMZ → LAN 방향 통신은 차단되는지
 
 ### 총 정리 영상
 
-▶ pfSense DMZ & LAN 구축 영상
+[▶ pfSense DMZ & LAN 구축 영상](<../Images/Pfsense DMZ&LAN 구축.mp4>)
