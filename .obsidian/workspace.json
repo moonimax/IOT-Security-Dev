@@ -199,6 +199,7 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "Images/Pasted image 20261013150456.png",
     "Images/access.log",
     "보안 솔루션/이상 징후 탐지.md",
     "보안 솔루션/이상 징후 탐지 2.md",
@@ -231,7 +232,6 @@
     "AWS/Spring Boot + MySQL + Redis와 GitHub Actions 배포.md",
     "AWS/VPC Endpoint.md",
     "AWS/NACL.md",
-    "Docker",
     "AWS/AWS 웹 아키텍처 구축 Part 1..md",
     "AWS/AWS 기본.md",
     "AWS/Application Load Balance.md",
