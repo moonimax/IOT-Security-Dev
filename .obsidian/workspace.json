@@ -199,6 +199,9 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "Images/systemransom 1.mp4",
+    "Images/systemransom.mp4",
+    "Images/Pasted image 20261013102044.png",
     "Images/Pasted image 20261013100645.png",
     "Images/Pasted image 20261013093117.png",
     "Images/Pasted image 20261013092525.png",
@@ -218,8 +221,6 @@
     "Images/NoteTo 1",
     "Images/NoteTo",
     "Images/Pasted image 20261012155225.png",
-    "Images/Pasted image 20261012154928.png",
-    "Images/Pasted image 20261012153038.png",
     "Docker/Docker Compose.md",
     "Images/Suricata ping test 1.mp4",
     "Images/Suricata ping test.mp4",
@@ -243,7 +244,6 @@
     "웹 취약점/Google Hacking(Google Dork).md",
     "App Programing/Server 개발 구축.md",
     "App Programing/Lab Trouble Shooting 모음.md",
-    "AWS",
-    "Ansible"
+    "AWS"
   ]
 }
