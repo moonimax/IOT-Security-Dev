@@ -130,6 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Elastic Stack.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -172,7 +173,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "웹 · 앱/안드로이드 기본 개념.md",
+                "file": "Elastic Stack.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -211,7 +212,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "7139c2945cf171c0",
+  "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
     "Images/Pasted image 20261014141549.png",
     "Images/Pasted image 20261014141538.png",

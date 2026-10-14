@@ -55,5 +55,27 @@ curl -XPUT "http://local:9200/man_1/_update/1?pretty" -H 'Content-Type: applicat
 }'
 # document에 field값이 여러 개일 때 일괄적으로 수정 가능
 
+#Bulk API를 통해 여러 document 생성
+curl -XPOST "localhost:9200/man_2/_bulk?pretty" -H 'Content-Type: application/json' -d'
+{"index" :  {"_id" : "2"}}
+{"name" :  "DOng", "age" : 33, "phone" : "010-3434-3434"}
+{"index" :  {"_id" : "3"}}
+{"name" :  "Ku", "age" : 45, "phone" : "010-4545-4545"}
+'
 
+
+#동일한 index에 Bulk Api를 통해 여러 document 생성
+curl -XPOST "localhost:9200/man_2/_bulk?pretty" -H 'Content-Type: application/json' -d'
+{"index" :  {"_id" : "2"}}
+{"name" :  "Lee", "age" : 73, "phone" : "010-7373-7373"}
+{"index" :  {"_id" : "3"}}
+{"name" :  "Kim", "age" : 99, "phone" : "010-9999-9999"}
+'
+
+curl -XGET localhost:9200/man_1/_search?pretty
+
+curl -XPOST "localhost:9200/_bulk?pretty" -H 'Content-Type: application/json' -d '
+{"index" : {"_index" : "kisec2", "id" : "1"}}
+{"name" : "BAEK", "age" : 20, phone" : "010-9999-9999"}
+'
 ```
