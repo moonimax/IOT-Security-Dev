@@ -1,7 +1,12 @@
 ---
 title: pfSense 기반 망 분리 + ELK 관제 환경 구축
 date: 2026-10-15
-tags: [pfSense, ELK, SOC, VMware, 네트워크, 보안관제]
+tags:
+  - pfSense
+  - ELK
+  - SOC
+  - VMware
+  - 네트워크
 ---
 
 # pfSense 기반 망 분리 + ELK 관제 환경 구축
