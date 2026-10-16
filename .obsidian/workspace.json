@@ -213,8 +213,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "a30d81b80230e748",
   "lastOpenFiles": [
+    "Images/Pasted image 20261016101305.png",
+    "Images/Pasted image 20261016101245.png",
     "보안 솔루션/pfSense_SOC_ELK_구축.md",
     "인프라 구축 연습.md",
     "AWS/AWS 기본.md",
@@ -231,7 +233,6 @@
     "보안 솔루션/pfsense-soc-lab/pfsense-soc-lab/images/10_work_static_ip.png",
     "보안 솔루션/pfsense-soc-lab/pfsense-soc-lab/images/09_ifconfig_all_up.png",
     "보안 솔루션/pfsense-soc-lab/pfsense-soc-lab/images/06_assign_interfaces.png",
-    "보안 솔루션/pfsense-soc-lab/pfsense-soc-lab/images/08_pfsense_final_menu.png",
     "보안 솔루션/pfsense-soc-lab/pfsense-soc-lab/pfSense_SOC_ELK_援ъ텞.md",
     "보안 솔루션/pfsense-soc-lab/pfsense-soc-lab/images",
     "보안 솔루션/pfsense-soc-lab/pfsense-soc-lab",
@@ -259,7 +260,6 @@
     "Database/MSSQL_Metasploit_실습.md",
     "Database/DB Hydra Brute Force Attack.md",
     "Crypto/암호학.md",
-    "웹 취약점/DVWA.md",
-    "웹 취약점/웹 애플리케이션 보안 취약점 2.md"
+    "웹 취약점/DVWA.md"
   ]
 }
