@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "보안 솔루션/Elastic Stack.md",
+                "file": "통합보안 인프라.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Elastic Stack"
+              "title": "통합보안 인프라"
             }
           }
         ]
@@ -197,8 +197,21 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "dd8d6f022d81f548",
+  "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "보안 솔루션/통합보안운영(SecOps) 실습 환경 구축 기록.md",
+    "보안 솔루션/pfSense_SOC_ELK.md",
+    "Images/secops-ts11-wazuh-remote.png",
+    "Images/secops-ts10-wazuh-never-connected.png",
+    "Images/secops-ts09-le3-ping.png",
+    "Images/secops-ts08-kibana-503.png",
+    "Images/secops-ts07-host-memory.png",
+    "Images/secops-ts06-siem-memory.png",
+    "Images/secops-ts05-netplan-conflict.png",
+    "Images/secops-ts04-wizard-reload.png",
+    "Images/secops-ts03-pfctl-disable.png",
+    "Images/secops-ts02-le1-mac.png",
+    "보안 솔루션/Elastic Stack.md",
     "통합보안 인프라.md",
     "인프라 구축 연습.md",
     "보안 솔루션/secops-lab/통합보안운영(SecOps) 실습 환경 구축 기록.md",
@@ -214,19 +227,8 @@
     "보안 솔루션/secops-lab/configs/webserver/filebeat-output.yml",
     "보안 솔루션/secops-lab/configs/webserver/custom.rules",
     "보안 솔루션/secops-lab/configs/siem/netplan",
-    "보안 솔루션/secops-lab/images/15-packet-capture-output.png",
-    "보안 솔루션/secops-lab/images/ts11-wazuh-remote.png",
-    "보안 솔루션/secops-lab/images/ts09-le3-ping.png",
-    "보안 솔루션/secops-lab/images/ts10-wazuh-never-connected.png",
-    "보안 솔루션/secops-lab/images/ts08-kibana-503.png",
-    "보안 솔루션/secops-lab/images/ts07-host-memory.png",
-    "보안 솔루션/secops-lab/images/ts06-siem-memory.png",
-    "보안 솔루션/secops-lab/images/ts05-netplan-conflict.png",
-    "보안 솔루션/secops-lab/images/ts04-wizard-reload.png",
-    "보안 솔루션/secops-lab/images/ts03-pfctl-disable.png",
     "AWS/AWS 기본.md",
     "보안 솔루션/이상 징후 탐지 2.md",
-    "보안 솔루션/Elastic Stack.md",
     "IPS & SOC & ELK 서버 구축.md",
     "보안 솔루션/Pfsense 실습.md",
     "보안 솔루션/이상 징후 탐지.md",
@@ -242,7 +244,6 @@
     "AWS/AWS 웹 아키텍처 구축 Part 1..md",
     "AWS/Application Load Balance.md",
     "AWS/AWS Secrets Manager Part 2..md",
-    "Database/MSSQL_Metasploit_실습.md",
-    "Database/DB Hydra Brute Force Attack.md"
+    "Database/MSSQL_Metasploit_실습.md"
   ]
 }
