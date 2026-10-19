@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "보안 솔루션/통합보안운영(SecOps) 실습 환경 구축 기록.md",
+                "file": "보안 솔루션/통합보안 인프라(Cyber kill Chain).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "통합보안운영(SecOps) 실습 환경 구축 기록"
+              "title": "통합보안 인프라(Cyber kill Chain)"
             }
           }
         ]
@@ -197,10 +197,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5babd8c91ae6fae9",
+  "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
-    "보안 솔루션/통합보안 인프라.md",
-    "보안 솔루션/통합보안운영(SecOps) 실습 환경 구축 기록.md",
+    "보안 솔루션/통합보안운영(SecOps) 실습.md",
+    "보안 솔루션/통합보안 인프라(Cyber kill Chain).md",
     "시스템 보안 프로젝트.md",
     "보안 솔루션/pfSense_SOC_ELK.md",
     "Images/secops-ts11-wazuh-remote.png",
