@@ -1,6 +1,4 @@
 
-> Cyber Kill Chain 기반의 시나리오 실습
-
 ## Cyber Kill Chain이란?
 
 - 사이버 보안 모델 중 하나로, **록히드 마틴(Lockheed Martin)** 이 최초로 발표
