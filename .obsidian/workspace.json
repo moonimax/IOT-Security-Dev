@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "통합보안 인프라.md",
+                "file": "보안 솔루션/Elastic Stack.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "통합보안 인프라"
+              "title": "Elastic Stack"
             }
           }
         ]
@@ -197,13 +197,13 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "dd8d6f022d81f548",
   "lastOpenFiles": [
-    "보안 솔루션/secops-lab/통합보안운영(SecOps) 실습 환경 구축 기록.md",
+    "통합보안 인프라.md",
     "인프라 구축 연습.md",
+    "보안 솔루션/secops-lab/통합보안운영(SecOps) 실습 환경 구축 기록.md",
     "보안 솔루션/pfSense_SOC_ELK_구축.md",
     "보안 솔루션/pfsense-soc-lab/pfsense-soc-lab/pfSense_SOC_ELK.md",
-    "통합보안 인프라.md",
     "보안 솔루션/secops-lab/configs/siem/netplan/00-installer-config.yaml",
     "보안 솔루션/secops-lab/configs/siem/wazuh/local_rules.xml",
     "보안 솔루션/secops-lab/configs/siem/logstash/04-snort.conf",
@@ -226,7 +226,7 @@
     "보안 솔루션/secops-lab/images/ts03-pfctl-disable.png",
     "AWS/AWS 기본.md",
     "보안 솔루션/이상 징후 탐지 2.md",
-    "Elastic Stack.md",
+    "보안 솔루션/Elastic Stack.md",
     "IPS & SOC & ELK 서버 구축.md",
     "보안 솔루션/Pfsense 실습.md",
     "보안 솔루션/이상 징후 탐지.md",
