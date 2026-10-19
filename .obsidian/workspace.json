@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -199,6 +200,7 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "Images/Pasted image 20261019141654.png",
     "보안 솔루션/통합보안운영(SecOps) 실습.md",
     "보안 솔루션/IDS 와 IPS.md",
     "보안 솔루션/pfSense_SOC_ELK_구축.md",
