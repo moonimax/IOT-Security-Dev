@@ -1,9 +1,0 @@
-filebeat.modules:
-  - module: wazuh
-    alerts:
-      enabled: true
-    archives:
-      enabled: false
-
-output.logstash:
-  hosts: ["10.10.20.120:5044"]

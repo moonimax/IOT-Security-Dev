@@ -8,7 +8,7 @@ tags: [pfSense, ELK, SOC, VMware, 네트워크, 보안관제]
 
 ## 1. 전체 구성
 
-![[01_architecture.png]]
+![](../Images/pfsense-soc-01_architecture.png)
 
 | 구분 | 대역 | VMware 네트워크 | pfSense 인터페이스 | 게이트웨이 |
 |---|---|---|---|---|
@@ -27,7 +27,7 @@ tags: [pfSense, ELK, SOC, VMware, 네트워크, 보안관제]
 
 **Edit → Virtual Network Editor → Change Settings** (관리자 권한)
 
-![[02_vmnet_list.png]]
+![](../Images/pfsense-soc-02_vmnet_list.png)
 
 VMnet1 / VMnet2 / VMnet3 공통 설정:
 - **Host-only**
@@ -35,7 +35,7 @@ VMnet1 / VMnet2 / VMnet3 공통 설정:
 - **Connect a host virtual adapter** → 해제 (호스트 어댑터가 `.1`을 가져가 pfSense와 IP 충돌 방지)
 - Subnet: 위 표의 대역에 맞게 지정
 
-![[03_vmnet_hostonly.png]]
+![](../Images/pfsense-soc-03_vmnet_hostonly.png)
 
 VMnet8(NAT)은 기본값 유지 → pfSense WAN이 DHCP로 IP를 받음.
 
@@ -50,12 +50,12 @@ VMnet8(NAT)은 기본값 유지 → pfSense WAN이 DHCP로 IP를 받음.
 | Network Adapter 3 | Custom – VMnet2 | SOC |
 | Network Adapter 4 | Custom – VMnet1 | 업무망 |
 
-![[04_pfsense_adapters.png]]
+![](../Images/pfsense-soc-04_pfsense_adapters.png)
 
 > [!important]
 > 각 어댑터의 **Connected / Connect at power on** 체크 필수. 클라이언트 VM도 마찬가지.
 
-![[05_adapter4_vmnet1.png]]
+![](../Images/pfsense-soc-05_adapter4_vmnet1.png)
 
 > [!tip]
 > 어댑터 순서와 pfSense 인터페이스 번호가 맞는지는 어댑터 **Advanced → MAC Address**와 pfSense의 `ifconfig` MAC을 비교해서 확인.
@@ -66,7 +66,7 @@ VMnet8(NAT)은 기본값 유지 → pfSense WAN이 DHCP로 IP를 받음.
 
 ### 4-1. 인터페이스 지정 (메뉴 `1) Assign Interfaces`)
 
-![[06_assign_interfaces.png]]
+![](../Images/pfsense-soc-06_assign_interfaces.png)
 
 | 질문 | 입력 |
 |---|---|
@@ -80,7 +80,7 @@ VMnet8(NAT)은 기본값 유지 → pfSense WAN이 DHCP로 IP를 받음.
 
 ### 4-2. 인터페이스 IP 설정 (메뉴 `2) Set interface(s) IP address`)
 
-![[07_set_ip_menu.png]]
+![](../Images/pfsense-soc-07_set_ip_menu.png)
 
 인터페이스마다 반복. (WAN은 DHCP 그대로 두므로 생략)
 
@@ -99,7 +99,7 @@ VMnet8(NAT)은 기본값 유지 → pfSense WAN이 DHCP로 IP를 받음.
 
 ### 4-3. 결과 확인
 
-![[08_pfsense_final_menu.png]]
+![](../Images/pfsense-soc-08_pfsense_final_menu.png)
 
 메뉴에 IP가 표시되는 것과 실제 적용은 별개이므로 `8) Shell`에서 확인:
 
@@ -107,7 +107,7 @@ VMnet8(NAT)은 기본값 유지 → pfSense WAN이 DHCP로 IP를 받음.
 ifconfig | grep -E "^le|inet "
 ```
 
-![[09_ifconfig_all_up.png]]
+![](../Images/pfsense-soc-09_ifconfig_all_up.png)
 
 네 인터페이스 모두 `UP` 플래그와 `inet` 주소가 있어야 정상.
 
@@ -126,7 +126,7 @@ ifconfig | grep -E "^le|inet "
 | Gateway | 192.168.30.1 |
 | DNS | 192.168.30.1 |
 
-![[10_work_static_ip.png]]
+![](../Images/pfsense-soc-10_work_static_ip.png)
 
 명령어로 할 경우:
 ```sh
@@ -171,7 +171,7 @@ echo "network: {config: disabled}" | sudo tee /etc/cloud/cloud.cfg.d/99-disable-
 ping -c 3 192.168.20.1   # SOC PC 예시
 ```
 
-![[11_ping_gateway_ok.png]]
+![](../Images/pfsense-soc-11_ping_gateway_ok.png)
 
 ---
 
@@ -209,7 +209,7 @@ sudo systemctl enable --now kibana
 curl -s http://localhost:9200
 ```
 
-![[12_es_version.png]]
+![](../Images/pfsense-soc-12_es_version.png)
 
 → 버전 7.16.2, 보안 기능 비활성 상태(HTTP, 인증 없음).
 
@@ -222,7 +222,7 @@ server.host: "0.0.0.0"
 
 SOC PC 브라우저 → `http://192.168.10.10:5601`
 
-![[13_kibana_home.png]]
+![](../Images/pfsense-soc-13_kibana_home.png)
 
 → 그림의 **SOC → ELK** 흐름 완성.
 
@@ -275,7 +275,7 @@ sudo ss -ulnp | grep 5140
 curl -s "http://localhost:9200/_cat/indices?v" | grep pfsense
 ```
 
-![[14_pfsense_index.png]]
+![](../Images/pfsense-soc-14_pfsense_index.png)
 
 > `yellow`는 단일 노드라 레플리카를 배치할 곳이 없어서이며 실습 환경에선 정상.
 
@@ -284,11 +284,11 @@ curl -s "http://localhost:9200/_cat/indices?v" | grep pfsense
 1. **Stack Management → Index Patterns → Create index pattern**
 2. Name: `pfsense-*`, Timestamp field: `@timestamp`
 
-![[15_index_pattern.png]]
+![](../Images/pfsense-soc-15_index_pattern.png)
 
 3. **Discover** → 인덱스 패턴 `pfsense-*` 선택
 
-![[16_discover_pfsense.png]]
+![](../Images/pfsense-soc-16_discover_pfsense.png)
 
 → pfSense 필터 로그가 실시간으로 수집되는 것 확인.
 
