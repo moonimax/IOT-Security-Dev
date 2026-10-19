@@ -1,0 +1,15 @@
+# /etc/filebeat/filebeat.yml 중 변경한 부분 (Filebeat 7.5.1)
+filebeat.inputs:
+- type: log
+  enabled: false
+  paths:
+    - /var/log/*.log
+
+#output.elasticsearch:
+  # hosts: ["localhost:9200"]
+
+output.logstash:
+  hosts: ["10.10.20.120:5046"]
+
+# 최신 Ubuntu에서 7.5.1이 시작 직후 crash되는 문제 회피
+seccomp.enabled: false
