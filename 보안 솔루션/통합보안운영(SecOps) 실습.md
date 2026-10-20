@@ -3,13 +3,14 @@
 
 ## 1. 전체 구성
 
-| 역할 | VM | OS | 망 | IP | VMnet |
-|---|---|---|---|---|---|
-| 방화벽 / IDS | Firewall | pfSense 2.7.2 | 전 구간 | WAN 192.168.0.200 / LAN 10.10.10.1 / OPT1 10.10.20.1 / OPT2 10.10.30.1 | NAT / VMnet1 / VMnet2 / VMnet3 |
-| 관제 PC | Clone of soc | Ubuntu | LAN (내부망) | 10.10.10.100 | VMnet1 |
-| 개발 PC (DMZ 접근용) | DevPC | Ubuntu | LAN (내부망) | 10.10.10.150 | VMnet1 |
-| SIEM (ELK + Wazuh) | Elastick_Stack | Ubuntu 20.04 Server | OPT1 (관제망) | 10.10.20.120 | VMnet2 |
-| 관제 대상 웹서버 | Webserver | Ubuntu | OPT2 (DMZ) | 10.10.30.100 | VMnet3 |
+| 역할                 | VM             | OS                  | 망          | IP                                                                     | VMnet                          |
+| ------------------ | -------------- | ------------------- | ---------- | ---------------------------------------------------------------------- | ------------------------------ |
+| 방화벽 / IDS          | Firewall       | pfSense 2.7.2       | 전 구간       | WAN 192.168.0.200 / LAN 10.10.10.1 / OPT1 10.10.20.1 / OPT2 10.10.30.1 | NAT / VMnet1 / VMnet2 / VMnet3 |
+| 관제 PC              | Clone of soc   | Ubuntu              | LAN (내부망)  | 10.10.10.100                                                           | VMnet1                         |
+| 개발 PC (DMZ 접근용)    | DevPC          | Ubuntu              | LAN (내부망)  | 10.10.10.150                                                           | VMnet1                         |
+| SIEM (ELK + Wazuh) | Elastick_Stack | Ubuntu 20.04 Server | OPT1 (관제망) | 10.10.20.120                                                           | VMnet2                         |
+| 관제 대상 웹서버          | Webserver      | Ubuntu              | OPT2 (DMZ) | 10.10.30.100                                                           | VMnet3                         |
+|                    |                |                     |            |                                                                        |                                |
 
 pfSense 인터페이스 매핑은 `le0=WAN`, `le1=LAN`, `le2=OPT1`, `le3=OPT2`
 

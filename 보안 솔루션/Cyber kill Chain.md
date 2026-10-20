@@ -227,3 +227,36 @@ dump 데이터 Value 데이터 확인 가능
 
 덤프 데이터 다운로드 완료
 ![](../Images/Pasted%20image%2020261020103803.png)
+
+
+---
+
+
+kali에서 nmap 적용
+
+```bash
+ping 10.10.30.100                              # Protocol을 Any로 했으면 응답 옴
+curl -I http://10.10.30.100/                   # 웹 응답 확인
+
+# 룰 동작 확인
+curl -A "WPScan test" http://10.10.30.100/
+curl -A "Nmap Scripting Engine" http://10.10.30.100/
+
+# 실제 정찰
+nmap -Pn -sV -sC 10.10.30.100
+wpscan --url http://10.10.30.100/ -e u,vp
+```
+
+
+Pfsense Snort Rule 설정
+```snort
+alert tcp any any -> any any (msg:"[RECON] Nmap NSE User-Agent"; flow:to_server,established; content:"User-Agent|3A|"; http_header; content:"Nmap Scripting Engine"; http_header; nocase; classtype:attempted-recon; sid:1000001; rev:1;)
+alert tcp any any -> any any (msg:"[RECON] Nmap -sV HTTP probe"; flow:to_server,established; content:"/nice ports,/Trinity.txt.bak"; http_uri; nocase; classtype:attempted-recon; sid:1000002; rev:1;)
+alert tcp any any -> any any (msg:"[RECON] WPScan User-Agent"; flow:to_server,established; content:"User-Agent|3A|"; http_header; content:"WPScan"; http_header; nocase; classtype:attempted-recon; sid:1000003; rev:1;)
+alert tcp any any -> any any (msg:"[RECON] WordPress user enumeration"; flow:to_server,established; content:"/wp-json/wp/v2/users"; http_uri; nocase; classtype:attempted-recon; sid:1000004; rev:1;)
+alert tcp any any -> any any (msg:"[RECON] WordPress plugin enumeration"; flow:to_server,established; content:"/wp-content/plugins/"; http_uri; nocase; detection_filter:track by_src, count 30, seconds 10; classtype:attempted-recon; sid:1000005; rev:1;)
+```
+
+Pfsense Packet Capture
+
+![](../Images/Pasted%20image%2020261020114311.png)
