@@ -260,3 +260,31 @@ alert tcp any any -> any any (msg:"[RECON] WordPress plugin enumeration"; flow:t
 Pfsense Packet Capture
 
 ![](../Images/Pasted%20image%2020261020114311.png)
+
+
+2. CVE-2023-3460 / CVE-2022-1329 탐지 Snort Rule 만들기
+```snort
+# CVE-2023-3460 : Ultimate Member 권한 상승 (role/capability 주입)
+alert tcp any any -> 10.10.30.100 80 (msg:"[CVE-2023-3460] Ultimate Member privilege escalation attempt"; flow:to_server,established; content:"POST"; http_method; content:"wp_capabilities"; http_client_body; nocase; classtype:web-application-attack; sid:1000010; rev:1;)
+
+alert tcp any any -> 10.10.30.100 80 (msg:"[CVE-2023-3460] Ultimate Member admin role injection"; flow:to_server,established; content:"POST"; http_method; content:"um_role"; http_client_body; nocase; content:"administrator"; http_client_body; nocase; classtype:web-application-attack; sid:1000011; rev:1;)
+
+# CVE-2022-1329 : Elementor Pro 임의 파일 업로드
+alert tcp any any -> 10.10.30.100 80 (msg:"[CVE-2022-1329] Elementor Pro unauthorized action"; flow:to_server,established; content:"POST"; http_method; content:"/wp-admin/admin-ajax.php"; http_uri; content:"elementor"; http_client_body; nocase; content:".php"; http_client_body; nocase; classtype:web-application-attack; sid:1000012; rev:1;)
+
+# 웹셸 업로드 경로 접근
+alert tcp any any -> 10.10.30.100 80 (msg:"[WEBSHELL] PHP access under uploads directory"; flow:to_server,established; content:"GET"; http_method; content:"/wp-content/uploads/"; http_uri; nocase; content:".php"; http_uri; nocase; classtype:web-application-attack; sid:1000013; rev:1;)
+
+# 업로드된 웹셸의 C2 비콘 (앞 캡처의 /cml_ 패턴)
+alert tcp 10.10.30.100 any -> any 80 (msg:"[C2] Webshell beacon /cml_ pattern"; flow:to_server,established; content:"GET"; http_method; content:"/cml_"; http_uri; classtype:trojan-activity; sid:1000014; rev:1;)
+```
+
+
+
+1. 관제망 Elastic ELK 서버에서 관측 시 공격 대상(Kali)가 관측됨
+![](../Images/Pasted%20image%2020261020142550.png)
+
+
+ 2. Packet Capture한 곳에서 download 받은 패킷을 분석 PC나 로컬에서 가지고 나가야 한다.
+
+
