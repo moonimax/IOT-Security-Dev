@@ -281,10 +281,18 @@ alert tcp 10.10.30.100 any -> any 80 (msg:"[C2] Webshell beacon /cml_ pattern"; 
 
 
 
+사전에 알아둬야 할 짧 지식?!?
+- post로 보내는 웹 요청의 파라미터는 웹 로그에서 식별할 수 없음. 즉 다른 방법을 통해 POST Request의 바디값을 확인해야 함. --> Wireshark에서 분석 진행 필요
+	- 이거에 따라 Wireshark에서 출력한 pfsense dump 데이터를 열어서 확인하면 좋음
+
+
 1. 관제망 Elastic ELK 서버에서 관측 시 공격 대상(Kali)가 관측됨
 ![](../Images/Pasted%20image%2020261020142550.png)
 
 
  2. Packet Capture한 곳에서 download 받은 패킷을 분석 PC나 로컬에서 가지고 나가야 한다.
+	 1. 여기에서 pfsense에서 왜 HTTP Post method를 못잡고 있는지는 모르겠어서 다른 서버로 바꿔 교체하여 새롭게 패킷 필터를 잡았다.
+	
+ ![](../Images/Pasted%20image%2020261020151916.png)
 
-
+3. 
