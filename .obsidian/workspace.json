@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -200,6 +199,14 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "Images/Pasted image 20261020103803.png",
+    "Images/Pasted image 20261020103402.png",
+    "Images/Pasted image 20261020095131.png",
+    "Images/Pasted image 20261020095108.png",
+    "Images/Pasted image 20261020095050.png",
+    "Cyber kill Chain - 통합본.md",
+    "보안 솔루션/Cyber kill Chain.md",
+    "Images/meterpreterroot.mp4",
     "Images/Pasted image 20261019141654.png",
     "보안 솔루션/통합보안운영(SecOps) 실습.md",
     "보안 솔루션/IDS 와 IPS.md",
@@ -207,18 +214,12 @@
     "보안 솔루션/pfSense_SOC_ELK.md",
     "보안 솔루션/Pfsense 실습.md",
     "보안 솔루션/Elastic Stack.md",
-    "보안 솔루션/Cyber kill Chain.md",
     "Images/Pasted image 20261019112856.png",
     "Images/Pasted image 20261019112752.png",
     "Images/Pasted image 20261019111809.png",
     "Images/Pasted image 20261019111502.png",
     "Images/Pasted image 20261019111435.png",
     "시스템 보안 프로젝트.md",
-    "Images/secops-ts11-wazuh-remote.png",
-    "Images/secops-ts10-wazuh-never-connected.png",
-    "Images/secops-ts09-le3-ping.png",
-    "Images/secops-ts08-kibana-503.png",
-    "Images/secops-ts07-host-memory.png",
     "인프라 구축 연습.md",
     "보안 솔루션/secops-lab/통합보안운영(SecOps) 실습 환경 구축 기록.md",
     "보안 솔루션/pfsense-soc-lab/pfsense-soc-lab/pfSense_SOC_ELK.md",
@@ -231,7 +232,6 @@
     "보안 솔루션/secops-lab/configs/webserver/ossec-agent-localfile.xml",
     "보안 솔루션/secops-lab/configs/webserver/filebeat-output.yml",
     "보안 솔루션/secops-lab/configs/webserver/custom.rules",
-    "보안 솔루션/secops-lab/configs/siem/netplan",
     "AWS/AWS 기본.md",
     "보안 솔루션/이상 징후 탐지 2.md",
     "IPS & SOC & ELK 서버 구축.md",
@@ -244,7 +244,6 @@
     "AWS/VPC Endpoint.md",
     "AWS/NACL.md",
     "AWS/AWS 웹 아키텍처 구축 Part 1..md",
-    "AWS/Application Load Balance.md",
-    "AWS/AWS Secrets Manager Part 2..md"
+    "AWS/Application Load Balance.md"
   ]
 }

