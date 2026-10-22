@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -198,14 +197,17 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e2424b06d8505e9",
+  "active": "5babd8c91ae6fae9",
   "lastOpenFiles": [
+    "Images/Pasted image 20261022113519.png",
+    "Images/Pasted image 20261022113428.png",
+    "보안 솔루션/Cyber kill Chain.md",
+    "모의 해킹/모의 해킹.md",
     "Images/Pasted image 20261021164341.png",
     "Images/Pasted image 20261021164324.png",
     "Database/SQL INJECTION.md",
     "Database/MySQL 로그 확인.md",
     "Database/DB 보안 (계정 및 사용자).md",
-    "보안 솔루션/Cyber kill Chain.md",
     "웹 · 앱/딥링크(Deep Link) 개념.md",
     "보안 솔루션/통합보안운영(SecOps) 실습.md",
     "웹 · 앱/안드로이드 기본 개념.md",
@@ -214,7 +216,6 @@
     "웹 · 앱/웹 보안.md",
     "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
     "웹 취약점/웹 애플리케이션 보안 취약점.md",
-    "모의 해킹/모의 해킹.md",
     "Images/Pasted image 20261021151319.png",
     "모의 해킹",
     "Cyber kill Chain - 통합본.md",
@@ -224,8 +225,6 @@
     "Images/Pasted image 20261020114311.png",
     "Images/Pasted image 20261020103803.png",
     "Images/Pasted image 20261020103402.png",
-    "Images/Pasted image 20261020095131.png",
-    "Images/Pasted image 20261020095108.png",
     "Images/meterpreterroot.mp4",
     "보안 솔루션/IDS 와 IPS.md",
     "보안 솔루션/pfSense_SOC_ELK_구축.md",
