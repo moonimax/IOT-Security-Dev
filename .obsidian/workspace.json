@@ -22,35 +22,21 @@
             }
           },
           {
-            "id": "2762a9fcccfb7c73",
+            "id": "ed36d28e4aca7994",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "모의 해킹/무제.md",
+                "file": "웹쉘 업로드 → RCE 공격 체인 정리.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "무제"
-            }
-          },
-          {
-            "id": "f28d7bbcb0a5880c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "모의 해킹 준비.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "모의 해킹 준비"
+              "title": "웹쉘 업로드 → RCE 공격 체인 정리"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -109,8 +95,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -227,21 +212,26 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "f28d7bbcb0a5880c",
+  "active": "ed36d28e4aca7994",
   "lastOpenFiles": [
-    "모의 해킹/무제.md",
+    "Images/Pasted image 20261105153426.png",
+    "Images/Pasted image 20261105153318.png",
+    "Images/Pasted image 20261105153225.png",
+    "Images/Pasted image 20261105153145.png",
+    "Images/Pasted image 20261105152959.png",
+    "Images/Pasted image 20261105152824.png",
+    "Images/Pasted image 20261105152734.png",
+    "Images/Pasted image 20261105152658.png",
     "모의 해킹 준비.md",
+    "웹쉘 업로드 → RCE 공격 체인 정리.md",
+    "모의 해킹/무제.md",
+    "무제 1",
     "모의 해킹/모의 해킹.md",
     "무제",
     "Images/Pasted image 20261028103740.png",
     "Images/Pasted image 20261028103720.png",
     "Images/Pasted image 20261028094012.png",
-    "Images/Pasted image 20261028093930.png",
-    "Images/Pasted image 20261022113519.png",
-    "Images/Pasted image 20261022113428.png",
     "보안 솔루션/Cyber kill Chain.md",
-    "Images/Pasted image 20261021164341.png",
-    "Images/Pasted image 20261021164324.png",
     "Database/SQL INJECTION.md",
     "Database/MySQL 로그 확인.md",
     "Database/DB 보안 (계정 및 사용자).md",
@@ -253,10 +243,8 @@
     "웹 · 앱/웹 보안.md",
     "웹 취약점/웹 애플리케이션 보안 취약점 2.md",
     "웹 취약점/웹 애플리케이션 보안 취약점.md",
-    "Images/Pasted image 20261021151319.png",
     "모의 해킹",
     "Cyber kill Chain - 통합본.md",
-    "Images/Pasted image 20261020151916.png",
     "Images/meterpreterroot.mp4",
     "보안 솔루션/IDS 와 IPS.md",
     "보안 솔루션/pfSense_SOC_ELK_구축.md",
@@ -266,14 +254,11 @@
     "시스템 보안 프로젝트.md",
     "인프라 구축 연습.md",
     "보안 솔루션/secops-lab/통합보안운영(SecOps) 실습 환경 구축 기록.md",
-    "보안 솔루션/pfsense-soc-lab/pfsense-soc-lab/pfSense_SOC_ELK.md",
     "보안 솔루션/secops-lab/configs/siem/netplan/00-installer-config.yaml",
     "보안 솔루션/secops-lab/configs/siem/wazuh/local_rules.xml",
     "보안 솔루션/secops-lab/configs/siem/logstash/04-snort.conf",
     "보안 솔루션/secops-lab/configs/siem/logstash/03-pfsense.conf",
     "보안 솔루션/secops-lab/configs/siem/logstash/02-web-access.conf",
-    "보안 솔루션/secops-lab/configs/siem/logstash/01-wazuh.conf",
-    "보안 솔루션/secops-lab/configs/webserver/ossec-agent-localfile.xml",
-    "AWS/AWS 기본.md"
+    "보안 솔루션/secops-lab/configs/siem/logstash/01-wazuh.conf"
   ]
 }
