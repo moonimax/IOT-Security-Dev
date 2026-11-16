@@ -225,3 +225,8 @@ uid=1(daemon) gid=1(daemon) groups=1(daemon)
 |파일 업로드|업로드 디렉토리 PHP 실행 권한 제거|
 |파일 업로드|파일 저장 시 확장자 강제 변환|
 |소스코드 노출|`_download.php` 경로 검증 강화 (Path Traversal 차단)|
+
+
+![](Images/Pasted%20image%2020261105172123.png)
+
+![](Images/Pasted%20image%2020261105183610.png)
