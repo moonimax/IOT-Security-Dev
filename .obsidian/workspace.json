@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "침해사고/이론.md",
+                "file": "침해사고/침해사고 대응 이론 정리.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "이론"
+              "title": "침해사고 대응 이론 정리"
             }
           },
           {
@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -229,6 +229,7 @@
   },
   "active": "2e2424b06d8505e9",
   "lastOpenFiles": [
+    "침해사고/침해사고 분석.md",
     "Images/Pasted image 20261118164722.png",
     "Images/Pasted image 20261118163749.png",
     "Images/Pasted image 20261118163555.png",
@@ -242,9 +243,7 @@
     "Images/Pasted image 20261118155044.png",
     "Images/Pasted image 20261118154729.png",
     "Images/Pasted image 20261118153914.png",
-    "Images/Pasted image 20261118143714.png",
-    "침해사고/이론.md",
-    "침해사고/침해사고 분석.md",
+    "침해사고/침해사고 대응 이론 정리.md",
     "모의 해킹/모의 해킹 준비.md",
     "침해사고",
     "시스템 보안 프로젝트.md",
