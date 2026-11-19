@@ -109,8 +109,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -229,6 +228,9 @@
   },
   "active": "e932cbff70619a11",
   "lastOpenFiles": [
+    "Images/Pasted image 20261119110329.png",
+    "Images/Pasted image 20261119110232.png",
+    "Images/Pasted image 20261119110157.png",
     "침해사고/침해사고 분석.md",
     "악성코드.md",
     "침해사고/침해사고 대응 이론 정리.md",
@@ -245,8 +247,6 @@
     "Images/Pasted image 20261118155836.png",
     "Images/Pasted image 20261118155158.png",
     "Images/Pasted image 20261118155044.png",
-    "Images/Pasted image 20261118154729.png",
-    "Images/Pasted image 20261118153914.png",
     "침해사고",
     "모의 해킹/모의 해킹.md",
     "모의 해킹/웹쉘 업로드 → RCE 공격 체인 정리.md",
@@ -272,7 +272,6 @@
     "보안 솔루션/pfSense_SOC_ELK_구축.md",
     "보안 솔루션/pfSense_SOC_ELK.md",
     "보안 솔루션/Pfsense 실습.md",
-    "보안 솔루션/Elastic Stack.md",
     "보안 솔루션/secops-lab/configs/siem/netplan/00-installer-config.yaml",
     "보안 솔루션/secops-lab/configs/siem/wazuh/local_rules.xml"
   ]
