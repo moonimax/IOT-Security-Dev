@@ -199,6 +199,7 @@
   },
   "active": "e932cbff70619a11",
   "lastOpenFiles": [
+    "Images/sketch_nov19a2.ino",
     "Images/녹음 2026-11-19 162623.mp4",
     "Images/Pasted image 20261119155313.png",
     "악성코드/악성코드.md",
@@ -243,7 +244,6 @@
     "보안 솔루션/IDS 와 IPS.md",
     "보안 솔루션/pfSense_SOC_ELK_구축.md",
     "보안 솔루션/pfSense_SOC_ELK.md",
-    "보안 솔루션/secops-lab/configs/siem/netplan/00-installer-config.yaml",
-    "보안 솔루션/secops-lab/configs/siem/wazuh/local_rules.xml"
+    "보안 솔루션/secops-lab/configs/siem/netplan/00-installer-config.yaml"
   ]
 }
