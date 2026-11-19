@@ -109,7 +109,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -228,6 +229,13 @@
   },
   "active": "e932cbff70619a11",
   "lastOpenFiles": [
+    "Images/Pasted image 20261119143729.png",
+    "Images/Pasted image 20261119143647.png",
+    "Images/Pasted image 20261119143444.png",
+    "Images/Pasted image 20261119143355.png",
+    "Images/Pasted image 20261119143256.png",
+    "Images/Pasted image 20261119143208.png",
+    "Images/Pasted image 20261119113231.png",
     "Images/Pasted image 20261119113059.png",
     "Images/Pasted image 20261119112554.png",
     "침해사고/침해사고 분석.md",
@@ -235,15 +243,8 @@
     "악성코드.md",
     "Images/Pasted image 20261119110700.png",
     "Images/Pasted image 20261119110602.png",
-    "Images/Pasted image 20261119110504.png",
-    "Images/Pasted image 20261119110329.png",
-    "Images/Pasted image 20261119110232.png",
-    "Images/Pasted image 20261119110157.png",
     "시스템 보안 프로젝트.md",
     "모의 해킹/모의 해킹 준비.md",
-    "Images/Pasted image 20261118164722.png",
-    "Images/Pasted image 20261118163749.png",
-    "Images/Pasted image 20261118163555.png",
     "Images/녹음 2026-11-18 162200 2.mp4",
     "Images/녹음 2026-11-18 162200 1.mp4",
     "Images/녹음 2026-11-18 162200.mp4",
