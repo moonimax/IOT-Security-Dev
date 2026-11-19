@@ -22,6 +22,8 @@ Vulnerability
 USB를 이용한 공격 이해 및 시연
 
 - Ducky Script
+- https://roothaxor.gitlab.io/ducky2arduino_stable/
+- 
 
 
 
