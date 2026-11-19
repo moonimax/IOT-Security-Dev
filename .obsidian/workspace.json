@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "악성코드 유입 경로.md",
+                "file": "악성코드.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "악성코드 유입 경로"
+              "title": "악성코드"
             }
           }
         ]
@@ -199,11 +199,11 @@
   },
   "active": "e932cbff70619a11",
   "lastOpenFiles": [
+    "악성코드 유입 경로.md",
     "악성코드.md",
     "침해사고/침해사고 분석.md",
     "악성코드",
     "침해사고/침해사고 대응 이론 정리.md",
-    "악성코드 유입 경로.md",
     "Images/Pasted image 20261119143729.png",
     "Images/Pasted image 20261119143647.png",
     "Images/Pasted image 20261119143444.png",
