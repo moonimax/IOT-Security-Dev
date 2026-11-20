@@ -8,20 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e932cbff70619a11",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "악성코드/Bad USB 공격 시연.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Bad USB 공격 시연"
-            }
-          },
-          {
             "id": "2c79904d727a8d63",
             "type": "leaf",
             "state": {
@@ -33,6 +19,20 @@
               },
               "icon": "lucide-file",
               "title": "DBD"
+            }
+          },
+          {
+            "id": "b2a13cfaf10fd490",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "악성코드.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "악성코드"
             }
           }
         ],
@@ -95,7 +95,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "153ba5e46f9746d3",
@@ -197,7 +198,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -212,16 +214,21 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "dd8d6f022d81f548",
+  "active": "b2a13cfaf10fd490",
   "lastOpenFiles": [
+    "Images/Pasted image 20261120151611.png",
+    "Images/Pasted image 20261120151558.png",
+    "Images/Pasted image 20261120151440.png",
+    "Images/Pasted image 20261120151405.png",
+    "악성코드/DBD.md",
+    "악성코드.md",
+    "악성코드/Bad USB 공격 시연.md",
     "Images/녹음 2026-11-20 112324.mp4",
     "Images/Pasted image 20261120112134.png",
     "Images/Pasted image 20261120112059.png",
     "Images/Pasted image 20261120111833.png",
     "Images/Pasted image 20261120111739.png",
     "Images/Pasted image 20261120103046.png",
-    "악성코드/Bad USB 공격 시연.md",
-    "악성코드/DBD.md",
     "Images/sketch_nov19a2.ino",
     "Images/녹음 2026-11-19 162623.mp4",
     "Images/Pasted image 20261119155313.png",
@@ -230,9 +237,6 @@
     "악성코드",
     "침해사고/침해사고 대응 이론 정리.md",
     "Images/Pasted image 20261119143729.png",
-    "Images/Pasted image 20261119143647.png",
-    "Images/Pasted image 20261119143444.png",
-    "Images/Pasted image 20261119143355.png",
     "시스템 보안 프로젝트.md",
     "모의 해킹/모의 해킹 준비.md",
     "Images/녹음 2026-11-18 162200 2.mp4",
@@ -257,8 +261,6 @@
     "웹 취약점/웹 애플리케이션 보안 취약점.md",
     "모의 해킹",
     "Cyber kill Chain - 통합본.md",
-    "Images/meterpreterroot.mp4",
-    "보안 솔루션/IDS 와 IPS.md",
-    "보안 솔루션/pfSense_SOC_ELK_구축.md"
+    "보안 솔루션/IDS 와 IPS.md"
   ]
 }
