@@ -35,8 +35,7 @@
               "title": "악성코드"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -214,14 +213,14 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "b2a13cfaf10fd490",
+  "active": "2c79904d727a8d63",
   "lastOpenFiles": [
+    "악성코드.md",
     "Images/Pasted image 20261120151611.png",
     "Images/Pasted image 20261120151558.png",
     "Images/Pasted image 20261120151440.png",
     "Images/Pasted image 20261120151405.png",
     "악성코드/DBD.md",
-    "악성코드.md",
     "악성코드/Bad USB 공격 시연.md",
     "Images/녹음 2026-11-20 112324.mp4",
     "Images/Pasted image 20261120112134.png",
@@ -236,7 +235,6 @@
     "침해사고/침해사고 분석.md",
     "악성코드",
     "침해사고/침해사고 대응 이론 정리.md",
-    "Images/Pasted image 20261119143729.png",
     "시스템 보안 프로젝트.md",
     "모의 해킹/모의 해킹 준비.md",
     "Images/녹음 2026-11-18 162200 2.mp4",
