@@ -41,16 +41,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Forensic 1.md",
+                "file": "침해사고/Forensic 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "Forensic 1"
             }
+          },
+          {
+            "id": "d788f3ff26b4f4a8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "침해사고/Disk Imaging.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Disk Imaging"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -227,22 +241,24 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5b38d6a21b6df519",
+  "active": "d788f3ff26b4f4a8",
   "lastOpenFiles": [
+    "Images/Pasted image 20261125141023.png",
+    "Images/Pasted image 20261125140916.png",
+    "Images/Pasted image 20261125140729.png",
+    "Images/Pasted image 20261125140703.png",
+    "Images/Pasted image 20261125140601.png",
+    "Images/Pasted image 20261125140533.png",
+    "Images/Pasted image 20261125140506.png",
+    "Images/Pasted image 20261125140413.png",
+    "침해사고/Forensic 1.md",
+    "침해사고/Disk Imaging.md",
     "Images/Collect-WindowsIR.bat",
     "Images/collect-linux-ir.sh",
     "Images/Pasted image 20261125103849.png",
     "Images/Pasted image 20261125103720.png",
     "Images/Pasted image 20261125102950.png",
-    "Images/Pasted image 20261125094539.png",
-    "Images/Pasted image 20261125094243.png",
-    "Images/Pasted image 20261125093613.png",
     "침해사고/네트워크 포렌식.md",
-    "Forensic 1.md",
-    "Images/Pasted image 20261124163930.png",
-    "Images/Pasted image 20261124161527.png",
-    "Images/Pasted image 20261124154050.png",
-    "Images/Pasted image 20261124153704.png",
     "침해사고/디지털 포렌식.md",
     "보안 솔루션/pfSense_SOC_ELK.md",
     "보안 솔루션/pfSense_SOC_ELK_구축.md",
@@ -272,8 +288,6 @@
     "모의 해킹/모의 해킹.md",
     "모의 해킹/웹쉘 업로드 → RCE 공격 체인 정리.md",
     "모의 해킹/무제.md",
-    "무제 1",
-    "Database/SQL INJECTION.md",
-    "Database/MySQL 로그 확인.md"
+    "Database/SQL INJECTION.md"
   ]
 }
