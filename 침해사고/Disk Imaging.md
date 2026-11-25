@@ -59,10 +59,13 @@ FTK Manager를 통해서 파일 시스템 구조를 파악할 수 있잖음.
 ![](../Images/Pasted%20image%2020261125143728.png)
 
 
-저기서 `LogFile File Path`, `$UsmKrmm;"$ File Path`, `MFT` 여 3 위치를 적어놔야 파일 시스템 로그를 볼 수 있음.
+저기서 `LogFile File Path`, `$UsmJrnl"$ File Path`, `MFT` 여 3 위치를 적어놔야 파일 시스템 로그를 볼 수 있음.
 
 
-
-
+`MFT` 엔트리에 파일의 메타 데이터가 기록되어 있음.
+`LogFile`
+- MFT에 없는 삭제된 데이터들 의미
+`USMJrnl`
+- 
 
 
