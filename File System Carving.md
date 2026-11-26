@@ -43,11 +43,21 @@ MBR은 저장 매체의 첫 번째 섹터에 위치하는 512 바이트 크기�
 - FAT(File allocation Table)는 파일의 할당 정보르 표현한 테이블을 지정
 - 간단한 구조로 메모리 카드, 디지털 카메라, 플래시 메몸리에 등에 널리 사용
 - FAT 뒤의 숫자는 비트 수로 표현 가능한 클러스터의 수를 의미
-
+- 현존하는 Windows7 이상의 OS에서는 거의 지원
 
 ![](Images/Pasted%20image%2020261126094109.png)
 
 
 
 
+### NTFS
+- USN 저널(Update SEquence Number Journal 또는 Change Journal)
+- ADS, Sparse 파일 압축
+- VSS - Volume Shadow copy Service
+- EFS
+- Quotas
+
+NTFS는 1993년 7월 NT 3.1이 출시하면서 등장한 서버형 운영체제
+
+NT가 이제 New Technology라고 하는 새로운 운영체제의 커널을 도입하면서 개편되어버린 상황.
 
