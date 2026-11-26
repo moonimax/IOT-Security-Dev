@@ -136,3 +136,9 @@ Footer는 `FF D9` 이고 뒤에 데이터가 없어야 한다. 만약에 맨 끝
 ![](Images/Pasted%20image%2020261126111713.png)
 
 ![](Images/Pasted%20image%2020261126111747.png)![](Images/Pasted%20image%2020261126111851.png)
+
+---
+
+PDF, XLSX, DOCX, PPTX 확장자가 포함된 L1_Document.dd
+-  PDF, XLSX, DOCX는 2개 있고, PPTX는 하나만 포함되어 있다고 함.
+
