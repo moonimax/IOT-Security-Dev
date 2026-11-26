@@ -49,6 +49,7 @@ MBR은 저장 매체의 첫 번째 섹터에 위치하는 512 바이트 크기�
 
 
 
+---
 
 ### NTFS
 - USN 저널(Update SEquence Number Journal 또는 Change Journal)
@@ -56,6 +57,8 @@ MBR은 저장 매체의 첫 번째 섹터에 위치하는 512 바이트 크기�
 - VSS - Volume Shadow copy Service
 - EFS
 - Quotas
+![](Images/Pasted%20image%2020261126111451.png)
+
 ![](Images/Pasted%20image%2020261126101509.png)
 
 NTFS는 1993년 7월 NT 3.1이 출시하면서 등장한 서버형 운영체제
@@ -118,3 +121,18 @@ Footer는 `FF D9` 이고 뒤에 데이터가 없어야 한다. 만약에 맨 끝
 
 
 ---
+
+이번에는 png 파일을 한번 복구해보려고 한다.
+![](Images/Pasted%20image%2020261126111233.png)
+
+![](Images/Pasted%20image%2020261126111307.png)
+
+![](Images/Pasted%20image%2020261126111416.png) 
+복구 완료.
+
+
+동일한 방식으로 gif도 복구하게 되면 이렇게 갈 수 있겟다.
+
+![](Images/Pasted%20image%2020261126111713.png)
+
+![](Images/Pasted%20image%2020261126111747.png)![](Images/Pasted%20image%2020261126111851.png)
