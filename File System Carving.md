@@ -56,8 +56,65 @@ MBR은 저장 매체의 첫 번째 섹터에 위치하는 512 바이트 크기�
 - VSS - Volume Shadow copy Service
 - EFS
 - Quotas
+![](Images/Pasted%20image%2020261126101509.png)
 
 NTFS는 1993년 7월 NT 3.1이 출시하면서 등장한 서버형 운영체제
 
 NT가 이제 New Technology라고 하는 새로운 운영체제의 커널을 도입하면서 개편되어버린 상황.
 
+ ---
+
+## Carving
+Metadata를 이용하지 않고, Data 영역을 전체적으로 스캔하고 파일 별로 가지고 있는 고유의 구조를 이용한 복구.
+- Header, Fooeter를 이용한 복구
+	- 파일ㅇ들을 데이터 영역 시작 부분에 자신의 형식을 나타내는 Signature가 존재
+
+
+**HxD Editor**
+
+![](Images/Pasted%20image%2020261126102126.png)
+
+
+
+
+#### L0_Graphic.dd
+- 5개의 이미지 파일 확장자가 존재함
+- .png , .pcx , .jpg, bmg, gif, 
+
+![](Images/Pasted%20image%2020261126103654.png)
+
+
+![](Images/Pasted%20image%2020261126103058.png)
+
+섹터 header 시작 위치 FF D8 확장자 명으로 시작하지만, `0x200`으로 시작해야하는 조건을 만족하지 않아 위 이미지 확장자 만족하지 못함. 계속 찾아봐야함.
+
+검색 조건 다시 필터.
+
+![](Images/Pasted%20image%2020261126103208.png)
+
+
+짠 드디어 나왓음
+![](Images/Pasted%20image%2020261126103232.png)
+
+- Header Offset은 `01BC8C00`
+이제 이어서 Footer의 Offset을 찾아야 함.
+
+![](Images/Pasted%20image%2020261126103920.png)
+
+
+Footer는 `FF D9` 이고 뒤에 데이터가 없어야 한다. 만약에 맨 끝 자리에 위치하려고 하려면 앞 데이터 byte를 다 채우는 조건하에만 만족됨.
+
+
+![](Images/Pasted%20image%2020261126103905.png)
+
+
+새로운 파일로 따로 추출해서 만들고 저장한다.
+![](Images/Pasted%20image%2020261126104138.png)
+
+
+그리고 따로 추출해서 .jpg 확장자로 만들고 열어주면 아래 파일로 짠하고 만들어진다!!
+
+![](Images/Pasted%20image%2020261126104223.png)
+
+
+---
