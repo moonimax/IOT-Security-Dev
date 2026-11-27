@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "모의 해킹/모의 해킹.md",
+                "file": "모의 해킹/모의 해킹 준비.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "모의 해킹"
+              "title": "모의 해킹 준비"
             }
           }
         ],
@@ -214,11 +214,11 @@
   },
   "active": "7ed1d0f78336830e",
   "lastOpenFiles": [
+    "모의 해킹/모의 해킹.md",
     "모의 해킹/Blind Sql Injection.md",
     "Blind SQL Injection 자동화.md",
     "모의 해킹/웹쉘 업로드 → RCE 공격 체인 정리.md",
     "웹쉘 업로드 → RCE 공격 체인 정리.md",
-    "모의 해킹/모의 해킹.md",
     "모의 해킹.md",
     "모의 해킹/모의 해킹 준비.md",
     "모의 해킹 준비.md",
