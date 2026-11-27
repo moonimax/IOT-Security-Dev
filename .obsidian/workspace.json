@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "악성코드 개요.md",
+                "file": "악성코드/DBD.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "악성코드 개요"
+              "title": "DBD"
             }
           }
         ],
@@ -212,12 +212,13 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "7ed1d0f78336830e",
+  "active": "dd8d6f022d81f548",
   "lastOpenFiles": [
-    "악성코드 정적 분석.md",
-    "Bad USB 공격 시연.md",
-    "DBD.md",
-    "악성코드 개요.md",
+    "악성코드/악성코드 개요.md",
+    "악성코드/악성코드 개요.md",
+    "악성코드/악성코드 정적 분석.md",
+    "악성코드/Bad USB 공격 시연.md",
+    "악성코드/DBD.md",
     "침해사고/메모리 분석.md",
     "침해사고/Wanna Cry.md",
     "Images/Pasted image 20261126170144.png",
@@ -252,7 +253,6 @@
     "보안 솔루션/이상 징후 탐지.md",
     "보안 솔루션/보안 솔루션 및 장비 이해.md",
     "악성코드/악성코드 정적 분석.md",
-    "악성코드/악성코드 개요.md",
     "악성코드/Bad USB 공격 시연.md",
     "악성코드/DBD.md",
     "Images/녹음 2026-11-20 112324.mp4",
