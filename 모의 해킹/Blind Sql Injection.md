@@ -1,7 +1,5 @@
-# Blind SQL Injection 자동화
 
  진단 동의를 받은 실습 서버(dev.fngs.kr)의 WordPress 플러그인 취약점을 대상으로 한 교육 기록
-
 
 ---
 
