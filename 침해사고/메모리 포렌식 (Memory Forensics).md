@@ -1,6 +1,4 @@
-# 메모리 포렌식 (Memory Forensics)
 
-> 안내: 이 노트와 참조 이미지(11/27 생성분, `screencapture-...-2026-11-27-*.png`, `Pasted image 20261127*.png`)는 **아직 저장소에 push되지 않았다.** 이미지들을 `Images/` 폴더에 커밋하면 아래 링크가 정상 표시된다. 경로는 `../Images/`로 맞춰 두었다.
 
 ## 1. 메모리 포렌식 개요
 
@@ -26,15 +24,18 @@ ClickFix는 사용자가 문제 해결이나 인증 절차를 수행하는 것�
 
 위험한 이유: 공격자가 **보안 취약점을 직접 악용하지 않아도 된다.** 사용자가 스스로 명령을 실행하므로 겉으로는 정상 사용자 행위처럼 보인다. 특히 PowerShell, 터미널, curl, bash 등 **정상 관리 도구(LotL)**를 활용하면 보안 솔루션 탐지를 우회·지연시킬 수 있다.
 
+
 ![](../Images/screencapture-192-168-202-91-4445-2026-11-27-10_38_14.png)
+
 
 ---
 
 ## 3. Volatility로 메모리 덤프 분석
 
-> 참고: **Volatility**는 대표적인 오픈소스 메모리 포렌식 프레임워크다. 메모리 덤프(raw)에서 프로세스, DLL, 네트워크 연결, 레지스트리, 인젝션 코드 등을 추출한다. 아래는 Volatility 3 기준 플러그인(`windows.*`).
+**Volatility**는 대표적인 오픈소스 메모리 포렌식 프레임워크다. 메모리 덤프(raw)에서 프로세스, DLL, 네트워크 연결, 레지스트리, 인젝션 코드 등을 추출한다. 아래는 Volatility 3 기준 플러그인(`windows.*`).
 
 ![](../Images/Pasted%20image%2020261127103922.png)
+
 
 ### 프로세스 트리 / PPID
 
@@ -46,6 +47,8 @@ ClickFix는 사용자가 문제 해결이나 인증 절차를 수행하는 것�
 ```
 chrome.exe  PID 1924 / PPID 8700 ... --type=renderer ...
 ```
+
+
 
 ### 특정 프로세스 메모리 덤프
 ```
@@ -59,12 +62,16 @@ vol.exe -f some.raw windows.memmap --pid 8700 --dump
 
 ![](../Images/Pasted%20image%2020261127115133.png)
 
+
+
 ### 악성 프로세스 식별
 `a.exe`가 악성으로 실행된 것을 알고 있으므로, PID를 출력해 필터링하면 바로 특정된다.
 
 ![](../Images/Pasted%20image%2020261127143115.png)
 
 ![](../Images/Pasted%20image%2020261127115742.png)
+
+
 
 ---
 
@@ -74,7 +81,8 @@ vol.exe -f some.raw windows.memmap --pid 8700 --dump
 
 - `windows.malfind`로 **코드 인젝션(프로세스 주입)**을 탐지. 해당 PID는 `820`.
 
-> malfind 원리: 실행 권한이 있는데(`PAGE_EXECUTE_READWRITE`) **디스크 매핑이 없는 메모리 영역**(=파일 근거 없는 실행 코드)이나, `MZ` 헤더가 박힌 비정상 영역을 찾아낸다. 전형적인 **인젝션/파일리스 악성코드**의 흔적.
+malfind 원리: 실행 권한이 있는데(`PAGE_EXECUTE_READWRITE`) **디스크 매핑이 없는 메모리 영역**(=파일 근거 없는 실행 코드)이나, `MZ` 헤더가 박힌 비정상 영역을 찾아낸다. 전형적인 **인젝션/파일리스 악성코드**의 흔적.
+
 
 ---
 
@@ -91,7 +99,9 @@ vol.exe -f some.raw windows.memmap --pid 8700 --dump
 
 ![](../Images/Pasted%20image%2020261127122355.png)
 
-> 예: `SeDebugPrivilege`는 타 프로세스 메모리 접근(LSASS 덤프 등), `SeImpersonatePrivilege`는 토큰 가장(Potato 계열 권한상승)에 악용된다.
+`SeDebugPrivilege`는 타 프로세스 메모리 접근(LSASS 덤프 등), `SeImpersonatePrivilege`는 토큰 가장(Potato 계열 권한상승)에 악용된다.
+
+
 
 ---
 
@@ -111,7 +121,9 @@ vol.exe -f some.raw windows.memmap --pid 8700 --dump
 
 ![](../Images/Pasted%20image%2020261127143948.png)
 
-> 참고: `Software\...\CurrentVersion\Run`과 **예약 작업**은 재부팅 후에도 악성코드를 자동 실행시키는 대표적 지속성(Persistence) 기법(MITRE T1547, T1053).
+`Software\...\CurrentVersion\Run`과 **예약 작업**은 재부팅 후에도 악성코드를 자동 실행시키는 대표적 지속성(Persistence) 기법(MITRE T1547, T1053).
+
+
 
 ### WMI 이벤트 구독
 문제: **WMI 이벤트 구독(CommandLineEventConsumer)을 통해 악성 명령을 대행 실행하는 WMI 공급자 호스트 프로세스의 PID**는?
@@ -120,7 +132,8 @@ vol.exe -f some.raw windows.memmap --pid 8700 --dump
 
 ![](../Images/Pasted%20image%2020261127151720.png)
 
-> WMI 이벤트 구독은 **파일리스 지속성**의 고급 기법(MITRE T1546.003). 레지스트리/디스크에 뚜렷한 실행파일을 안 남겨 탐지가 어렵다.
+ WMI 이벤트 구독은 **파일리스 지속성**의 고급 기법(MITRE T1546.003). 레지스트리/디스크에 뚜렷한 실행파일을 안 남겨 탐지가 어렵다.
+
 
 ---
 
@@ -137,7 +150,8 @@ vol.exe -f some.raw windows.memmap --pid 8700 --dump
 
 ![](../Images/Pasted%20image%2020261127152226.png)
 
-> NTLM 해시는 평문이 아니지만 **Pass-the-Hash**로 재사용되거나 오프라인 크랙 대상이 된다. 그래서 SAM/LSASS 덤프는 자격증명 탈취의 핵심 단계다.
+ NTLM 해시는 평문이 아니지만 **Pass-the-Hash**로 재사용되거나 오프라인 크랙 대상이 된다. 그래서 SAM/LSASS 덤프는 자격증명 탈취의 핵심 단계다.
+
 
 ### 숨김 파일 탐색
 `windows.filescan`으로 `download` 경로의 **숨김 파일**을 모두 탐색해 악성 산출물을 찾는다.
@@ -148,14 +162,14 @@ vol.exe -f some.raw windows.memmap --pid 8700 --dump
 
 ---
 
-## 요약 — 사용한 Volatility 플러그인
+## 사용한 Volatility 플러그인
 
-| 목적 | 플러그인 |
-|---|---|
-| 프로세스 목록/트리 | `windows.pslist`, `windows.pstree` |
-| 프로세스 메모리 덤프 | `windows.memmap --pid N --dump` |
-| 코드 인젝션 탐지 | `windows.malfind` |
-| 레지스트리 조회 | `windows.registry.printkey` |
-| 네트워크 연결 | `windows.netscan` |
-| 파일 탐색 | `windows.filescan` |
-| 자격증명(SAM) | `windows.hashdump` |
+| 목적          | 플러그인                               |
+| ----------- | ---------------------------------- |
+| 프로세스 목록/트리  | `windows.pslist`, `windows.pstree` |
+| 프로세스 메모리 덤프 | `windows.memmap --pid N --dump`    |
+| 코드 인젝션 탐지   | `windows.malfind`                  |
+| 레지스트리 조회    | `windows.registry.printkey`        |
+| 네트워크 연결     | `windows.netscan`                  |
+| 파일 탐색       | `windows.filescan`                 |
+| 자격증명(SAM)   | `windows.hashdump`                 |

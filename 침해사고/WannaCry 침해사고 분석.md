@@ -1,4 +1,3 @@
-# WannaCry 침해사고 분석
 
 ## 개요
 
@@ -143,4 +142,6 @@ closeWin();     // 창을 닫아 흔적 제거
 - **시간 확보 후 흔적 제거:** `sleep(10000)`으로 익스플로잇 실행 시간을 벌고 `closeWin()`으로 창을 닫아 흔적을 지운다.
 - **공격자 인프라 IOC:** `58.17.34.44`, `/jscdn/js/flower.html`.
 
-> 왜 난독화하나: `eval(packer(...))` 패턴은 **시그니처 기반 탐지 회피**와 분석 지연이 목적. 대응은 packer를 복원(deobfuscate)해 최종 동작(window.open 대상 URL)을 확인하는 것. 여기서는 리다이렉트 대상 IP/경로가 핵심 IOC가 된다.
+
+왜 난독화하나?
+`eval(packer(...))` 패턴은 **시그니처 기반 탐지 회피**와 분석 지연이 목적. 대응은 packer를 복원(deobfuscate)해 최종 동작(window.open 대상 URL)을 확인하는 것. 여기서는 리다이렉트 대상 IP/경로가 핵심 IOC가 된다.
